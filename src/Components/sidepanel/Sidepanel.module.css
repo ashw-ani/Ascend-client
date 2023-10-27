@@ -1,0 +1,56 @@
+.sidepanel {
+  box-sizing: border-box;
+  background-color: rgb(13, 10, 42);
+  width: 15rem;
+  height: 100vh;
+  border-radius: 0 1.25rem 1.25rem 0;
+  position: fixed;
+  overflow-x: hidden;
+  padding: 0;
+}
+.sidepanelhead {
+  box-sizing: border-box;
+  font-size: 1.5rem;
+  color: #ffffffa2;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 0.7rem;
+  align-items: center;
+  padding: 1.5rem 1.5rem;
+  position: fixed;
+  background-color: rgb(13, 10, 42);
+  width: inherit;
+  border-radius: 0 1.25rem 0 0;
+  z-index: 1000;
+}
+.mainlogo {
+  width: 2.2rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+.logotext {
+  width: 8rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+.sidepanelcontent {
+  display: flex;
+  flex-direction: column;
+  margin-top: 6rem;
+  padding: 0 0.5rem;
+}
+.sidepanelicons {
+  font-size: 1.5rem;
+}
+.more {
+  position: absolute;
+  left: 13rem;
+}
+
+.subitems {
+  margin-left: 2rem;
+}

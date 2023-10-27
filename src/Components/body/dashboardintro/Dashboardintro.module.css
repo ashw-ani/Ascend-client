@@ -1,0 +1,24 @@
+.dashboardintro {
+  box-sizing: border-box;
+  margin: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 2rem;
+  justify-content: space-evenly;
+  border: 2px solid red;
+}
+.welcomediv {
+  background-color: #e75e46;
+  width: 27rem;
+  height: 25rem;
+  box-shadow: 0rem 0rem 2rem rgba(0, 0, 0, 0.3);
+  border-radius: 0.7rem;
+}
+.ai {
+  background-color: #ffffff;
+  width: 27rem;
+  height: 25rem;
+  box-shadow: 0rem 0rem 2rem rgba(0, 0, 0, 0.3);
+  border-radius: 0.7rem;
+}

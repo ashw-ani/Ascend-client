@@ -1,0 +1,10 @@
+.statscontainer {
+  box-sizing: border-box;
+  margin: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 2rem 0;
+  justify-content: space-evenly;
+  border: 2px solid red;
+}
