@@ -1,20 +1,51 @@
 .statcard {
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 0.5rem;
   background: linear-gradient(90deg, #6be2d8, #627ddf);
   border-radius: 0.5rem;
-  width: 12rem;
-  height: 4rem;
+  width: 13rem;
+  height: 5rem;
+  /* padding: 1rem; */
+  transition: all 0.3s;
 }
 .cardtext {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: left;
   font-weight: 600;
   color: white;
   font-family: sora;
+}
+.cardvalue {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+.cardart {
+  font-size: 2.5rem;
+  height: 100%;
+  color: rgb(255, 255, 255, 0.3);
+  transition: all 0.3s;
+}
+.statcard:hover .cardart {
+  transition: all 0.3s;
+  transform: scale(1.2);
+}
+
+.cyan_blue {
+  background: linear-gradient(90deg, #6be2d8, #627ddf);
+}
+
+.pink_red {
+  background: linear-gradient(90deg, #e35d9c, #ed7b7c);
+}
+.green_sea {
+  background: linear-gradient(90deg, #76df9c, #60b2b4);
+}
+.yellow_orange {
+  background: linear-gradient(90deg, #f9d95f, #ef8d62);
 }
