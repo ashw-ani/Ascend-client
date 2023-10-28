@@ -1,6 +1,6 @@
-import styles from "./Statscontainer.module.css";
-import Statcard from "./statcards/Statcard";
-import cardData from "../../../helper/statCardData";
+import styles from './Statscontainer.module.css';
+import Statcard from './statcards/Statcard';
+import cardData from '../../helper/statCardData';
 const Statscontainer = (props) => {
   return (
     <div className={styles.statscontainer}>
@@ -8,7 +8,7 @@ const Statscontainer = (props) => {
         <Statcard
           color={color}
           title={cardData.title[index]}
-          value="0"
+          value='0'
           cardart={cardData.clipart[index]}
         />
       ))}
