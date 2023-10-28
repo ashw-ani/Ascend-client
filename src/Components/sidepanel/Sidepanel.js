@@ -20,10 +20,10 @@ import { AiFillCaretRight } from "react-icons/ai";
 
 const Sidepanel = (props) => {
   const [leaderboardState, setLeaderboardState] = useState(false);
-  const [myBusinessState, setMyBusinessState] = useState(false);
-  const [myTaskState, setMyTaskState] = useState(false);
-  const [myActionsState, setMyActionsState] = useState(false);
-  const [myStreaksState, setMyStreaksState] = useState(false);
+  // const [myBusinessState, setMyBusinessState] = useState(false);
+  // const [myTaskState, setMyTaskState] = useState(false);
+  // const [myActionsState, setMyActionsState] = useState(false);
+  // const [myStreaksState, setMyStreaksState] = useState(false);
 
   const toggleLeaderboardHandler = () => {
     setLeaderboardState(!leaderboardState);
