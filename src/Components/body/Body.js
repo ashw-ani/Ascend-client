@@ -1,7 +1,8 @@
-import styles from "./Body.module.css";
-import Header from "./Header/Header";
-import Dashboardintro from "./dashboardintro/Dashboardintro";
-import Statscontainer from "./statscontainer/Statscontainer";
+import styles from './Body.module.css';
+import Header from './Header/Header';
+import Chartcontainer from './chartcontainer/Chartcontainer';
+import Dashboardintro from './dashboardintro/Dashboardintro';
+import Statscontainer from './statscontainer/Statscontainer';
 
 const Body = (props) => {
   return (
@@ -9,6 +10,7 @@ const Body = (props) => {
       <Header></Header>
       <Dashboardintro />
       <Statscontainer />
+      <Chartcontainer />
     </div>
   );
 };
