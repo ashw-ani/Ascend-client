@@ -1,29 +1,38 @@
-import styles from "./Sidepanel.module.css";
-import Sidepanelitem from "./sidepanelitems/Sidepanelitem";
-import Sidepanelsubitem from "./sidepanelsubitems/sidepanelsubitem";
-import { useState } from "react";
+import styles from './Sidepanel.module.css';
+import Sidepanelitem from './sidepanelitems/Sidepanelitem';
+import Sidepanelsubitem from './sidepanelsubitems/sidepanelsubitem';
+import { useState } from 'react';
 
-import logotext from "../../assets/logo4.png";
-import mainlogo from "../../assets/logo2.png";
+import logotext from '../../assets/logo4.png';
+import mainlogo from '../../assets/logo2.png';
 
-import { MdDashboard } from "react-icons/md";
-import { AiOutlineTrophy } from "react-icons/ai";
-import { BsCalendar } from "react-icons/bs";
-import { BsStopwatchFill } from "react-icons/bs";
-import { AiOutlineUnorderedList } from "react-icons/ai";
-import { FiTarget } from "react-icons/fi";
-import { BsStars } from "react-icons/bs";
-import { AiOutlineHeart } from "react-icons/ai";
-import { BsTools } from "react-icons/bs";
-import { AiOutlineQuestionCircle } from "react-icons/ai";
-import { AiFillCaretRight } from "react-icons/ai";
+import { MdDashboard } from 'react-icons/md';
+import { AiOutlineTrophy } from 'react-icons/ai';
+import { BsCalendar } from 'react-icons/bs';
+import { BsStopwatchFill } from 'react-icons/bs';
+import { AiOutlineUnorderedList } from 'react-icons/ai';
+import { FiTarget } from 'react-icons/fi';
+import { BsStars } from 'react-icons/bs';
+import { AiOutlineHeart } from 'react-icons/ai';
+import { BsTools } from 'react-icons/bs';
+import { AiOutlineQuestionCircle } from 'react-icons/ai';
+import { AiFillCaretRight } from 'react-icons/ai';
+import { useHistory } from 'react-router-dom';
 
 const Sidepanel = (props) => {
   const [leaderboardState, setLeaderboardState] = useState(false);
+  const navigation = useHistory();
   // const [myBusinessState, setMyBusinessState] = useState(false);
   // const [myTaskState, setMyTaskState] = useState(false);
   // const [myActionsState, setMyActionsState] = useState(false);
   // const [myStreaksState, setMyStreaksState] = useState(false);
+
+  const onClickDashboard = () => {
+    navigation.push('/');
+  };
+  const onClickSubitem = () => {
+    navigation.push('/leaderboard/water-enthusiasts');
+  };
 
   const toggleLeaderboardHandler = () => {
     setLeaderboardState(!leaderboardState);
@@ -32,11 +41,11 @@ const Sidepanel = (props) => {
   return (
     <div className={styles.sidepanel}>
       <div className={styles.sidepanelhead}>
-        <img src={mainlogo} alt="logo" className={styles.mainlogo} />
-        <img src={logotext} alt="logo" className={styles.logotext} />
+        <img src={mainlogo} alt='logo' className={styles.mainlogo} />
+        <img src={logotext} alt='logo' className={styles.logotext} />
       </div>
       <div className={styles.sidepanelcontent}>
-        <Sidepanelitem>
+        <Sidepanelitem onClick={onClickDashboard}>
           <MdDashboard className={styles.sidepanelicons} />
           Dashboard
         </Sidepanelitem>
@@ -47,6 +56,9 @@ const Sidepanel = (props) => {
         </Sidepanelitem>
         {leaderboardState && (
           <div className={styles.subitems}>
+            <Sidepanelsubitem onClick={onClickSubitem}>
+              Water Enthusiasts
+            </Sidepanelsubitem>
             <Sidepanelsubitem>scoreboard</Sidepanelsubitem>
             <Sidepanelsubitem>champions</Sidepanelsubitem>
             <Sidepanelsubitem>contests</Sidepanelsubitem>

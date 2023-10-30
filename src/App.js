@@ -16,7 +16,7 @@ function App() {
         <Route path='/' exact>
           <Body />
         </Route>
-        <Route path='/leaderboard' exact>
+        <Route path='/leaderboard/water-enthusiasts' exact>
           <Leaderboard />
         </Route>
       </Switch>

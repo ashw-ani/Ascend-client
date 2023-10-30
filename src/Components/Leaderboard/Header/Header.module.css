@@ -9,7 +9,7 @@
   object-fit: contain;
   background-attachment: fixed;
   background-size: 100% 100%;
-  z-index: 100;
+  z-index: -1;
   padding-bottom: 3rem;
   padding-top: 1rem;
   /* backdrop-filter: blur(10px);
@@ -20,7 +20,7 @@
     rgba(46, 5, 71, 01) 50%,
     rgba(46, 5, 71, 0) 100%
   );
-  filter: url("#smooth");
+  filter: url('#smooth');
 }
 @media only screen and (max-width: 480px) {
   .header {
@@ -47,6 +47,6 @@
       rgba(46, 5, 71, 01) 70%,
       rgba(46, 5, 71, 0) 100%
     );
-    filter: url("#smooth");
+    filter: url('#smooth');
   }
 }
