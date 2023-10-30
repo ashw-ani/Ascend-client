@@ -81,6 +81,7 @@ const options = {
 
 const Chartcontainer = () => {
   return (
+<<<<<<< Updated upstream
     <div className={styles.chartcontainer}>
       <ReactApexChart
         options={options}
@@ -88,6 +89,10 @@ const Chartcontainer = () => {
         type="line"
         height={300}
       />
+=======
+    <div>
+      <Line data={data} options={options} width={'30%'} />
+>>>>>>> Stashed changes
     </div>
   );
 };
