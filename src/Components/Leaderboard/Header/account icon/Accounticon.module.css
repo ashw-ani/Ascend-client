@@ -1,0 +1,20 @@
+.icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: black;
+  position: fixed;
+  top: 2rem;
+  right: 3rem;
+  background-image: url("https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60");
+  /* back */
+  background-size: contain;
+  border: 1px solid rgb(0, 255, 0);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.icon:hover {
+  transform: scale(1.2);
+  transition: all 0.2s;
+  filter: url("#smooth");
+}

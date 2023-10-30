@@ -1,0 +1,92 @@
+.slider {
+  font-family: Glory, sans-serif;
+  font-size: 1rem;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.436);
+  width: 25rem;
+  height: 3rem;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 0.3rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  user-select: none;
+}
+.sliderbutton {
+  width: 8rem;
+  color: black;
+  height: 2.5rem;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(38, 38, 38);
+  font-weight: 600;
+}
+
+.sliderbutton .dailyy {
+  position: absolute;
+}
+
+.active {
+  background-color: rgb(201, 201, 201);
+  transition: all 0.3s;
+  color: black;
+}
+
+.inactive {
+  background-color: transparent;
+  transition: all 0.3s;
+}
+.inactive:hover {
+  background-color: rgba(201, 201, 201, 0.6);
+}
+@media only screen and (max-width: 480px) {
+  .slider {
+    font-family: Glory, sans-serif;
+    font-size: 1rem;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.436);
+    width: 20rem;
+    height: 3rem;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 0.3rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    user-select: none;
+  }
+  .sliderbutton {
+    width: 8rem;
+    color: black;
+    height: 2.5rem;
+    border: none;
+    border-radius: 2rem;
+    font-size: 1rem;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(38, 38, 38);
+    font-weight: 600;
+  }
+
+  .sliderbutton .dailyy {
+    position: absolute;
+  }
+
+  .active {
+    background-color: rgb(201, 201, 201);
+    transition: all 0.3s;
+    color: black;
+  }
+
+  .inactive {
+    background-color: transparent;
+    transition: all 0.3s;
+  }
+  .inactive:hover {
+    background-color: rgba(201, 201, 201, 0.6);
+  }
+}
