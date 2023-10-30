@@ -1,0 +1,23 @@
+.heading {
+  font-family: Glory, sans-serif;
+  color: aliceblue;
+  font-size: 3rem;
+  margin: 0;
+  letter-spacing: 0.2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  user-select: none;
+}
+@media only screen and (max-width: 480px) {
+  .heading {
+    font-family: Glory, sans-serif;
+    color: aliceblue;
+    font-size: 2rem;
+    margin: 0;
+    letter-spacing: 0.2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    user-select: none;
+    padding: 1rem;
+  }
+}

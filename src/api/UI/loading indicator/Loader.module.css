@@ -1,0 +1,16 @@
+.loader {
+  /* background-image: url("../../../assets/waterloader.gif"); */
+  object-fit: contain;
+  background-repeat: no-repeat;
+  padding: 2rem 0;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bolder;
+}
+.loadergif {
+  width: 8rem;
+  height: 8rem;
+}
