@@ -1,44 +1,93 @@
-import React from 'react';
-import styles from './Chartcontainer.module.css';
-import { Line } from 'react-chartjs-2';
-import {
-  Chart as ChartJS,
-  LineElement,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-} from 'chart.js';
+import React from "react";
+import styles from "./Chartcontainer.module.css";
+import ReactApexChart from "react-apexcharts";
 
-ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement);
+const series = [
+  {
+    name: "Points",
+    data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380],
+  },
+];
+
+const options = {
+  chart: {
+    height: 300,
+    type: "bar",
+    zoom: {
+      enabled: false,
+    },
+
+    toolbar: {
+      show: true,
+      offsetX: 0,
+      offsetY: 0,
+      tools: {
+        download: false,
+      },
+      export: {
+        csv: {
+          filename: undefined,
+          columnDelimiter: ",",
+          headerCategory: "category",
+          headerValue: "value",
+          dateFormatter(timestamp) {
+            return new Date(timestamp).toDateString();
+          },
+        },
+        svg: {
+          filename: undefined,
+        },
+        png: {
+          filename: undefined,
+        },
+      },
+      autoSelected: "zoom",
+    },
+  },
+  markers: {
+    size: [4],
+  },
+  colors: ["#ff0000"],
+  dataLabels: {
+    enabled: false,
+  },
+  stroke: {
+    curve: "straight",
+    width: 2.5,
+    // colors: { "#fff" },
+  },
+  title: {
+    text: "Progress Tracker",
+    align: "left",
+  },
+  grid: {},
+  xaxis: {
+    categories: [
+      "07/31-08/06",
+      "08/07-08/13",
+      "08/21-08/27",
+      "08/28-09/03",
+      "09/04-09/10",
+      "09/11-09/17",
+      "09/18-09/24",
+      "09/25-10/01",
+      "10/02-10/08",
+      "10/09-10/15",
+      "10/16-10/22",
+      "Current Week",
+    ],
+  },
+};
 
 const Chartcontainer = () => {
-  const data = {
-    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-    datasets: [
-      {
-        labels: 'Sales of the week',
-        data: [3, 8, 2, 4.3, 12, 2, 4, 4],
-        backgroundColor: 'aqua',
-        borderColor: 'black',
-        pointerBorderColor: 'aqua',
-      },
-    ],
-  };
-
-  const options = {
-    plugins: {
-      legend: true,
-    },
-    scales: {
-      y: {
-        min: 0,
-        max: 12,
-      },
-    },
-  };
   return (
-    <div>
-      <Line data={data} options={options} />
+    <div className={styles.chartcontainer}>
+      <ReactApexChart
+        options={options}
+        series={series}
+        type="line"
+        height={300}
+      />
     </div>
   );
 };
