@@ -33,6 +33,9 @@ const Sidepanel = (props) => {
   const onClickSubitem = () => {
     navigation.push('/leaderboard/water-enthusiasts');
   };
+  const onClickLoginPage = () => {
+    navigation.push('/login');
+  };
 
   const toggleLeaderboardHandler = () => {
     setLeaderboardState(!leaderboardState);
@@ -58,6 +61,9 @@ const Sidepanel = (props) => {
           <div className={styles.subitems}>
             <Sidepanelsubitem onClick={onClickSubitem}>
               Water Enthusiasts
+            </Sidepanelsubitem>
+            <Sidepanelsubitem onClick={onClickLoginPage}>
+              Login
             </Sidepanelsubitem>
             <Sidepanelsubitem>scoreboard</Sidepanelsubitem>
             <Sidepanelsubitem>champions</Sidepanelsubitem>
