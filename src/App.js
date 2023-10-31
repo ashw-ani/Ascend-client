@@ -1,8 +1,7 @@
-import styles from './App.module.css';
-import Sidepanel from './Components/sidepanel/Sidepanel';
-import Body from './Components/body/Body';
-import { Switch, Route } from 'react-router-dom/cjs/react-router-dom.min';
-import Leaderboard from './Components/Leaderboard/Leaderboard';
+import styles from "./App.module.css";
+import Sidepanel from "./Components/sidepanel/Sidepanel";
+import Body from "./Components/body/Body";
+import Leaderboard from "./Components/Leaderboard/Leaderboard";
 // import Header from "./Components/body/Header/Header";
 
 function App() {
@@ -12,14 +11,7 @@ function App() {
       {/* <Sidepanel />
       <Body /> */}
       <Sidepanel />
-      <Switch>
-        <Route path='/' exact>
-          <Body />
-        </Route>
-        <Route path='/leaderboard/water-enthusiasts' exact>
-          <Leaderboard />
-        </Route>
-      </Switch>
+      <Body />
     </div>
   );
 }

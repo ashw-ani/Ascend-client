@@ -5,6 +5,7 @@
   height: 100vh;
   display: flex;
   overflow-x: hidden;
+  background-color: #eff3f7;
 }
 ::-webkit-scrollbar {
   width: 0px;

@@ -7,6 +7,11 @@
   position: fixed;
   overflow-x: hidden;
   padding: 0;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 .sidepanelhead {
   box-sizing: border-box;
@@ -52,5 +57,5 @@
 }
 
 .subitems {
-  margin-left: 2rem;
+  margin-left: 1.5rem;
 }
