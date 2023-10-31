@@ -6,14 +6,12 @@ const Login = () => {
     event.preventDefault();
   };
   return (
-    <>
-      <form className={styles.login}>
-        <h1>Login Page</h1>
-        <input type='text' placeholder='Username' />
-        <input type='password' placeholder='Password' />
-        <button onClick={submitButtonHandler}>Login</button>
-      </form>
-    </>
+    <form className={styles.login}>
+      <h1>Login Page</h1>
+      <input type='text' placeholder='Username' />
+      <input type='password' placeholder='Password' />
+      <button onClick={submitButtonHandler}>Login</button>
+    </form>
   );
 };
 
