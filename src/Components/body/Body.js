@@ -23,6 +23,9 @@ const Body = (props) => {
           <Header>Water Enthusiasts</Header>
           <Leaderboard />
         </Route>
+        <Route path='/login' exact>
+          <Login />
+        </Route>
       </Switch>
     </div>
   );
