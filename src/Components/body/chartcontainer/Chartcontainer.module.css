@@ -6,3 +6,13 @@
   border-radius: 0.5rem;
   box-shadow: 0rem 0rem 2rem rgba(0, 0, 0, 0.2);
 }
+@media screen and (max-width: 600px) {
+  .chartcontainer {
+    padding: 0.5rem;
+    height: 17rem;
+    background-color: #fff;
+    margin: 0 0.5rem 2rem 0.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0rem 0rem 2rem rgba(0, 0, 0, 0.2);
+  }
+}

@@ -18,3 +18,9 @@
   background-color: rgba(240, 243, 247, 0.5);
   border-bottom: 2px solid rgb(255, 255, 255);
 }
+@media screen and (max-width: 600px) {
+  .header {
+    left: 0rem;
+    height: 4rem;
+  }
+}

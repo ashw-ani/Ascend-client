@@ -1,23 +1,23 @@
-import styles from './Sidepanel.module.css';
-import Sidepanelitem from './sidepanelitems/Sidepanelitem';
-import Sidepanelsubitem from './sidepanelsubitems/sidepanelsubitem';
-import { useState } from 'react';
+import styles from "./Sidepanel.module.css";
+import Sidepanelitem from "./sidepanelitems/Sidepanelitem";
+import Sidepanelsubitem from "./sidepanelsubitems/sidepanelsubitem";
+import { useState } from "react";
 
-import logotext from '../../assets/logo4.png';
-import mainlogo from '../../assets/logo2.png';
+import logotext from "../../assets/logo4.png";
+import mainlogo from "../../assets/logo2.png";
 
-import { MdDashboard } from 'react-icons/md';
-import { AiOutlineTrophy } from 'react-icons/ai';
-import { BsCalendar } from 'react-icons/bs';
-import { BsStopwatchFill } from 'react-icons/bs';
-import { AiOutlineUnorderedList } from 'react-icons/ai';
-import { FiTarget } from 'react-icons/fi';
-import { BsStars } from 'react-icons/bs';
-import { AiOutlineHeart } from 'react-icons/ai';
-import { BsTools } from 'react-icons/bs';
-import { AiOutlineQuestionCircle } from 'react-icons/ai';
-import { AiFillCaretRight } from 'react-icons/ai';
-import { useHistory } from 'react-router-dom';
+import { MdDashboard } from "react-icons/md";
+import { AiOutlineTrophy } from "react-icons/ai";
+import { BsCalendar } from "react-icons/bs";
+import { BsStopwatchFill } from "react-icons/bs";
+import { AiOutlineUnorderedList } from "react-icons/ai";
+import { FiTarget } from "react-icons/fi";
+import { BsStars } from "react-icons/bs";
+import { AiOutlineHeart } from "react-icons/ai";
+import { BsTools } from "react-icons/bs";
+import { AiOutlineQuestionCircle } from "react-icons/ai";
+import { AiFillCaretRight } from "react-icons/ai";
+import { useHistory } from "react-router-dom";
 
 const Sidepanel = (props) => {
   const [leaderboardState, setLeaderboardState] = useState(false);
@@ -28,13 +28,10 @@ const Sidepanel = (props) => {
   // const [myStreaksState, setMyStreaksState] = useState(false);
 
   const onClickDashboard = () => {
-    navigation.push('/');
+    navigation.push("/");
   };
   const onClickSubitem = () => {
-    navigation.push('/leaderboard/water-enthusiasts');
-  };
-  const onClickLoginPage = () => {
-    navigation.push('/login');
+    navigation.push("/leaderboard/water-enthusiasts");
   };
 
   const toggleLeaderboardHandler = () => {
@@ -43,9 +40,14 @@ const Sidepanel = (props) => {
 
   return (
     <div className={styles.sidepanel}>
+      <div className={styles.hamburger_menu}>
+        <div className={styles.ham}></div>
+        <div className={styles.ham}></div>
+        <div className={styles.ham}></div>
+      </div>
       <div className={styles.sidepanelhead}>
-        <img src={mainlogo} alt='logo' className={styles.mainlogo} />
-        <img src={logotext} alt='logo' className={styles.logotext} />
+        <img src={mainlogo} alt="logo" className={styles.mainlogo} />
+        <img src={logotext} alt="logo" className={styles.logotext} />
       </div>
       <div className={styles.sidepanelcontent}>
         <Sidepanelitem onClick={onClickDashboard}>
@@ -61,9 +63,6 @@ const Sidepanel = (props) => {
           <div className={styles.subitems}>
             <Sidepanelsubitem onClick={onClickSubitem}>
               Water Enthusiasts
-            </Sidepanelsubitem>
-            <Sidepanelsubitem onClick={onClickLoginPage}>
-              Login
             </Sidepanelsubitem>
             <Sidepanelsubitem>scoreboard</Sidepanelsubitem>
             <Sidepanelsubitem>champions</Sidepanelsubitem>

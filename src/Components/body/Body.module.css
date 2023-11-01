@@ -8,3 +8,9 @@
   overflow-y: scroll;
   width: 100%;
 }
+
+@media screen and (max-width: 600px) {
+  .body {
+    margin-left: 0rem;
+  }
+}
