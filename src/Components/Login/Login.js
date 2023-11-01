@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import styles from './Login.module.css';
+import React, { useState } from "react";
+import styles from "./Login.module.css";
 
 const Login = () => {
   const [formDetails, setFormDetails] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   const formChangeHandler = (event) => {
@@ -18,22 +18,24 @@ const Login = () => {
     console.log(formDetails);
   };
   return (
-    <form className={styles.login}>
-      <h1>Login Page</h1>
-      <input
-        type='email'
-        name='email'
-        placeholder='Username'
-        onChange={formChangeHandler}
-      />
-      <input
-        name='password'
-        type='password'
-        placeholder='Password'
-        onChange={formChangeHandler}
-      />
-      <button onClick={submitButtonHandler}>Login</button>
-    </form>
+    <div className={styles.loginpage}>
+      <form className={styles.login}>
+        <h1>Login Page</h1>
+        <input
+          type="email"
+          name="email"
+          placeholder="Username"
+          onChange={formChangeHandler}
+        />
+        <input
+          name="password"
+          type="password"
+          placeholder="Password"
+          onChange={formChangeHandler}
+        />
+        <button onClick={submitButtonHandler}>Login</button>
+      </form>
+    </div>
   );
 };
 

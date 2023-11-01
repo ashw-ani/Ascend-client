@@ -21,6 +21,7 @@ import { useHistory } from "react-router-dom";
 
 const Sidepanel = (props) => {
   const [leaderboardState, setLeaderboardState] = useState(false);
+  const [showPanel, setShowPanel] = useState(false);
   const navigation = useHistory();
   // const [myBusinessState, setMyBusinessState] = useState(false);
   // const [myTaskState, setMyTaskState] = useState(false);
@@ -39,8 +40,13 @@ const Sidepanel = (props) => {
   };
 
   return (
-    <div className={styles.sidepanel}>
-      <div className={styles.hamburger_menu}>
+    <div className={`${styles.sidepanel} ${showPanel ? " " : styles.inactive}`}>
+      <div
+        className={styles.hamburger_menu}
+        onClick={() => {
+          setShowPanel((prevState) => !prevState);
+        }}
+      >
         <div className={styles.ham}></div>
         <div className={styles.ham}></div>
         <div className={styles.ham}></div>

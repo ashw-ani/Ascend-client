@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Sora:wght@100;200;300;400;500;600;700;800&display=swap");
 
 .app {
   width: 100vw;
@@ -6,14 +6,6 @@
   display: flex;
   overflow-x: hidden;
   background-color: #eff3f7;
-}
-
-.loginbg {
-  /* background-image: url('./assets/pexels-scott-webb-5209205.jpg'); */
-  background-image: url('./assets/lower-resolution.jpg');
-  background-size: cover;
-  background-position: center;
-  backdrop-filter: blur(100px);
 }
 
 ::-webkit-scrollbar {
