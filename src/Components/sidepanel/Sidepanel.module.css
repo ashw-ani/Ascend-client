@@ -71,7 +71,7 @@
 @media screen and (max-width: 600px) {
   .sidepanel {
     box-sizing: border-box;
-    background-color: rgb(13, 10, 42);
+    background-color: #161a37;
     width: 15rem;
     height: 100vh;
     border-radius: 0;
@@ -88,7 +88,7 @@
   }
 
   .hamburger_menu {
-    background-color: rgb(13, 10, 42);
+    background-color: #161a37;
     width: 2.5rem;
     height: 2.5rem;
     position: fixed;
