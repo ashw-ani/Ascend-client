@@ -1,6 +1,6 @@
 .sidepanel {
   box-sizing: border-box;
-  background-color: rgb(13, 10, 42);
+  background-color: #161a37;
   width: 15rem;
   height: 100vh;
   border-radius: 0 1.25rem 1.25rem 0;
@@ -25,13 +25,13 @@
   align-items: center;
   padding: 1.5rem 1.5rem;
   position: fixed;
-  background-color: rgb(13, 10, 42);
+  background-color: #161a37;
   width: inherit;
   border-radius: 0 1.25rem 0 0;
   z-index: 1000;
 }
 .mainlogo {
-  width: 2.2rem;
+  width: 12rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -65,7 +65,7 @@
 .ham {
   width: 1.5rem;
   height: 2px;
-  background-color: black;
+  background-color: rgb(255, 255, 255);
 }
 
 @media screen and (max-width: 600px) {
@@ -88,7 +88,7 @@
   }
 
   .hamburger_menu {
-    background-color: rgb(0, 135, 252);
+    background-color: rgb(13, 10, 42);
     width: 2.5rem;
     height: 2.5rem;
     position: fixed;

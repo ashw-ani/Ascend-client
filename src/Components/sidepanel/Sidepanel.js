@@ -5,6 +5,7 @@ import { useState } from "react";
 
 import logotext from "../../assets/logo4.png";
 import mainlogo from "../../assets/logo2.png";
+import logo from "../../assets/logo.jpeg";
 
 import { MdDashboard } from "react-icons/md";
 import { AiOutlineTrophy } from "react-icons/ai";
@@ -34,6 +35,9 @@ const Sidepanel = (props) => {
   const onClickSubitem = () => {
     navigation.push("/leaderboard/water-enthusiasts");
   };
+  const onClickLogin = () => {
+    navigation.push("/login");
+  };
 
   const toggleLeaderboardHandler = () => {
     setLeaderboardState(!leaderboardState);
@@ -52,8 +56,9 @@ const Sidepanel = (props) => {
         <div className={styles.ham}></div>
       </div>
       <div className={styles.sidepanelhead}>
-        <img src={mainlogo} alt="logo" className={styles.mainlogo} />
-        <img src={logotext} alt="logo" className={styles.logotext} />
+        <img src={logo} alt="logo" className={styles.mainlogo} />
+        {/* <img src={mainlogo} alt="logo" className={styles.mainlogo} />
+        <img src={logotext} alt="logo" className={styles.logotext} /> */}
       </div>
       <div className={styles.sidepanelcontent}>
         <Sidepanelitem onClick={onClickDashboard}>
@@ -70,6 +75,7 @@ const Sidepanel = (props) => {
             <Sidepanelsubitem onClick={onClickSubitem}>
               Water Enthusiasts
             </Sidepanelsubitem>
+            <Sidepanelsubitem onClick={onClickLogin}>login</Sidepanelsubitem>
             <Sidepanelsubitem>scoreboard</Sidepanelsubitem>
             <Sidepanelsubitem>champions</Sidepanelsubitem>
             <Sidepanelsubitem>contests</Sidepanelsubitem>
