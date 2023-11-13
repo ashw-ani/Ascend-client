@@ -8,7 +8,16 @@ const Profile = () => {
       <div className={styles['page-titles']}>
         <NavLink to='/'>Home / </NavLink> Profile
       </div>
-      <div className={styles['page-body']}></div>
+      <div className={styles['page-body']}>
+        <div className={styles['profile-view']}>
+          <h2 className={styles.heading}>Profile View</h2>
+          <hr className={styles.line} />
+        </div>
+        <div className={styles['profile-edit']}>
+          <h2 className={styles.heading}>Edit Profile</h2>
+          <hr className={styles.line} />
+        </div>
+      </div>
     </div>
   );
 };
