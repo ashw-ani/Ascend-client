@@ -52,7 +52,57 @@
 .profile-edit {
   border-radius: 10px;
   width: 64%;
-
-  height: 20rem;
+  height: 26rem;
   background-color: white;
+}
+
+.labelheader {
+  color: #777777;
+  font-size: 0.8rem;
+}
+
+.details {
+  padding-left: 1.5rem;
+}
+
+.inputer {
+  width: 18.5rem;
+  height: 1.2rem;
+  border-radius: 10px;
+  border: 1px solid rgba(107, 107, 107, 0.256);
+  padding: 0.6rem;
+  margin-top: 0.5rem;
+  outline: none;
+}
+
+.inputer:focus {
+  border: 1px solid red;
+  transition: ease-in-out 0.3s;
+}
+
+.single-section {
+  display: flex;
+  flex-flow: column;
+}
+
+.double-section {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0.7rem;
+  gap: 2rem;
+}
+
+.double-labels {
+  display: flex;
+  flex-flow: column;
+}
+
+.emailinput {
+  width: 40rem;
+  background-color: #dbdbdb;
+  margin-bottom: 0.5rem;
+}
+
+.nicheselect {
+  margin-bottom: 1rem;
 }
