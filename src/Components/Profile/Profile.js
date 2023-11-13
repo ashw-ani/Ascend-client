@@ -122,9 +122,26 @@ const Profile = () => {
                   *
                 </b>
               </label>
-              <select>
-                <option value='12'>Engineer</option>
+              <select className={styles.nicheselect}>
+                <option value='' selected disabled>
+                  Please select a niche
+                </option>
               </select>
+            </div>
+            <div className={styles['single-section']}>
+              <label className={styles.labelheader}>Achievement Level</label>
+              <button
+                style={{
+                  'margin-bottom': '10px',
+                  width: '4rem',
+                  height: '2rem',
+                }}
+              >
+                Starter
+              </button>
+            </div>
+            <div className={styles['single-section']}>
+              <label className={styles.labelheader}>Profile Pic</label>
             </div>
           </div>
         </div>
