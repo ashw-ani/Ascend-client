@@ -15,7 +15,57 @@
   top: 50%;
   transform: translateY(-50%);
   box-shadow: -5px 0 2rem rgba(58, 58, 58, 0.427);
+  transition: all 0.3s;
+}
+.closed {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
+  width: 4rem;
+  height: 90vh;
+  position: fixed;
+  right: -4rem;
+  background-color: #fff;
+  z-index: 2000;
+  border-radius: 1rem 0 0rem 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: -5px 0 2rem rgba(58, 58, 58, 0.427);
+  transition: all 0.3s;
 }
 .profile_panel_item {
   font-size: 2.5rem;
+  color: rgb(99, 99, 99);
+  transition: all 0.3s;
+  padding-top: 3rem;
+}
+
+.controller_button {
+  font-weight: 300;
+  font-size: 1.5rem;
+  color: #e75e46;
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0;
+  position: absolute;
+
+  border-radius: 0rem 0.5rem 0.5rem 0rem;
+  transition: all 0.3s;
+}
+
+.open {
+  background-color: #161a37;
+  right: 4rem;
+  transform: rotate(180deg);
+  transition: all 0.3s;
+}
+.close {
+  right: 1rem;
+  background-color: #fff;
+  transition: all 0.3s;
 }
