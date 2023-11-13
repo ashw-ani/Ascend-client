@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-flow: column;
+}
+
+.page-titles {
+  background-color: white;
+  padding: 0.8rem 0 0.6rem 1rem;
+  width: 90%;
+  color: #828690;
+  font-weight: 400;
+  font-size: 1.125rem;
+  border-radius: 10px;
+  margin: 0rem auto 1rem auto;
+  height: 2rem;
+}
+
+.page-titles a {
+  color: #e75e46;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.page-body {
+  width: 90%;
+  height: 20rem;
+  margin: 0rem auto 1rem auto;
+  background-color: white;
+}
