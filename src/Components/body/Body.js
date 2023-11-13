@@ -6,7 +6,8 @@ import Statscontainer from "./statscontainer/Statscontainer";
 import Leaderboard from "../Leaderboard/Leaderboard";
 // import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
 import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
-// import Login from "../Login/Login";
+import Login from "../Login/Login";
+import Profile from "../Profile/Profile";
 
 const Body = (props) => {
   return (
@@ -22,6 +23,10 @@ const Body = (props) => {
         <Route path="/leaderboard/water-enthusiasts" exact>
           <Header>Water Enthusiasts</Header>
           <Leaderboard />
+        </Route>
+
+        <Route path="/profile">
+          <Profile />
         </Route>
       </Switch>
     </div>

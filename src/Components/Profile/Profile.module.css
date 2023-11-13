@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  flex-flow: column;
+  gap: 1.8rem;
+}
+
+.page-titles {
+  background-color: white;
+  padding: 0.8rem 0 0.6rem 1rem;
+  width: 95%;
+  color: #828690;
+  font-weight: 400;
+  font-size: 1.125rem;
+  border-radius: 10px;
+  margin: 0rem auto 0.5rem auto;
+  height: 2rem;
+}
+
+.page-titles a {
+  color: #e75e46;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.page-body {
+  display: flex;
+  width: 96%;
+  flex-flow: row;
+  justify-content: space-between;
+  height: 20rem;
+  margin: 0rem auto 0.5rem auto;
+}
+
+.profile-view {
+  height: 25rem;
+  width: 23rem;
+  /* padding: 0.8rem 0 0.6rem 1rem; */
+  background-color: white;
+  border-radius: 10px;
+}
+
+.heading {
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin-left: 2rem;
+}
+
+.line {
+  border: 1px solid #dbdbdb;
+}
+
+.profile-edit {
+  border-radius: 10px;
+  width: 64%;
+
+  height: 20rem;
+  background-color: white;
+}
