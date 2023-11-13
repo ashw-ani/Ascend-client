@@ -58,6 +58,7 @@
 
 .subitems {
   margin-left: 1.5rem;
+  transition: all 0.3s;
 }
 .hamburger_menu {
   display: none;

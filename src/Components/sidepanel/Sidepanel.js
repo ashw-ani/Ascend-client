@@ -2,6 +2,7 @@ import styles from "./Sidepanel.module.css";
 import Sidepanelitem from "./sidepanelitems/Sidepanelitem";
 import Sidepanelsubitem from "./sidepanelsubitems/sidepanelsubitem";
 import { useState } from "react";
+import { CSSTransition } from "react-transition-group";
 
 import logotext from "../../assets/logo4.png";
 import mainlogo from "../../assets/logo2.png";
@@ -21,6 +22,7 @@ import { AiFillCaretRight } from "react-icons/ai";
 import { useHistory } from "react-router-dom";
 
 const Sidepanel = (props) => {
+  const [sideitemsState, setsideitemState] = useState({});
   const [leaderboardState, setLeaderboardState] = useState(false);
   const [showPanel, setShowPanel] = useState(false);
   const navigation = useHistory();
@@ -39,8 +41,10 @@ const Sidepanel = (props) => {
     navigation.push("/login");
   };
 
-  const toggleLeaderboardHandler = () => {
-    setLeaderboardState(!leaderboardState);
+  const toggleSideitemHandler = (event) => {
+    const key = event.target.getAttribute("name");
+    setsideitemState({ [key]: true });
+    console.log(sideitemsState);
   };
 
   return (
@@ -61,16 +65,16 @@ const Sidepanel = (props) => {
         <img src={logotext} alt="logo" className={styles.logotext} /> */}
       </div>
       <div className={styles.sidepanelcontent}>
-        <Sidepanelitem onClick={onClickDashboard}>
+        <Sidepanelitem onClick={onClickDashboard} name={"dashboard"}>
           <MdDashboard className={styles.sidepanelicons} />
           Dashboard
         </Sidepanelitem>
-        <Sidepanelitem onClick={toggleLeaderboardHandler}>
+        <Sidepanelitem onclick={toggleSideitemHandler} name={"leaderboard"}>
           <AiOutlineTrophy className={styles.sidepanelicons} />
           Leaderboard
-          <AiFillCaretRight className={styles.more} />
+          <AiFillCaretRight className={styles.moreLB} />
         </Sidepanelitem>
-        {leaderboardState && (
+        {sideitemsState.leaderboard && (
           <div className={styles.subitems}>
             <Sidepanelsubitem onClick={onClickSubitem}>
               Water Enthusiasts
@@ -83,28 +87,32 @@ const Sidepanel = (props) => {
         )}
 
         <Sidepanelitem>
-          <BsCalendar className={styles.sidepanelicons} />
+          <BsCalendar className={styles.sidepanelicons} name={"events"} />
           Events
         </Sidepanelitem>
-        <Sidepanelitem>
+        <Sidepanelitem onclick={toggleSideitemHandler} name={"mybusiness"}>
           <BsStopwatchFill className={styles.sidepanelicons} />
           My Business
-          <AiFillCaretRight className={styles.more} />
+          <AiFillCaretRight className={styles.moremb} />
         </Sidepanelitem>
         <Sidepanelitem>
-          <AiOutlineUnorderedList className={styles.sidepanelicons} />
+          <AiOutlineUnorderedList
+            className={styles.sidepanelicons}
+            onclick={toggleSideitemHandler}
+            name={"mytask"}
+          />
           My Task
-          <AiFillCaretRight className={styles.more} />
+          <AiFillCaretRight className={styles.moremt} />
         </Sidepanelitem>
-        <Sidepanelitem>
+        <Sidepanelitem onclick={toggleSideitemHandler} name="myactions">
           <FiTarget className={styles.sidepanelicons} />
           My Action
-          <AiFillCaretRight className={styles.more} />
+          <AiFillCaretRight className={styles.morema} />
         </Sidepanelitem>
-        <Sidepanelitem>
+        <Sidepanelitem onclick={toggleSideitemHandler} name="mystreaks">
           <BsStars className={styles.sidepanelicons} />
           My Streaks
-          <AiFillCaretRight className={styles.more} />
+          <AiFillCaretRight className={styles.morems} />
         </Sidepanelitem>
         <Sidepanelitem>
           <AiOutlineHeart className={styles.sidepanelicons} />
