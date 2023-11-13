@@ -6,7 +6,7 @@ import Statscontainer from "./statscontainer/Statscontainer";
 import Leaderboard from "../Leaderboard/Leaderboard";
 // import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
 import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
-import Login from "../Login/Login";
+// import Login from "../Login/Login";
 
 const Body = (props) => {
   return (

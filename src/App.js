@@ -3,6 +3,7 @@ import Sidepanel from "./Components/sidepanel/Sidepanel";
 import Body from "./Components/body/Body";
 import Leaderboard from "./Components/Leaderboard/Leaderboard";
 import Login from "./Components/Login/Login";
+import Profilepanel from "./Components/profilepanel/Profilepanel";
 import {
   Route,
   Switch,
@@ -30,6 +31,7 @@ function App() {
         <>
           <Body />
           <Sidepanel />
+          <Profilepanel />
         </>
       )}
       <Switch>
