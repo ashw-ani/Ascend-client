@@ -1,5 +1,5 @@
 import styles from "./Sidepanel.module.css";
-import Sidepanelitem from "./sidepanelitems/Sidepanelitem";
+import SidepanelItem from "./sidepanelitems/Sidepanelitem";
 import Sidepanelsubitem from "./sidepanelsubitems/sidepanelsubitem";
 import { useState } from "react";
 import { CSSTransition } from "react-transition-group";
@@ -65,15 +65,26 @@ const Sidepanel = (props) => {
         <img src={logotext} alt="logo" className={styles.logotext} /> */}
       </div>
       <div className={styles.sidepanelcontent}>
-        <Sidepanelitem onClick={onClickDashboard} name={"dashboard"}>
+        <SidepanelItem
+          class={sideitemsState.dashboard ? "active" : "inactive"}
+          onclick={(event) => {
+            onClickDashboard();
+            toggleSideitemHandler(event);
+          }}
+          name={"dashboard"}
+        >
           <MdDashboard className={styles.sidepanelicons} />
           Dashboard
-        </Sidepanelitem>
-        <Sidepanelitem onclick={toggleSideitemHandler} name={"leaderboard"}>
+        </SidepanelItem>
+        <SidepanelItem
+          class={sideitemsState.leaderboard ? "active" : "inactive"}
+          onclick={toggleSideitemHandler}
+          name={"leaderboard"}
+        >
           <AiOutlineTrophy className={styles.sidepanelicons} />
           Leaderboard
-          <AiFillCaretRight className={styles.moreLB} />
-        </Sidepanelitem>
+          <AiFillCaretRight className={`${styles.moreLB} ${styles.more}`} />
+        </SidepanelItem>
         {sideitemsState.leaderboard && (
           <div className={styles.subitems}>
             <Sidepanelsubitem onClick={onClickSubitem}>
@@ -81,51 +92,117 @@ const Sidepanel = (props) => {
             </Sidepanelsubitem>
             <Sidepanelsubitem onClick={onClickLogin}>login</Sidepanelsubitem>
             <Sidepanelsubitem>scoreboard</Sidepanelsubitem>
-            <Sidepanelsubitem>champions</Sidepanelsubitem>
+            <Sidepanelsubitem>Dashboard</Sidepanelsubitem>
             <Sidepanelsubitem>contests</Sidepanelsubitem>
           </div>
         )}
 
-        <Sidepanelitem>
+        <SidepanelItem
+          class={sideitemsState.events ? "active" : "inactive"}
+          onclick={(event) => {
+            toggleSideitemHandler(event);
+          }}
+          name={"events"}
+        >
           <BsCalendar className={styles.sidepanelicons} name={"events"} />
           Events
-        </Sidepanelitem>
-        <Sidepanelitem onclick={toggleSideitemHandler} name={"mybusiness"}>
+        </SidepanelItem>
+        <SidepanelItem
+          class={sideitemsState.mybusiness ? "active" : "inactive"}
+          onclick={toggleSideitemHandler}
+          name={"mybusiness"}
+        >
           <BsStopwatchFill className={styles.sidepanelicons} />
           My Business
-          <AiFillCaretRight className={styles.moremb} />
-        </Sidepanelitem>
-        <Sidepanelitem>
-          <AiOutlineUnorderedList
-            className={styles.sidepanelicons}
-            onclick={toggleSideitemHandler}
-            name={"mytask"}
-          />
+          <AiFillCaretRight className={`${styles.moreMB} ${styles.more}`} />
+        </SidepanelItem>
+        {sideitemsState.mybusiness && (
+          <div className={styles.subitems}>
+            <Sidepanelsubitem>Dashboard</Sidepanelsubitem>
+            <Sidepanelsubitem>My Data</Sidepanelsubitem>
+          </div>
+        )}
+        <SidepanelItem
+          class={sideitemsState.mytask ? "active" : "inactive"}
+          onclick={toggleSideitemHandler}
+          name={"mytask"}
+        >
+          <AiOutlineUnorderedList className={styles.sidepanelicons} />
           My Task
-          <AiFillCaretRight className={styles.moremt} />
-        </Sidepanelitem>
-        <Sidepanelitem onclick={toggleSideitemHandler} name="myactions">
+          <AiFillCaretRight className={`${styles.moreMT} ${styles.more}`} />
+        </SidepanelItem>
+        {sideitemsState.mytask && (
+          <div className={styles.subitems}>
+            <Sidepanelsubitem>Dashboard</Sidepanelsubitem>
+            <Sidepanelsubitem>Calendar</Sidepanelsubitem>
+            <Sidepanelsubitem>My Tasks</Sidepanelsubitem>
+          </div>
+        )}
+        <SidepanelItem
+          class={sideitemsState.myactions ? "active" : "inactive"}
+          onclick={toggleSideitemHandler}
+          name={"myactions"}
+        >
           <FiTarget className={styles.sidepanelicons} />
           My Action
-          <AiFillCaretRight className={styles.morema} />
-        </Sidepanelitem>
-        <Sidepanelitem onclick={toggleSideitemHandler} name="mystreaks">
+          <AiFillCaretRight className={`${styles.moreMA} ${styles.more}`} />
+        </SidepanelItem>
+        {sideitemsState.myactions && (
+          <div className={styles.subitems}>
+            <Sidepanelsubitem>My Habits</Sidepanelsubitem>
+            <Sidepanelsubitem>My Quizzes</Sidepanelsubitem>
+            <Sidepanelsubitem>My Points</Sidepanelsubitem>
+          </div>
+        )}
+
+        <SidepanelItem
+          class={sideitemsState.mystreaks ? "active" : "inactive"}
+          onclick={toggleSideitemHandler}
+          name={"mystreaks"}
+        >
           <BsStars className={styles.sidepanelicons} />
           My Streaks
-          <AiFillCaretRight className={styles.morems} />
-        </Sidepanelitem>
-        <Sidepanelitem>
+          <AiFillCaretRight className={`${styles.moreMS} ${styles.more}`} />
+        </SidepanelItem>
+
+        {sideitemsState.mystreaks && (
+          <div className={styles.subitems}>
+            <Sidepanelsubitem>Add Streaks</Sidepanelsubitem>
+            <Sidepanelsubitem>Calendar</Sidepanelsubitem>
+            <Sidepanelsubitem>Finishline</Sidepanelsubitem>
+          </div>
+        )}
+
+        <SidepanelItem
+          class={sideitemsState.mycharity ? "active" : "inactive"}
+          onclick={(event) => {
+            toggleSideitemHandler(event);
+          }}
+          name={"mycharity"}
+        >
           <AiOutlineHeart className={styles.sidepanelicons} />
           My Charity
-        </Sidepanelitem>
-        <Sidepanelitem>
+        </SidepanelItem>
+        <SidepanelItem
+          class={sideitemsState.resources ? "active" : "inactive"}
+          onclick={(event) => {
+            toggleSideitemHandler(event);
+          }}
+          name={"resources"}
+        >
           <BsTools className={styles.sidepanelicons} />
           Resources
-        </Sidepanelitem>
-        <Sidepanelitem>
+        </SidepanelItem>
+        <SidepanelItem
+          class={sideitemsState.helpdesk ? "active" : "inactive"}
+          onclick={(event) => {
+            toggleSideitemHandler(event);
+          }}
+          name={"helpdesk"}
+        >
           <AiOutlineQuestionCircle className={styles.sidepanelicons} />
           Help Desk
-        </Sidepanelitem>
+        </SidepanelItem>
       </div>
     </div>
   );

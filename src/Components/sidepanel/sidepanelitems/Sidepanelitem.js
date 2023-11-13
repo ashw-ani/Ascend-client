@@ -1,14 +1,10 @@
 import styles from "./Sidepanelitem.module.css";
 
-const Sidepanel = (props) => {
-  const clickHandler = (event) => {
-    props.onclick(event);
-    // console.log(props.name);
-    // console.log(event.target.getAttribute("name"));
-  };
+const SidepanelItem = (props) => {
+  console.log(props.class);
   return (
     <div
-      className={styles.sidepanelitem}
+      className={`${styles.sidepanelitem} ${styles[props.class]}`}
       onClick={props.onclick}
       name={props.name}
     >
@@ -16,4 +12,4 @@ const Sidepanel = (props) => {
     </div>
   );
 };
-export default Sidepanel;
+export default SidepanelItem;

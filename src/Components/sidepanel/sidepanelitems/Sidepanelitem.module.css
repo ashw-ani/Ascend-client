@@ -15,9 +15,13 @@
   gap: 1rem;
   font-size: 1rem;
   user-select: none;
+  z-index: 2;
 }
-.sidepanelitem:hover {
+.inactive:hover {
   color: #e75e46;
   background-color: rgba(240, 248, 255, 0.064);
   cursor: pointer;
+}
+.active {
+  background-color: #e75e46;
 }
