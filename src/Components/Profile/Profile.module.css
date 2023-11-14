@@ -3,6 +3,11 @@
   flex-flow: column;
   gap: 1.8rem;
 }
+.container b {
+  color: "red";
+  font-size: "0.95rem";
+  margin-left: "3px";
+}
 
 .page-titles {
   background-color: white;
@@ -23,12 +28,14 @@
 }
 
 .page-body {
+  box-sizing: border-box;
   display: flex;
   width: 96%;
-  flex-flow: row;
+  flex-direction: row;
   justify-content: space-between;
-  height: 20rem;
+  /* height: 20rem; */
   margin: 0rem auto 0.5rem auto;
+  gap: 1rem;
 }
 
 .profile-view {
@@ -50,10 +57,12 @@
 }
 
 .profile-edit {
+  box-sizing: border-box;
   border-radius: 10px;
   width: 64%;
-  height: 26rem;
   background-color: white;
+  padding: 1rem;
+  overflow: hidden;
 }
 
 .labelheader {
@@ -66,7 +75,6 @@
 }
 
 .inputer {
-  width: 18.5rem;
   height: 1.2rem;
   border-radius: 10px;
   border: 1px solid rgba(107, 107, 107, 0.256);
@@ -83,6 +91,7 @@
 .single-section {
   display: flex;
   flex-flow: column;
+  width: 100%;
 }
 
 .double-section {
@@ -90,19 +99,22 @@
   flex-direction: row;
   margin-bottom: 0.7rem;
   gap: 2rem;
+  width: 100%;
 }
 
 .double-labels {
   display: flex;
   flex-flow: column;
+  width: 50%;
 }
 
 .emailinput {
-  width: 40rem;
+  width: 95%;
   background-color: #dbdbdb;
   margin-bottom: 0.5rem;
 }
 
 .nicheselect {
   margin-bottom: 1rem;
+  height: 2.2rem;
 }
