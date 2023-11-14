@@ -30,17 +30,18 @@
 .page-body {
   box-sizing: border-box;
   display: flex;
-  width: 96%;
+  width: 100%;
   flex-direction: row;
   justify-content: space-between;
   /* height: 20rem; */
   margin: 0rem auto 0.5rem auto;
   gap: 1rem;
+  padding: 0 1rem;
 }
 
 .profile-view {
   height: 25rem;
-  width: 23rem;
+  width: 35%;
   /* padding: 0.8rem 0 0.6rem 1rem; */
   background-color: white;
   border-radius: 10px;
@@ -59,7 +60,7 @@
 .profile-edit {
   box-sizing: border-box;
   border-radius: 10px;
-  width: 64%;
+  width: 65%;
   background-color: white;
   padding: 1rem;
   overflow: hidden;
