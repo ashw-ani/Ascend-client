@@ -4,6 +4,9 @@ import styles from './Profile.module.css';
 import noimage from '../../assets/no-image.svg';
 
 const Profile = () => {
+  const name = 'Gaurav';
+  const joining = '31st march,2022';
+  const end = 'LIFE TIME';
   return (
     <div className={styles.container}>
       <div className={styles['page-titles']}>
@@ -17,6 +20,32 @@ const Profile = () => {
 
           <div className={styles.personal}>
             <img src={noimage} className={styles.profileimage} />
+            <h1 className={styles.name}>{name}</h1>
+            <p>
+              Joining date:<i>{joining}</i>
+            </p>
+            <p>
+              End Date:<i>{end}</i>
+            </p>
+          </div>
+          <hr className={styles.line} />
+          <div className={styles.stats}>
+            <div className={styles.singlestat}>
+              <p>0</p>
+              <p>Total Points</p>
+            </div>
+            <div className={styles.singlestat}>
+              <p>0</p>
+              <p>Total Points</p>
+            </div>
+            <div className={styles.singlestat}>
+              <p>$0</p>
+              <p>Charity Given</p>
+            </div>
+            <div className={styles.singlestat}>
+              <p>$0</p>
+              <p>Revenue Earned</p>
+            </div>
           </div>
         </div>
 
