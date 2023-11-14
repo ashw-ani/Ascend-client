@@ -26,6 +26,7 @@ const Body = (props) => {
         </Route>
 
         <Route path="/profile">
+          <Header>Profile</Header>
           <Profile />
         </Route>
       </Switch>

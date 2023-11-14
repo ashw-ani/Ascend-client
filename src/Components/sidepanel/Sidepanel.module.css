@@ -56,6 +56,16 @@
   left: 13rem;
   z-index: 1;
   user-select: none;
+  transition: all 0.3s;
+}
+
+.more_active {
+  position: absolute;
+  left: 13rem;
+  z-index: 1;
+  user-select: none;
+  transform: rotate(90deg);
+  transition: all 0.3s;
 }
 
 .subitems {
