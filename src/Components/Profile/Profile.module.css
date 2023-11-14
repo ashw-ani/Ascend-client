@@ -4,9 +4,9 @@
   gap: 1.8rem;
 }
 .container b {
-  color: "red";
-  font-size: "0.95rem";
-  margin-left: "3px";
+  color: 'red';
+  font-size: '0.95rem';
+  margin-left: '3px';
 }
 
 .page-titles {
@@ -117,4 +117,16 @@
 .nicheselect {
   margin-bottom: 1rem;
   height: 2.2rem;
+}
+
+.personal {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileimage {
+  width: 4rem;
+  height: 4rem;
 }
