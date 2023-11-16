@@ -1,7 +1,6 @@
 import styles from "./Sidepanelitem.module.css";
 
 const SidepanelItem = (props) => {
-  console.log(props.class);
   return (
     <div
       className={`${styles.sidepanelitem} ${styles[props.class]}`}

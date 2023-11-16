@@ -46,7 +46,7 @@ const Sidepanel = (props) => {
   const toggleSideitemHandler = (event) => {
     const key = event.target.getAttribute("name");
     setsideitemState({ [key]: true });
-    console.log(sideitemsState);
+    // console.log(sideitemsState);
   };
 
   return (

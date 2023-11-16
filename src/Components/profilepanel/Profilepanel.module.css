@@ -25,7 +25,7 @@
   align-items: center;
   padding: 1rem;
   width: 4rem;
-  height: 90vh;
+  height: 95vh;
   position: fixed;
   right: -4rem;
   background-color: #fff;
@@ -38,10 +38,15 @@
 }
 .profile_panel_item {
   font-size: 2.5rem;
-  color: rgb(99, 99, 99);
+  color: rgb(0, 70, 150);
   transition: all 0.3s;
   padding-top: 3rem;
+  cursor: pointer;
 }
+
+/* .profile_panel_item:hover {
+  transform: scale(1.02);
+} */
 
 .controller_button {
   font-weight: 300;
@@ -61,7 +66,7 @@
 .open {
   background-color: #161a37;
   right: 4rem;
-  top: 0.4rem;
+  /* top: 0.4rem; */
   transform: rotate(180deg);
   transition: all 0.3s;
 }
