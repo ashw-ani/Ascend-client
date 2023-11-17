@@ -65,7 +65,7 @@ const Profile = () => {
   return (
     <div className={styles.container}>
       <div className={styles["page-titles"]}>
-        <NavLink to="/">Home / </NavLink> Profile
+        <NavLink to="/">Home / </NavLink> <p>Profile</p>
       </div>
 
       <div className={styles["page-body"]}>
