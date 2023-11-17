@@ -21,11 +21,13 @@ const Login = () => {
   return (
     <div className={styles.loginpage}>
       <form method="post" className={styles.login}>
-        <img className={styles.logo_image} src={Logo} alt="logo"></img>
+        <div className={styles.logowrapper}>
+          <img className={styles.logo_image} src={Logo} alt="logo" />
+        </div>
         <h1>User Login</h1>
         <h3 className={styles.subloginheading}>Sign in to your account</h3>
         <div className={styles.credentials}>
-          <h4>Email</h4>
+          <h4 className={styles.label}>Email</h4>
           <input
             type="email"
             name="email"
@@ -33,7 +35,7 @@ const Login = () => {
             placeholder="Email"
             onChange={formChangeHandler}
           />
-          <h4>Password</h4>
+          <h4 className={styles.label}>Password</h4>
           <input
             name="password"
             type="password"

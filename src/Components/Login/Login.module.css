@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap");
 .loginpage {
   height: 100vh;
   width: 100vw;
@@ -9,7 +9,20 @@
   overflow: hidden;
 }
 .login {
-  font-family: 'Asap', sans-serif;
+  display: flex;
+  flex-direction: column;
+  width: 25rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #161a37;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  height: 30rem;
+  gap: 0rem;
+
+  /* font-family: "Asap", sans-serif;
   overflow: hidden;
   background-color: #161a37;
   padding: 40px 30px 30px 30px;
@@ -27,10 +40,12 @@
   -moz-transition: -moz-transform 300ms, box-shadow 300ms;
   transition: transform 300ms, box-shadow 300ms;
   box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
+  height: 30rem;
+  padding: 2rem; */
 }
-.login::before,
+/* .login::before,
 .login::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 900px;
   height: 700px;
@@ -47,37 +62,56 @@
   -webkit-animation: wawes 6s infinite linear;
   -moz-animation: wawes 6s infinite linear;
   animation: wawes 6s infinite linear;
+} */
+
+.logowrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.logo_image {
+  width: 7rem;
+}
+.login h1 {
+  margin: 0;
+}
+.login h3 {
+  margin: 0.5rem;
+}
+.login h4 {
+  margin: 0.5rem;
 }
 
-.logo_image{
-  height: 100px;
-  width: auto;
-  margin-left: 40%;
+.label {
+  margin: 3rem;
+}
+.rememberme {
+  margin: 1rem 0;
 }
 
-.subloginheading{
+.subloginheading {
   color: white;
   text-align: center;
 }
-.credentials>input{
+.credentials input {
   margin-top: 5px;
-  height: 40px;
+  height: 1.5rem;
   padding: 5px;
   width: 97.5%;
   border-radius: 5px;
 }
-.credentials>h4{
+.credentials h4 {
   margin-bottom: 0;
   color: white;
 }
 
-.rememberme{
+.rememberme {
   display: flex;
   text-align: center;
   justify-content: center;
-  color:white;
+  color: white;
 }
-.login::after {
+/* .login::after {
   left: 35%;
   bottom: -125%;
   background-color: #f05dd87d;
@@ -86,7 +120,7 @@
   animation: wawes 7s infinite;
 }
 .login > input {
-  font-family: 'Asap', sans-serif;
+  font-family: "Asap", sans-serif;
   display: block;
   border-radius: 5px;
   font-size: 16px;
@@ -94,14 +128,14 @@
   width: 100%;
   border: 1px solid rgba(109, 108, 108, 0.489);
   padding: 10px 10px;
-  /* margin: 15px -10px; */
-}
+
+} */
 .login > input:focus {
   outline: none;
   border: 1px solid rgb(255, 94, 236);
 }
 .login > button {
-  font-family: 'Asap', sans-serif;
+  font-family: "Asap", sans-serif;
   cursor: pointer;
   color: #fff;
   font-size: 16px;
@@ -125,10 +159,10 @@
   font-weight: 500;
   line-height: 42px;
   text-align: center;
-  font-family: 'Poppins';
+  font-family: "Poppins";
 }
-.login>h4 {
-  font-weight:100;
+.login > h4 {
+  font-weight: 100;
   color: white;
 }
 
@@ -142,79 +176,43 @@ a {
 
 .customcheckbox {
   accent-color: #f24353;
-  cursor: pointer;  
+  cursor: pointer;
   margin-right: 10px;
 }
 
-@-webkit-keyframes wawes {
-  from {
-    -webkit-transform: rotate(0);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-  }
-}
-@-moz-keyframes wawes {
-  from {
-    -moz-transform: rotate(0);
-  }
-  to {
-    -moz-transform: rotate(360deg);
-  }
-}
-@keyframes wawes {
-  from {
-    -webkit-transform: rotate(0);
-    -moz-transform: rotate(0);
-    -ms-transform: rotate(0);
-    -o-transform: rotate(0);
-    transform: rotate(0);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
 @media screen and (max-width: 600px) {
-  .login h1{
+  .login h1 {
     font-size: 20px;
   }
-  .login h3{
+  .login h3 {
     font-size: 15px;
   }
-  .login h4{
-    font-size:10px
+  .login h4 {
+    font-size: 10px;
   }
-
-  .logo_image{
-    margin-left:30%;
-  }
-  .loginpage {
-    margin-top:20px;
+  /* .loginpage {
+    margin-top: 20px;
     height: 100vh;
     width: 100vw;
     background-size: cover;
     background-position: center;
     backdrop-filter: blur(100px);
     overflow: hidden;
-  }
+  } */
   .login {
-    font-family: 'Asap', sans-serif;
+    /* font-family: "Asap", sans-serif;
     overflow: hidden;
     background-color: #161a37;
     padding: 40px 30px 30px 30px;
     border-radius: 10px;
     position: absolute;
-    /* display: flex; */
+    display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     top: 40%;
     left: 50%;
     width: 15rem;
-    /* height: 20rem; */
+    height: 20rem;
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -223,13 +221,20 @@ a {
     -webkit-transition: -webkit-transform 300ms, box-shadow 300ms;
     -moz-transition: -moz-transform 300ms, box-shadow 300ms;
     transition: transform 300ms, box-shadow 300ms;
-    box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
+    box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2); */
+    display: flex;
+    width: 16.5rem;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
-  .customcheckbox{
+  .customcheckbox {
     height: 12px;
-    margin-top:12px;
+    margin-top: 12px;
   }
-  .login a{
+  .login a {
     font-size: 10px;
   }
 }
