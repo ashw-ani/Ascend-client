@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Login.module.css";
+import jwt_decode from "jwt-decode";
+// import Dashboard
 
 const Login = () => {
   const [formDetails, setFormDetails] = useState({
@@ -22,18 +24,22 @@ const Login = () => {
       <form className={styles.login}>
         <h1>Login Page</h1>
         <input
+          required
           type="email"
           name="email"
           placeholder="Username"
           onChange={formChangeHandler}
         />
         <input
+          required
           name="password"
           type="password"
           placeholder="Password"
           onChange={formChangeHandler}
         />
-        <button onClick={submitButtonHandler}>Login</button>
+        <button type="submit" onClick={submitButtonHandler}>
+          Login
+        </button>
       </form>
     </div>
   );

@@ -10,24 +10,28 @@ import {
   useLocation,
 } from "react-router-dom/cjs/react-router-dom.min";
 import { useEffect, useState } from "react";
+import { useContext } from "react";
+import AuthContext from "./store/auth-context";
 // import Header from "./Components/body/Header/Header";
 
 function App() {
-  const [showPanel, setShowPanel] = useState(false);
   const location = useLocation();
+
+  const context = useContext(AuthContext);
 
   useEffect(() => {
     if (location.pathname === "/login") {
-      setShowPanel(false);
+      context.setIsLoggedIn(false);
     } else {
-      if (!showPanel) {
-        setShowPanel(true);
+      if (!context.isLoggedIn) {
+        context.setIsLoggedIn(true);
       }
     }
   }, [location]);
+
   return (
-    <div className={`${styles.app}  ${showPanel ? " " : styles.loginbg}`}>
-      {showPanel && (
+    <div className={`${styles.app}  `}>
+      {context.isLoggedIn && (
         <>
           <Body />
           <Sidepanel />

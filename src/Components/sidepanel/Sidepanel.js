@@ -93,6 +93,7 @@ const Sidepanel = (props) => {
         </SidepanelItem>
         {sideitemsState.leaderboard && (
           <div className={styles.subitems}>
+            <Sidepanelsubitem>Teams</Sidepanelsubitem>
             <Sidepanelsubitem onClick={onClickSubitem}>
               Water Enthusiasts
             </Sidepanelsubitem>
