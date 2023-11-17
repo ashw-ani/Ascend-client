@@ -12,22 +12,21 @@ import {
 import { useEffect, useState } from "react";
 import { useContext } from "react";
 import AuthContext from "./store/auth-context";
+
+import * as jwt_decode from "jwt-decode";
 // import Header from "./Components/body/Header/Header";
 
 function App() {
-  const location = useLocation();
-
   const context = useContext(AuthContext);
 
   useEffect(() => {
-    if (location.pathname === "/login") {
-      context.setIsLoggedIn(false);
-    } else {
-      if (!context.isLoggedIn) {
-        context.setIsLoggedIn(true);
-      }
+    const token = localStorage.getItem("token");
+    if (token) {
+      const user = jwt_decode.jwtDecode(token);
+      if (user) return context.setIsLoggedIn(true);
     }
-  }, [location]);
+    return context.setIsLoggedIn(false);
+  }, []);
 
   return (
     <div className={`${styles.app}  `}>
