@@ -2,7 +2,7 @@
 .loginpage {
   height: 100vh;
   width: 100vw;
-  background-image: url('../../assets//lower-resolution.jpg');
+  /* background-image: url('../../assets//lower-resolution.jpg'); */
   background-size: cover;
   background-position: center;
   backdrop-filter: blur(100px);
@@ -11,7 +11,7 @@
 .login {
   font-family: 'Asap', sans-serif;
   overflow: hidden;
-  background-color: white;
+  background-color: #161a37;
   padding: 40px 30px 30px 30px;
   border-radius: 10px;
   position: absolute;
@@ -48,6 +48,35 @@
   -moz-animation: wawes 6s infinite linear;
   animation: wawes 6s infinite linear;
 }
+
+.logo_image{
+  height: 100px;
+  width: auto;
+  margin-left: 40%;
+}
+
+.subloginheading{
+  color: white;
+  text-align: center;
+}
+.credentials>input{
+  margin-top: 5px;
+  height: 40px;
+  padding: 5px;
+  width: 97.5%;
+  border-radius: 5px;
+}
+.credentials>h4{
+  margin-bottom: 0;
+  color: white;
+}
+
+.rememberme{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  color:white;
+}
 .login::after {
   left: 35%;
   bottom: -125%;
@@ -65,7 +94,7 @@
   width: 100%;
   border: 1px solid rgba(109, 108, 108, 0.489);
   padding: 10px 10px;
-  margin: 15px -10px;
+  /* margin: 15px -10px; */
 }
 .login > input:focus {
   outline: none;
@@ -77,11 +106,9 @@
   color: #fff;
   font-size: 16px;
   text-transform: uppercase;
-  width: 80px;
+  width: 100%;
   border: 0;
   padding: 10px 0;
-  margin-top: 10px;
-  margin-left: -5px;
   border-radius: 5px;
   background-color: #f45b69;
   -webkit-transition: background-color 300ms;
@@ -94,10 +121,29 @@
 
 .login h1 {
   font-size: 32px;
+  color: white;
   font-weight: 500;
   line-height: 42px;
   text-align: center;
   font-family: 'Poppins';
+}
+.login>h4 {
+  font-weight:100;
+  color: white;
+}
+
+a {
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+  display: block;
+  text-align: center;
+}
+
+.customcheckbox {
+  accent-color: #f24353;
+  cursor: pointer;  
+  margin-right: 10px;
 }
 
 @-webkit-keyframes wawes {
