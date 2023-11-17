@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Login.module.css";
-import jwt_decode from "jwt-decode";
-// import Dashboard
+import Logo from "../../assets/Logo_inside.png";
 
 const Login = () => {
   const [formDetails, setFormDetails] = useState({
@@ -21,25 +20,39 @@ const Login = () => {
   };
   return (
     <div className={styles.loginpage}>
-      <form className={styles.login}>
-        <h1>Login Page</h1>
-        <input
-          required
-          type="email"
-          name="email"
-          placeholder="Username"
-          onChange={formChangeHandler}
-        />
-        <input
-          required
-          name="password"
-          type="password"
-          placeholder="Password"
-          onChange={formChangeHandler}
-        />
-        <button type="submit" onClick={submitButtonHandler}>
-          Login
+      <form method="post" className={styles.login}>
+        <img className={styles.logo_image} src={Logo} alt="logo"></img>
+        <h1>User Login</h1>
+        <h3 className={styles.subloginheading}>Sign in to your account</h3>
+        <div className={styles.credentials}>
+          <h4>Email</h4>
+          <input
+            type="email"
+            name="email"
+            required="true"
+            placeholder="Email"
+            onChange={formChangeHandler}
+          />
+          <h4>Password</h4>
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            required="true"
+            onChange={formChangeHandler}
+          />
+        </div>
+        <div className={styles.rememberme}>
+          <input className={styles.customcheckbox} type="checkbox" />
+          <h4>Remember my preferences</h4>
+        </div>
+        <button
+          type="submit"
+          // onClick={submitButtonHandler}
+        >
+          Sign Me In
         </button>
+        <a>Forgot Password?</a>
       </form>
     </div>
   );
