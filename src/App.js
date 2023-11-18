@@ -30,18 +30,20 @@ function App() {
 
   return (
     <div className={`${styles.app}  `}>
-      {context.isLoggedIn && (
+      {context.isLoggedIn ? (
         <>
           <Body />
           <Sidepanel />
           <Profilepanel />
         </>
+      ) : (
+        <Login />
       )}
-      <Switch>
+      {/* <Switch>
         <Route path="/login" exact>
           <Login />
         </Route>
-      </Switch>
+      </Switch> */}
     </div>
   );
 }

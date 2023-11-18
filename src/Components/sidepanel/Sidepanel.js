@@ -97,7 +97,7 @@ const Sidepanel = (props) => {
             <Sidepanelsubitem onClick={onClickSubitem}>
               Water Enthusiasts
             </Sidepanelsubitem>
-            <Sidepanelsubitem onClick={onClickLogin}>login</Sidepanelsubitem>
+            {/* <Sidepanelsubitem onClick={onClickLogin}>login</Sidepanelsubitem> */}
             <Sidepanelsubitem onClick={onClickProfile}>
               Profile
             </Sidepanelsubitem>
