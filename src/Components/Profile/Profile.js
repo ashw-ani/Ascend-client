@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Profile.module.css";
 import noimage from "../../assets/no-image.svg";
-import Button from "../Login/button";
 import { ReactComponent as Loader } from "../../assets/signInButton.svg";
 import { useState } from "react";
 import * as jwt_decode from "jwt-decode";
+import getProfileUpdate from "../../api/getProfileUpdate";
 
 const Profile = () => {
   const [formData, setFormData] = useState({
@@ -22,6 +22,7 @@ const Profile = () => {
   });
   //Loading of update button
   const [showLoader, setShowLoader] = useState(false);
+  const [User, setUser] = useState();
 
   //update profile pic thingy
   const [updatePfp, setUpdatePfp] = useState(false);
@@ -29,6 +30,7 @@ const Profile = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     const user = jwt_decode.jwtDecode(token);
+    setUser(user);
 
     setFormData({
       ...formData,
@@ -44,7 +46,7 @@ const Profile = () => {
     });
   }, []);
 
-  const name = jwt_decode.jwtDecode(localStorage.getItem("token"))["fullName"];
+  const name = User["fullName"];
   const joining = "31st march,2022";
   const end = "LIFE TIME";
 
@@ -80,7 +82,7 @@ const Profile = () => {
     console.log("changed");
   };
 
-  const formSubmitHandler = (event) => {
+  const formSubmitHandler = async (event) => {
     event.preventDefault();
     setShowLoader(true);
     if (updatePfp) {
@@ -88,6 +90,24 @@ const Profile = () => {
       const img = formData2.get("img");
       imageUploadHandler(img);
     }
+
+    const user = {
+      id: User.id,
+      fullName: `${formData.firstName} ${formData.lastName}`,
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      mobile: formData.phone,
+      email: formData.email,
+      city: formData.city,
+      niche: formData.niche,
+      achievement: formData.achievementLevel,
+      profilePic: formData.imgURL,
+      team: User.team,
+    };
+
+    const newToken = await getProfileUpdate(user);
+    localStorage.setItem("token", newToken);
+
     setTimeout(() => {
       console.log("hello");
       setShowLoader(false);
