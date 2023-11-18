@@ -62,10 +62,23 @@ const Profile = () => {
     console.log(formData);
   };
 
+  // logouthandler
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    // setToken(null);
+    window.location.href = "/login";
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles["page-titles"]}>
-        <NavLink to="/">Home / </NavLink> <p>Profile</p>
+        <NavLink className={styles.pageTitleItems} to="/">
+          Home /{" "}
+        </NavLink>{" "}
+        <p className={styles.pageTitleItems}>Profile</p>
+        <button onClick={handleLogout} className={styles.pageTitleItems}>
+          Logout
+        </button>
       </div>
 
       <div className={styles["page-body"]}>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./Login.module.css";
 import Logo from "../../assets/Logo_inside.png";
 import login from "../../api/getLogin";
+import Button from "./button";
 
 const Login = () => {
   const [formDetails, setFormDetails] = useState({
@@ -9,6 +10,7 @@ const Login = () => {
     password: "",
     rememberMe: false,
   });
+  const [showLoader, setShowLoader] = useState(false);
 
   const formChangeHandler = (event) => {
     setFormDetails((prevState) => {
@@ -21,7 +23,7 @@ const Login = () => {
 
   const submitButtonHandler = async (event) => {
     event.preventDefault();
-    // console.log(formDetails);
+    setShowLoader(true);
     const data = await login(
       formDetails.email,
       formDetails.password,
@@ -29,11 +31,13 @@ const Login = () => {
     );
     if (data.token) {
       localStorage.setItem("token", data.token);
-      window.location.href = "/dashboard";
+      setShowLoader(false);
+      window.location.href = "/";
     } else {
       alert("login failed! please check your email and password");
     }
   };
+
   return (
     <div className={styles.loginpage}>
       <form
@@ -73,12 +77,7 @@ const Login = () => {
           />
           <h4>Remember my preferences</h4>
         </div>
-        <button
-          type="submit"
-          // onClick={submitButtonHandler}
-        >
-          Sign Me In
-        </button>
+        <Button loading={showLoader} disabled={showLoader} />
         <a>Forgot Password?</a>
       </form>
     </div>

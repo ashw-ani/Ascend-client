@@ -27,6 +27,35 @@
   gap: 0.5rem;
 }
 
+/* logout button */
+.pageTitleItems{
+  flex:0 0 auto;
+}
+.pageTitleItems:nth-child(3){
+  margin-left: auto;
+  margin-right: 10px;
+  background-color: white;
+  /* border: none; */
+  font-family: "Asap", sans-serif;
+  cursor: pointer;
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+  /* width: 100%; */
+  border: 0;
+  padding: 10px 10px;
+  border-radius: 5px;
+  background-color: #f45b69;
+  -webkit-transition: background-color 300ms;
+  -moz-transition: background-color 300ms;
+  transition: background-color 300ms;
+}
+
+.pageTitleItems:nth-child(3):hover {
+  background-color: #f24353;
+}
+
+
 .page-titles a {
   color: #e75e46;
   font-weight: 600;
