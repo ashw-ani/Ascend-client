@@ -63,6 +63,10 @@
   -moz-animation: wawes 6s infinite linear;
   animation: wawes 6s infinite linear;
 } */
+.logo_named{
+    width: 50%;
+}
+
 
 .logowrapper {
   display: flex;
@@ -110,6 +114,14 @@
   text-align: center;
   justify-content: center;
   color: white;
+}
+.credentialsError{
+  /* flex-basis: 100%; */
+  margin-bottom: 1.5rem;
+  color:red;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:0;
 }
 /* .login::after {
   left: 35%;

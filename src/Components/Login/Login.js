@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Login.module.css";
 import Logo from "../../assets/Logo_inside.png";
+import logoNamed from "../../assets/logo_cropped.jpeg";
 import login from "../../api/getLogin";
 import Button from "./button";
 
@@ -11,6 +12,8 @@ const Login = () => {
     rememberMe: false,
   });
   const [showLoader, setShowLoader] = useState(false);
+  // handling non-existing user
+  const [userNotFound, setuserNotFound] = useState(false);
 
   const formChangeHandler = (event) => {
     setFormDetails((prevState) => {
@@ -24,6 +27,7 @@ const Login = () => {
   const submitButtonHandler = async (event) => {
     event.preventDefault();
     setShowLoader(true);
+    setuserNotFound(false);
     const data = await login(
       formDetails.email,
       formDetails.password,
@@ -34,7 +38,9 @@ const Login = () => {
       setShowLoader(false);
       window.location.href = "/";
     } else {
-      alert("login failed! please check your email and password");
+      // alert("login failed! please check your email and password");
+      setuserNotFound(true);
+      setShowLoader(false);
     }
   };
 
@@ -47,8 +53,9 @@ const Login = () => {
       >
         <div className={styles.logowrapper}>
           <img className={styles.logo_image} src={Logo} alt="logo" />
+          <img className={styles.logo_named} src={logoNamed} alt="logonamed" />
         </div>
-        <h1>User Login</h1>
+
         <h3 className={styles.subloginheading}>Sign in to your account</h3>
         <div className={styles.credentials}>
           <h4 className={styles.label}>Email</h4>
@@ -77,6 +84,12 @@ const Login = () => {
           />
           <h4>Remember my preferences</h4>
         </div>
+        {userNotFound && (
+          <p className={styles.credentialsError}>
+            No User Found with given Email and password
+          </p>
+        )}
+
         <Button loading={showLoader} disabled={showLoader} />
         <a>Forgot Password?</a>
       </form>
