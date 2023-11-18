@@ -90,7 +90,7 @@ const Login = () => {
           </p>
         )}
 
-        <Button loading={showLoader} disabled={showLoader} />
+        <Button text="Sign me In" loading={showLoader} />
         <a>Forgot Password?</a>
       </form>
     </div>

@@ -212,8 +212,8 @@
   font-size: 1.2rem;
   display: flex;
   justify-content: center;
-  max-width: 7rem;
-  width: 3.5rem;
+  max-width: auto;
+  width: 6rem;
   padding: 0 1rem;
   height: 1.5rem;
   border: 1px solid #e75e46;
@@ -222,6 +222,32 @@
   border-radius: 1rem;
   color: #e75e46;
 }
+
+/* Css for spinner loading button */
+.spinner {
+  animation-name: spin;
+  animation-duration: 500ms;
+  width:2rem;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.submit_details:disabled {
+  background: #e7e8e9;
+  color: #9fa3a9;
+  cursor: not-allowed;
+}
+
+
 .photo_select {
   display: flex;
   flex-direction: row;
