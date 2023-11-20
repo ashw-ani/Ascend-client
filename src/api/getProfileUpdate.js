@@ -9,7 +9,7 @@ export default async (user) => {
       }
     );
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     return data.token;
   } catch (error) {
     console.log(error);

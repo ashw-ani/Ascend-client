@@ -30,7 +30,7 @@ const Profile = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     const user = jwt_decode.jwtDecode(token);
-    console.log(user);
+    // console.log(user);
     setUser(user);
 
     setFormData({
@@ -70,7 +70,9 @@ const Profile = () => {
       }
     )
       .then((res) => res.json())
+
       .then((result) => {
+        console.log(result);
         setFormData({
           ...formData,
           imgURL: result.data.url,
@@ -112,16 +114,13 @@ const Profile = () => {
       profilePic: formData.imgURL,
       team: User.team,
     };
-
+    console.log(user);
     let newToken = await getProfileUpdate(user);
-    if (!newToken) {
-      newToken =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFzaHdhbmlzaGFybWEiLCJmdWxsTmFtZSI6ImFzaHdhbmkgc2hhcm1hIiwiZmlyc3ROYW1lIjoiYXNod2FuaSIsImxhc3ROYW1lIjoic2hhcm1hIiwiZW1haWwiOiJhc2h3YW5pc2hhcm1hNzIwMDJAZ21haWwuY29tIiwibW9iaWxlIjoiIiwiY2l0eSI6ImRlbGhpIiwibmljaGUiOiJlbmdpbmVlciIsImFjaGlldmVtZW50IjoiYWR2YW5jZWQiLCJwcm9maWxlUGljIjoiIiwidGVhbSI6ImRldmVsb3BlciIsImlhdCI6MTcwMDQ2NjE1MSwiZXhwIjoxNzAwNTUyNTUxfQ.QZzsTi_uk9YBhtkCF_UXa_3a3JiZ9vWVwILejsuTUgw";
-    }
+
     localStorage.setItem("token", newToken);
 
     setTimeout(() => {
-      console.log("hello");
+      // console.log("hello");
       setShowLoader(false);
     }, 3000);
     console.log(formData);
@@ -215,7 +214,7 @@ const Profile = () => {
                   </label>
                   <input
                     required
-                    value={formData.lastName}
+                    value={User.lastName}
                     name="lastName"
                     onChange={formInputHandler}
                     type="text"
