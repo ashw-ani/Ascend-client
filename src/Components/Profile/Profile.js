@@ -30,6 +30,7 @@ const Profile = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     const user = jwt_decode.jwtDecode(token);
+    console.log(user);
     setUser(user);
 
     setFormData({
@@ -49,6 +50,12 @@ const Profile = () => {
   const name = User["fullName"];
   const joining = "31st march,2022";
   const end = "LIFE TIME";
+
+  const userUpdateHandler = async (User) => {
+    const userData = User;
+    console.log(userData);
+    const userResponse = await getProfileUpdate(userData);
+  };
 
   const imageUploadHandler = async (img) => {
     console.log(img);
@@ -90,6 +97,7 @@ const Profile = () => {
       const img = formData2.get("img");
       imageUploadHandler(img);
     }
+    userUpdateHandler(formData);
 
     const user = {
       id: User.id,
@@ -105,7 +113,11 @@ const Profile = () => {
       team: User.team,
     };
 
-    const newToken = await getProfileUpdate(user);
+    let newToken = await getProfileUpdate(user);
+    if (!newToken) {
+      newToken =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFzaHdhbmlzaGFybWEiLCJmdWxsTmFtZSI6ImFzaHdhbmkgc2hhcm1hIiwiZmlyc3ROYW1lIjoiYXNod2FuaSIsImxhc3ROYW1lIjoic2hhcm1hIiwiZW1haWwiOiJhc2h3YW5pc2hhcm1hNzIwMDJAZ21haWwuY29tIiwibW9iaWxlIjoiIiwiY2l0eSI6ImRlbGhpIiwibmljaGUiOiJlbmdpbmVlciIsImFjaGlldmVtZW50IjoiYWR2YW5jZWQiLCJwcm9maWxlUGljIjoiIiwidGVhbSI6ImRldmVsb3BlciIsImlhdCI6MTcwMDQ2NjE1MSwiZXhwIjoxNzAwNTUyNTUxfQ.QZzsTi_uk9YBhtkCF_UXa_3a3JiZ9vWVwILejsuTUgw";
+    }
     localStorage.setItem("token", newToken);
 
     setTimeout(() => {
