@@ -1,13 +1,13 @@
 const login = async (email, password, rememberMe) => {
   try {
-    const response = await fetch(
-      `https://ascend-server.onrender.com/api/user/login`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password, rememberMe }),
-      }
-    );
+    // const url = 'https://ascend-server.onrender.com';
+    const url = process.env.REACT_APP_API_URL;
+    console.log(url);
+    const response = await fetch(`${url}/api/user/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password, rememberMe }),
+    });
     const data = await response.json();
     console.log(data);
     return data;

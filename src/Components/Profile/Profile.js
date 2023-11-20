@@ -5,7 +5,8 @@ import noimage from "../../assets/no-image.svg";
 import { ReactComponent as Loader } from "../../assets/signInButton.svg";
 import { useState } from "react";
 import * as jwt_decode from "jwt-decode";
-import getProfileUpdate from "../../api/getProfileUpdate";
+import getProfileUpdate from "../../api/putProfileUpdate";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const Profile = () => {
   // logouthandler
@@ -110,6 +111,9 @@ const Profile = () => {
                     required
                     value={formData.firstName}
                     name="firstName"
+                    // onChange={formInputHandler}
+                    type="text"
+                    name="firstName"
                     onChange={formInputHandler}
                     type="text"
                     className={styles.inputer}
@@ -124,6 +128,9 @@ const Profile = () => {
                   <input
                     required
                     value={formData.lastName}
+                    name="lastName"
+                    // onChange={formInputHandler}
+                    type="text"
                     name="lastName"
                     onChange={formInputHandler}
                     type="text"
@@ -156,6 +163,8 @@ const Profile = () => {
                     title="Enter a valid phone number."
                     value={formData.phone}
                     name="phone"
+                    // onChange={formInputHandler}
+                    name="phone"
                     onChange={formInputHandler}
                     className={styles.inputer}
                     placeholder="Enter Phone Number"
@@ -169,6 +178,9 @@ const Profile = () => {
                   <input
                     required
                     value={formData.city}
+                    name="city"
+                    // onChange={formInputHandler}
+                    type="text"
                     name="city"
                     onChange={formInputHandler}
                     type="text"
@@ -184,6 +196,8 @@ const Profile = () => {
                 </label>
                 <select
                   className={styles.nicheselect}
+                  name="niche"
+                  // onChange={formInputHandler}
                   name="niche"
                   onChange={formInputHandler}
                 >
@@ -201,6 +215,8 @@ const Profile = () => {
               <label className={styles.labelheader}>Profile Pic</label>
               <div className={`${styles.single_section}`}>
                 <input
+                  name="img"
+                  // onChange={formInputHandler}
                   name="img"
                   onChange={formInputHandler}
                   className={styles.photo_select}
