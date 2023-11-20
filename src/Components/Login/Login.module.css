@@ -64,7 +64,7 @@
   animation: wawes 6s infinite linear;
 } */
 .logo_named{
-    width: 50%;
+    width: 70%;
 }
 
 
@@ -107,6 +107,19 @@
 .credentials h4 {
   margin-bottom: 0;
   color: white;
+}
+.showPassword{
+  color:white;
+  font-size: 0.7rem;
+  display: flex;
+}
+.showPassword>input{
+  width: 10%;
+  margin:0;
+  height: 0.7rem;
+  margin-top: 0.7rem;
+  border-radius: 50%;
+  margin-left: -0.5rem;
 }
 
 .rememberme {
@@ -227,7 +240,7 @@ a {
     font-size: 10px;
   }
   .logo_named{
-    width: 60%;
+    width: 100%;
     margin-left:0.5rem;
   }
   /* .loginpage {
@@ -274,11 +287,34 @@ a {
     outline: none;
     border: 1px solid rgb(255, 94, 236);
   }
+  .credentialsError{
+    text-align: center;
+    /* width: 80%; */
+  }
   .customcheckbox {
     height: 12px;
     margin-top: 8px;
   }
   .login a {
     font-size: 10px;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .login{
+    width: 70%;
+    height: 65%;
+  }
+  .credentialsError{
+    font-size: small;
+    margin-bottom: 0.5rem;
+  }
+  .showPassword>input{
+    width: 10%;
+    margin:0;
+    height: 0.7rem;
+    margin-top: 0.7rem;
+    border-radius: 50%;
+    margin-right: 0.3rem;
   }
 }

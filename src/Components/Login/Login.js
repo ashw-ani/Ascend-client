@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import styles from './Login.module.css';
 import Logo from '../../assets/Logo_inside.png';
-import logoNamed from '../../assets/logo_cropped.jpeg';
+import logoNamed from '../../assets/logo.jpeg';
+//for show password
+
+//login button
 import login from '../../api/getLogin';
 import Button from './button';
 
@@ -14,6 +17,12 @@ const Login = () => {
   const [showLoader, setShowLoader] = useState(false);
   // handling non-existing user
   const [userNotFound, setuserNotFound] = useState(false);
+  //show password
+  const [showPassword, setshowPassword] = useState(false);
+  const showPasswordHandler = () => {
+    setshowPassword(!showPassword);
+    return;
+  };
 
   const formChangeHandler = (event) => {
     setFormDetails((prevState) => {
@@ -74,6 +83,10 @@ const Login = () => {
             required='true'
             onChange={formChangeHandler}
           />
+          <div className={styles.showPassword}>
+            <input onClick={showPasswordHandler} type='checkbox' />
+            <p>Show Password</p>
+          </div>
         </div>
         <div className={styles.rememberme}>
           <input

@@ -117,7 +117,9 @@ const Sidepanel = (props) => {
           <BsCalendar className={styles.sidepanelicons} name={"events"} />
           Events
         </SidepanelItem>
-        <SidepanelItem
+
+        {/* my business */}
+        {/* <SidepanelItem
           class={sideitemsState.mybusiness ? "active" : "inactive"}
           onclick={toggleSideitemHandler}
           name={"mybusiness"}
@@ -135,7 +137,8 @@ const Sidepanel = (props) => {
             <Sidepanelsubitem>Dashboard</Sidepanelsubitem>
             <Sidepanelsubitem>My Data</Sidepanelsubitem>
           </div>
-        )}
+        )} */}
+
         <SidepanelItem
           class={sideitemsState.mytask ? "active" : "inactive"}
           onclick={toggleSideitemHandler}

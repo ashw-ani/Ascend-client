@@ -29,7 +29,10 @@ const Profilepanel = (props) => {
       </div>
       <div
         className={`${styles.profile_options} ${styles.profile_panel_item}`}
-        onClick={profileHandler}
+        onClick={() => {
+          profileHandler();
+          togglePPHandler();
+        }}
       >
         <MdAccountCircle />
       </div>

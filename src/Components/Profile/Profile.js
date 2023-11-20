@@ -9,6 +9,14 @@ import getProfileUpdate from '../../api/putProfileUpdate';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const Profile = () => {
+  // logouthandler
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    window.location.href = '/login';
+  };
+  //Loading of update button
+  const [showLoader, setShowLoader] = useState(false);
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -21,105 +29,10 @@ const Profile = () => {
     showImgURL: '',
     img: '',
   });
-  //Loading of update button
-  const [showLoader, setShowLoader] = useState(false);
-  const [User, setUser] = useState(formData);
-  const history = useHistory();
 
-  //update profile pic thingy
-  const [updatePfp, setUpdatePfp] = useState(false);
-
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    const user = jwt_decode.jwtDecode(token);
-    setUser(user);
-
-    setFormData({
-      ...formData,
-      firstName: user['firstName'],
-      lastName: user['lastName'],
-      email: user['email'],
-      phone: user['mobile'],
-      city: user['city'],
-      niche: user['niche'],
-      achievementLevel: user['achievement'],
-      imgURL: user['profilePic'],
-      showImgURL: user['profilePic'],
-    });
-  }, []);
-
-  const name = User['fullName'];
+  const name = 'fullName';
   const joining = '31st march,2022';
   const end = 'LIFE TIME';
-
-  const imageUploadHandler = async (img) => {
-    console.log(img);
-    const formData1 = new FormData();
-    formData1.append('image', img);
-
-    const response = fetch(
-      'https://api.imgbb.com/1/upload?key=64e26b821a87b1e73115ba89dac737b1',
-      {
-        method: 'POST',
-        body: formData1,
-      }
-    )
-      .then((res) => res.json())
-      .then((result) => {
-        setFormData({
-          ...formData,
-          imgURL: result.data.url,
-          showImgURL: result.data.display_url,
-        });
-      });
-  };
-
-  const formInputHandler = (event) => {
-    if (event.target.name == 'img') setUpdatePfp(true);
-
-    setFormData((prevState) => {
-      return { ...prevState, [event.target.name]: event.target.value };
-    });
-
-    console.log('changed');
-  };
-
-  const formSubmitHandler = async (event) => {
-    event.preventDefault();
-    setShowLoader(true);
-    if (updatePfp) {
-      const formData2 = new FormData(event.target);
-      const img = formData2.get('img');
-      imageUploadHandler(img);
-    }
-
-    const user = {
-      id: User.id,
-      fullName: `${formData.firstName} ${formData.lastName}`,
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      mobile: formData.phone,
-      email: formData.email,
-      city: formData.city,
-      niche: formData.niche,
-      achievement: formData.achievementLevel,
-      profilePic: formData.imgURL,
-      team: User.team,
-    };
-
-    const newToken = await localStorage.setItem(
-      'token',
-      getProfileUpdate(user)
-    );
-    history.go(0);
-  };
-
-  // logouthandler
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    window.location.href = '/login';
-  };
-
   return (
     <div className={styles.container}>
       <div className={styles['page-titles']}>
@@ -174,7 +87,7 @@ const Profile = () => {
         </div>
 
         <div className={styles['profile-edit']}>
-          <form onSubmit={formSubmitHandler}>
+          <form>
             <h2 className={styles.heading}>Edit Profile</h2>
             <hr className={styles.line} />
 
@@ -189,7 +102,7 @@ const Profile = () => {
                     required
                     value={formData.firstName}
                     name='firstName'
-                    onChange={formInputHandler}
+                    // onChange={formInputHandler}
                     type='text'
                     className={styles.inputer}
                     placeholder='Enter User First Name'
@@ -204,7 +117,7 @@ const Profile = () => {
                     required
                     value={formData.lastName}
                     name='lastName'
-                    onChange={formInputHandler}
+                    // onChange={formInputHandler}
                     type='text'
                     className={styles.inputer}
                     placeholder='Enter User Second Name'
@@ -235,7 +148,7 @@ const Profile = () => {
                     title='Enter a valid phone number.'
                     value={formData.phone}
                     name='phone'
-                    onChange={formInputHandler}
+                    // onChange={formInputHandler}
                     className={styles.inputer}
                     placeholder='Enter Phone Number'
                   />
@@ -249,7 +162,7 @@ const Profile = () => {
                     required
                     value={formData.city}
                     name='city'
-                    onChange={formInputHandler}
+                    // onChange={formInputHandler}
                     type='text'
                     className={styles.inputer}
                     placeholder='City'
@@ -264,7 +177,7 @@ const Profile = () => {
                 <select
                   className={styles.nicheselect}
                   name='niche'
-                  onChange={formInputHandler}
+                  // onChange={formInputHandler}
                 >
                   <option value='' selected disabled>
                     Please select a niche
@@ -281,7 +194,7 @@ const Profile = () => {
               <div className={`${styles.single_section}`}>
                 <input
                   name='img'
-                  onChange={formInputHandler}
+                  // onChange={formInputHandler}
                   className={styles.photo_select}
                   type='file'
                   accept='image/png, image/jpeg, image/jpg,'
