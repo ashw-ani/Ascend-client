@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import styles from "./Login.module.css";
 import Logo from "../../assets/Logo_inside.png";
-import logoNamed from "../../assets/logo_cropped.jpeg";
+import logoNamed from "../../assets/logo.jpeg";
+//for show password
+
+//login button
 import login from "../../api/getLogin";
 import Button from "./button";
 
@@ -14,6 +17,7 @@ const Login = () => {
   const [showLoader, setShowLoader] = useState(false);
   // handling non-existing user
   const [userNotFound, setuserNotFound] = useState(false);
+  //show password
 
   const formChangeHandler = (event) => {
     setFormDetails((prevState) => {
@@ -52,7 +56,7 @@ const Login = () => {
         onSubmit={submitButtonHandler}
       >
         <div className={styles.logowrapper}>
-          <img className={styles.logo_image} src={Logo} alt="logo" />
+          {/* <img className={styles.logo_image} src={Logo} alt="logo" /> */}
           <img className={styles.logo_named} src={logoNamed} alt="logonamed" />
         </div>
 

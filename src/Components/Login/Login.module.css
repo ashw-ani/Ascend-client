@@ -64,7 +64,7 @@
   animation: wawes 6s infinite linear;
 } */
 .logo_named{
-    width: 50%;
+    width: 70%;
 }
 
 
@@ -227,7 +227,7 @@ a {
     font-size: 10px;
   }
   .logo_named{
-    width: 60%;
+    width: 100%;
     margin-left:0.5rem;
   }
   /* .loginpage {
@@ -273,6 +273,10 @@ a {
   .login > input:focus {
     outline: none;
     border: 1px solid rgb(255, 94, 236);
+  }
+  .credentialsError{
+    text-align: center;
+    /* width: 80%; */
   }
   .customcheckbox {
     height: 12px;
