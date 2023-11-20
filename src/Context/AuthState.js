@@ -10,7 +10,7 @@ const AuthState = (props) => {
     const token = localStorage.getItem('token');
     if (token) {
       const userData = jwt_decode.jwtDecode(token);
-      setUser(user);
+      setUser(userData);
       if (userData) return setLoggedIn(true);
     }
     return setLoggedIn(false);
