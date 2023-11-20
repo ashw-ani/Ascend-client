@@ -286,3 +286,14 @@ a {
     font-size: 10px;
   }
 }
+
+@media screen and (max-width:400px) {
+  .login{
+    width: 70%;
+    height: 65%;
+  }
+  .credentialsError{
+    font-size: small;
+    margin-bottom: 0.5rem;
+  }
+}
