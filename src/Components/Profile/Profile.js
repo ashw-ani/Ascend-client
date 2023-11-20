@@ -29,6 +29,13 @@ const Profile = () => {
     img: "",
   });
 
+  const formInputHandler = (event) => {
+    setFormData((prevState) => {
+      return { ...prevState, [event.target.name]: event.target.value };
+    });
+    console.log(formData);
+  };
+
   const name = "fullName";
   const joining = "31st march,2022";
   const end = "LIFE TIME";
@@ -85,6 +92,8 @@ const Profile = () => {
           </div>
         </div>
 
+        {/* Profile edit */}
+
         <div className={styles["profile-edit"]}>
           <form>
             <h2 className={styles.heading}>Edit Profile</h2>
@@ -101,7 +110,7 @@ const Profile = () => {
                     required
                     value={formData.firstName}
                     name="firstName"
-                    // onChange={formInputHandler}
+                    onChange={formInputHandler}
                     type="text"
                     className={styles.inputer}
                     placeholder="Enter User First Name"
@@ -116,7 +125,7 @@ const Profile = () => {
                     required
                     value={formData.lastName}
                     name="lastName"
-                    // onChange={formInputHandler}
+                    onChange={formInputHandler}
                     type="text"
                     className={styles.inputer}
                     placeholder="Enter User Second Name"
@@ -147,7 +156,7 @@ const Profile = () => {
                     title="Enter a valid phone number."
                     value={formData.phone}
                     name="phone"
-                    // onChange={formInputHandler}
+                    onChange={formInputHandler}
                     className={styles.inputer}
                     placeholder="Enter Phone Number"
                   />
@@ -161,7 +170,7 @@ const Profile = () => {
                     required
                     value={formData.city}
                     name="city"
-                    // onChange={formInputHandler}
+                    onChange={formInputHandler}
                     type="text"
                     className={styles.inputer}
                     placeholder="City"
@@ -176,7 +185,7 @@ const Profile = () => {
                 <select
                   className={styles.nicheselect}
                   name="niche"
-                  // onChange={formInputHandler}
+                  onChange={formInputHandler}
                 >
                   <option value="" selected disabled>
                     Please select a niche
@@ -193,7 +202,7 @@ const Profile = () => {
               <div className={`${styles.single_section}`}>
                 <input
                   name="img"
-                  // onChange={formInputHandler}
+                  onChange={formInputHandler}
                   className={styles.photo_select}
                   type="file"
                   accept="image/png, image/jpeg, image/jpg,"
@@ -206,7 +215,6 @@ const Profile = () => {
                   "Update Profile"
                 )}
               </button>
-              {/* <Button text="Update Profile" loading={showLoader} /> */}
             </div>
           </form>
         </div>
