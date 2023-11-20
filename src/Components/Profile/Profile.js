@@ -22,7 +22,7 @@ const Profile = () => {
   });
   //Loading of update button
   const [showLoader, setShowLoader] = useState(false);
-  const [User, setUser] = useState();
+  const [User, setUser] = useState(formData);
 
   //update profile pic thingy
   const [updatePfp, setUpdatePfp] = useState(false);
