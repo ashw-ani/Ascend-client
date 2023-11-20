@@ -18,6 +18,11 @@ const Login = () => {
   // handling non-existing user
   const [userNotFound, setuserNotFound] = useState(false);
   //show password
+  const [showPassword, setshowPassword] = useState(false);
+  const showPasswordHandler = () => {
+    setshowPassword(!showPassword);
+    return;
+  };
 
   const formChangeHandler = (event) => {
     setFormDetails((prevState) => {
@@ -73,11 +78,15 @@ const Login = () => {
           <h4 className={styles.label}>Password</h4>
           <input
             name="password"
-            type="password"
+            type={showPassword ? "text" : "password"}
             placeholder="Password"
             required="true"
             onChange={formChangeHandler}
           />
+          <div className={styles.showPassword}>
+            <input onClick={showPasswordHandler} type="checkbox" />
+            <p>Show Password</p>
+          </div>
         </div>
         <div className={styles.rememberme}>
           <input

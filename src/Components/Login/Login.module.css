@@ -108,6 +108,19 @@
   margin-bottom: 0;
   color: white;
 }
+.showPassword{
+  color:white;
+  font-size: 0.7rem;
+  display: flex;
+}
+.showPassword>input{
+  width: 10%;
+  margin:0;
+  height: 0.7rem;
+  margin-top: 0.7rem;
+  border-radius: 50%;
+  margin-left: -0.5rem;
+}
 
 .rememberme {
   display: flex;
@@ -295,5 +308,13 @@ a {
   .credentialsError{
     font-size: small;
     margin-bottom: 0.5rem;
+  }
+  .showPassword>input{
+    width: 10%;
+    margin:0;
+    height: 0.7rem;
+    margin-top: 0.7rem;
+    border-radius: 50%;
+    margin-right: 0.3rem;
   }
 }
