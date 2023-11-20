@@ -27,6 +27,38 @@
   gap: 0.5rem;
 }
 
+/* logout button */
+.pageTitleItems{
+  flex:0 0 auto;
+  font-weight: 700;
+
+}
+.pageTitleItems:nth-child(3){
+  margin-left: auto;
+  margin-right: 10px;
+  background-color: white;
+  /* border: none; */
+  font-family: "Asap", sans-serif;
+  cursor: pointer;
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+  /* width: 100%; */
+  border: 0;
+  padding: 10px 10px;
+  border-radius: 5px;
+  background-color: #e75e46;
+
+  -webkit-transition: background-color 300ms;
+  -moz-transition: background-color 300ms;
+  transition: background-color 300ms;
+}
+
+.pageTitleItems:nth-child(3):hover {
+  background-color: #f24353;
+}
+
+
 .page-titles a {
   color: #e75e46;
   font-weight: 600;
@@ -180,8 +212,8 @@
   font-size: 1.2rem;
   display: flex;
   justify-content: center;
-  max-width: 7rem;
-  width: 3.5rem;
+  max-width: auto;
+  width: 6rem;
   padding: 0 1rem;
   height: 1.5rem;
   border: 1px solid #e75e46;
@@ -190,6 +222,32 @@
   border-radius: 1rem;
   color: #e75e46;
 }
+
+/* Css for spinner loading button */
+.spinner {
+  animation-name: spin;
+  animation-duration: 500ms;
+  width:2rem;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.submit_details:disabled {
+  background: #e7e8e9;
+  color: #9fa3a9;
+  cursor: not-allowed;
+}
+
+
 .photo_select {
   display: flex;
   flex-direction: row;
@@ -222,6 +280,22 @@
   border-radius: 0.5rem;
   color: #fff;
   font-weight: 700;
+  /* font-family: "Asap", sans-serif; */
+  cursor: pointer;
+  /* color: #fff; */
+  /* font-size: 16px; */
+  /* text-transform: uppercase; */
+  /* width: 100%; */
+  /* border: 0; */
+  /* padding: 10px 0; */
+  /* border-radius: 5px; */
+  /* background-color: #f45b69; */
+  -webkit-transition: background-color 300ms;
+  -moz-transition: background-color 300ms;
+  transition: background-color 300ms;
+}
+.submit_details:hover {
+  background-color: #f24353;
 }
 
 @media screen and (max-width: 600px) {

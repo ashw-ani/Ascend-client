@@ -63,6 +63,10 @@
   -moz-animation: wawes 6s infinite linear;
   animation: wawes 6s infinite linear;
 } */
+.logo_named{
+    width: 50%;
+}
+
 
 .logowrapper {
   display: flex;
@@ -110,6 +114,14 @@
   text-align: center;
   justify-content: center;
   color: white;
+}
+.credentialsError{
+  /* flex-basis: 100%; */
+  margin-bottom: 1.5rem;
+  color:red;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:0;
 }
 /* .login::after {
   left: 35%;
@@ -180,6 +192,30 @@ a {
   margin-right: 10px;
 }
 
+/* Css for spinner loading button */
+.spinner {
+  animation-name: spin;
+  animation-duration: 500ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.submit-btn:disabled {
+  background: #e7e8e9;
+  color: #9fa3a9;
+  cursor: not-allowed;
+}
+
+
 @media screen and (max-width: 600px) {
   .login h1 {
     font-size: 20px;
@@ -189,6 +225,10 @@ a {
   }
   .login h4 {
     font-size: 10px;
+  }
+  .logo_named{
+    width: 60%;
+    margin-left:0.5rem;
   }
   /* .loginpage {
     margin-top: 20px;
@@ -230,9 +270,13 @@ a {
     left: 50%;
     transform: translate(-50%, -50%);
   }
+  .login > input:focus {
+    outline: none;
+    border: 1px solid rgb(255, 94, 236);
+  }
   .customcheckbox {
     height: 12px;
-    margin-top: 12px;
+    margin-top: 8px;
   }
   .login a {
     font-size: 10px;

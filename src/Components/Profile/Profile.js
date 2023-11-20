@@ -1,26 +1,54 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Profile.module.css";
 import noimage from "../../assets/no-image.svg";
+import { ReactComponent as Loader } from "../../assets/signInButton.svg";
 import { useState } from "react";
+import * as jwt_decode from "jwt-decode";
+import getProfileUpdate from "../../api/getProfileUpdate";
 
 const Profile = () => {
   const [formData, setFormData] = useState({
-    firstName: "gaurav",
-    lastName: "Dembla",
-    email: "gaurav262001@gmail.com",
-    phone: "9910513597",
-    city: "new delhi",
-    niche: "business",
-    achievementLevel: "none",
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    city: "",
+    niche: "",
+    achievementLevel: "",
     imgURL: "",
     showImgURL: "",
+    img: "",
   });
+  //Loading of update button
+  const [showLoader, setShowLoader] = useState(false);
+  const [User, setUser] = useState(formData);
 
-  const name = "Gaurav";
+  //update profile pic thingy
+  const [updatePfp, setUpdatePfp] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const user = jwt_decode.jwtDecode(token);
+    setUser(user);
+
+    setFormData({
+      ...formData,
+      firstName: user["firstName"],
+      lastName: user["lastName"],
+      email: user["email"],
+      phone: user["mobile"],
+      city: user["city"],
+      niche: user["niche"],
+      achievementLevel: user["achievement"],
+      imgURL: user["profilePic"],
+      showImgURL: user["profilePic"],
+    });
+  }, []);
+
+  const name = User["fullName"];
   const joining = "31st march,2022";
   const end = "LIFE TIME";
-  const [showProfile, setShowProfile] = useState(false);
 
   const imageUploadHandler = async (img) => {
     console.log(img);
@@ -36,17 +64,17 @@ const Profile = () => {
     )
       .then((res) => res.json())
       .then((result) => {
-        console.log("imgbb", result);
         setFormData({
           ...formData,
           imgURL: result.data.url,
           showImgURL: result.data.display_url,
         });
-        setShowProfile(true);
       });
   };
 
   const formInputHandler = (event) => {
+    if (event.target.name == "img") setUpdatePfp(true);
+
     setFormData((prevState) => {
       return { ...prevState, [event.target.name]: event.target.value };
     });
@@ -54,18 +82,55 @@ const Profile = () => {
     console.log("changed");
   };
 
-  const formSubmitHandler = (event) => {
+  const formSubmitHandler = async (event) => {
     event.preventDefault();
-    const formData2 = new FormData(event.target);
-    const img = formData2.get("imgURL");
-    imageUploadHandler(img);
+    setShowLoader(true);
+    if (updatePfp) {
+      const formData2 = new FormData(event.target);
+      const img = formData2.get("img");
+      imageUploadHandler(img);
+    }
+
+    const user = {
+      id: User.id,
+      fullName: `${formData.firstName} ${formData.lastName}`,
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      mobile: formData.phone,
+      email: formData.email,
+      city: formData.city,
+      niche: formData.niche,
+      achievement: formData.achievementLevel,
+      profilePic: formData.imgURL,
+      team: User.team,
+    };
+
+    const newToken = await getProfileUpdate(user);
+    localStorage.setItem("token", newToken);
+
+    setTimeout(() => {
+      console.log("hello");
+      setShowLoader(false);
+    }, 3000);
     console.log(formData);
+  };
+
+  // logouthandler
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.location.href = "/login";
   };
 
   return (
     <div className={styles.container}>
       <div className={styles["page-titles"]}>
-        <NavLink to="/">Home / </NavLink> <p>Profile</p>
+        <NavLink className={styles.pageTitleItems} to="/">
+          Home /{" "}
+        </NavLink>{" "}
+        <p className={styles.pageTitleItems}>Profile</p>
+        <button onClick={handleLogout} className={styles.pageTitleItems}>
+          Logout
+        </button>
       </div>
 
       <div className={styles["page-body"]}>
@@ -75,7 +140,7 @@ const Profile = () => {
 
           <div className={styles.personal}>
             <img
-              src={showProfile ? formData.showImgURL : noimage}
+              src={formData.showImgURL ? formData.showImgURL : noimage}
               className={styles.profileimage}
             />
             <h1 className={styles.name}>{name}</h1>
@@ -167,7 +232,7 @@ const Profile = () => {
                   <input
                     required
                     type="tel"
-                    pattern="^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$"
+                    // pattern="^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$"
                     title="Enter a valid phone number."
                     value={formData.phone}
                     name="phone"
@@ -216,7 +281,7 @@ const Profile = () => {
               <label className={styles.labelheader}>Profile Pic</label>
               <div className={`${styles.single_section}`}>
                 <input
-                  name="imgURL"
+                  name="img"
                   onChange={formInputHandler}
                   className={styles.photo_select}
                   type="file"
@@ -224,8 +289,13 @@ const Profile = () => {
                 />
               </div>
               <button type="submit" className={styles.submit_details}>
-                Update Profile
+                {showLoader ? (
+                  <Loader className={styles.spinner} />
+                ) : (
+                  "Update Profile"
+                )}
               </button>
+              {/* <Button text="Update Profile" loading={showLoader} /> */}
             </div>
           </form>
         </div>

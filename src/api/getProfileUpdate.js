@@ -1,11 +1,11 @@
-const login = async (email, password, rememberMe) => {
+export default async (user) => {
   try {
     const response = await fetch(
-      `https://ascend-server.onrender.com/api/user/login`,
+      `https://ascend-server.onrender.com/api/user/profile-update`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password, rememberMe }),
+        body: JSON.stringify(user),
       }
     );
     const data = await response.json();
@@ -15,4 +15,3 @@ const login = async (email, password, rememberMe) => {
     console.log(error);
   }
 };
-export default login;
