@@ -1,7 +1,7 @@
 const login = async (email, password, rememberMe) => {
   try {
-    // const url = 'https://ascend-server.onrender.com';
-    const url = process.env.REACT_APP_API_URL;
+    const url = 'https://ascend-server.onrender.com';
+    // const url = process.env.REACT_APP_API_URL;
     console.log(url);
     const response = await fetch(`${url}/api/user/login`, {
       method: 'POST',

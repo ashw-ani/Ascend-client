@@ -4,15 +4,13 @@ import * as jwt_decode from 'jwt-decode';
 
 const AuthState = (props) => {
   const [user, setUser] = useState({});
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
       const userData = jwt_decode.jwtDecode(token);
       setUser(user);
-      console.log(user);
-      console.log(user);
       if (userData) return setLoggedIn(true);
     }
     return setLoggedIn(false);

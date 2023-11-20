@@ -27,7 +27,7 @@ function App() {
           <Profilepanel />
         </>
       ) : (
-        ''
+        <Redirect to='/login' />
       )}
       <Switch>
         <Route path='/login' exact>
