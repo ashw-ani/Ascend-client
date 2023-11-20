@@ -114,7 +114,7 @@ const Profile = () => {
                   </label>
                   <input
                     required
-                    value={User.lastName}
+                    value={formData.lastName}
                     name="lastName"
                     // onChange={formInputHandler}
                     type="text"
