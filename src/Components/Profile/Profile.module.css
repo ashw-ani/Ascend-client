@@ -180,6 +180,7 @@
 .profileimage {
   width: 5rem;
   height: 5rem;
+  margin-bottom: 0.5rem;
   fill: #777777;
   background-size: cover;
 }
@@ -299,6 +300,18 @@
   background-color: #f24353;
 }
 
+
+/* for tablet */
+@media screen and (max-width:950px) {
+  .double-labels{
+    width: 100%;
+  }
+  .emailinput{
+    width: 95%;
+  }
+  
+}
+
 @media screen and (max-width: 600px) {
   /* phone responsiveness */
   
@@ -366,7 +379,7 @@
     
   }
   .emailinput{
-    width: 100%;
+    width: 92%;
   }
   .double-labels {
     display: flex;
@@ -378,22 +391,9 @@
   }
 }
 
-/* for tablet */
-@media screen and (max-width:950px) {
-  .double-labels{
-    width: 100%;
-  }
-  .emailinput{
-    width: 92%;
-  }
-  
-}
+
 /* for fold */
 @media screen and (max-width:280px) {
-
-  .profileimage{
-    margin-bottom: 1rem;
-  }
 
   .double-section {
     display: flex;
