@@ -106,13 +106,15 @@ const Profile = () => {
           <hr className={styles.line} />
 
           <div className={styles.personal}>
-            <div className={styles.profileimageWrapper}>
-              <img
-                src={
-                  context.user.profilePic ? context.user.profilePic : noimage
-                }
-                className={styles.profileimage}
-              />
+            <div className={styles.profilePicWrapper}>
+              <div className={styles.profileimageWrapper}>
+                <img
+                  src={
+                    context.user.profilePic ? context.user.profilePic : noimage
+                  }
+                  className={styles.profileimage}
+                />
+              </div>
             </div>
             <h1 className={styles.name}>{formData.fullName}</h1>
             <p>
