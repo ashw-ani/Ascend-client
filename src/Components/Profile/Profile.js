@@ -77,10 +77,10 @@ const Profile = () => {
     console.log(formData);
   };
 
-  const saveDataHandler = async (imgURL) => {
+  const saveDataHandler = async () => {
     const token = await putProfileUpdate({
       ...formData,
-      profilepic: imgURL,
+      profilepic: formData.imageURL,
     });
     console.log(token);
     localStorage.removeItem("token");
