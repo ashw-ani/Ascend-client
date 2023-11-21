@@ -10,6 +10,7 @@ import { useContext } from "react";
 import AuthContext from "../../Context/AuthContext";
 import putProfileUpdate from "../../api/putProfileUpdate";
 import getProfile from "../../api/getProfile";
+// import Loader from "../UI/loading indicator/Loader";
 
 const Profile = () => {
   // logouthandler
@@ -91,6 +92,12 @@ const Profile = () => {
   const end = "LIFE TIME";
   return (
     <div className={styles.container}>
+      {showLoader && (
+        <div className={styles.spinnerDiv}>
+          <Loader className={styles.spinner} />
+        </div>
+      )}
+
       <div className={styles["page-titles"]}>
         <NavLink className={styles.pageTitleItems} to="/">
           Home /{" "}
