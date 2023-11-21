@@ -139,7 +139,7 @@ const Sidepanel = (props) => {
           </div>
         )} */}
 
-        <SidepanelItem
+        {/* <SidepanelItem
           class={sideitemsState.mytask ? "active" : "inactive"}
           onclick={toggleSideitemHandler}
           name={"mytask"}
@@ -158,8 +158,9 @@ const Sidepanel = (props) => {
             <Sidepanelsubitem>Calendar</Sidepanelsubitem>
             <Sidepanelsubitem>My Tasks</Sidepanelsubitem>
           </div>
-        )}
-        <SidepanelItem
+        )} */}
+
+        {/* <SidepanelItem
           class={sideitemsState.myactions ? "active" : "inactive"}
           onclick={toggleSideitemHandler}
           name={"myactions"}
@@ -171,16 +172,17 @@ const Sidepanel = (props) => {
               sideitemsState.myactions ? styles.more_active : styles.more
             }`}
           />
-        </SidepanelItem>
-        {sideitemsState.myactions && (
+        </SidepanelItem> */}
+
+        {/* {sideitemsState.myactions && (
           <div className={styles.subitems}>
             <Sidepanelsubitem>My Habits</Sidepanelsubitem>
             <Sidepanelsubitem>My Quizzes</Sidepanelsubitem>
             <Sidepanelsubitem>My Points</Sidepanelsubitem>
           </div>
-        )}
+        )} */}
 
-        <SidepanelItem
+        {/* <SidepanelItem
           class={sideitemsState.mystreaks ? "active" : "inactive"}
           onclick={toggleSideitemHandler}
           name={"mystreaks"}
@@ -200,9 +202,9 @@ const Sidepanel = (props) => {
             <Sidepanelsubitem>Calendar</Sidepanelsubitem>
             <Sidepanelsubitem>Finishline</Sidepanelsubitem>
           </div>
-        )}
+        )} */}
 
-        <SidepanelItem
+        {/* <SidepanelItem
           class={sideitemsState.mycharity ? "active" : "inactive"}
           onclick={(event) => {
             toggleSideitemHandler(event);
@@ -211,8 +213,9 @@ const Sidepanel = (props) => {
         >
           <AiOutlineHeart className={styles.sidepanelicons} />
           My Charity
-        </SidepanelItem>
-        <SidepanelItem
+        </SidepanelItem> */}
+
+        {/* <SidepanelItem
           class={sideitemsState.resources ? "active" : "inactive"}
           onclick={(event) => {
             toggleSideitemHandler(event);
@@ -221,8 +224,8 @@ const Sidepanel = (props) => {
         >
           <BsTools className={styles.sidepanelicons} />
           Resources
-        </SidepanelItem>
-        <SidepanelItem
+        </SidepanelItem> */}
+        {/* <SidepanelItem
           class={sideitemsState.helpdesk ? "active" : "inactive"}
           onclick={(event) => {
             toggleSideitemHandler(event);
@@ -231,7 +234,7 @@ const Sidepanel = (props) => {
         >
           <AiOutlineQuestionCircle className={styles.sidepanelicons} />
           Help Desk
-        </SidepanelItem>
+        </SidepanelItem> */}
       </div>
     </div>
   );

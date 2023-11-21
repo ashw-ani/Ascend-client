@@ -178,10 +178,14 @@
 }
 
 .profileimage {
-  width: 5rem;
-  height: 5rem;
   fill: #777777;
   background-size: cover;
+  object-fit: contain;
+}
+.profileimageWrapper {
+  width: 5rem;
+  height: 5rem;
+  object-fit: contain;
 }
 
 .name {
@@ -301,9 +305,6 @@
 
 @media screen and (max-width: 600px) {
   /* phone responsiveness */
-  
-
-
 
   .container {
     display: flex;
@@ -363,9 +364,8 @@
     margin-bottom: 0.7rem;
     gap: 1rem;
     width: 100%;
-    
   }
-  .emailinput{
+  .emailinput {
     width: 100%;
   }
   .double-labels {
@@ -379,19 +379,17 @@
 }
 
 /* for tablet */
-@media screen and (max-width:950px) {
-  .double-labels{
+@media screen and (max-width: 950px) {
+  .double-labels {
     width: 100%;
   }
-  .emailinput{
+  .emailinput {
     width: 92%;
   }
-  
 }
 /* for fold */
-@media screen and (max-width:280px) {
-
-  .profileimage{
+@media screen and (max-width: 280px) {
+  .profileimage {
     margin-bottom: 1rem;
   }
 
@@ -402,11 +400,10 @@
     gap: 1rem;
     width: 100%;
   }
-  .double-labels{
+  .double-labels {
     width: 100%;
   }
-  .emailinput{
+  .emailinput {
     width: 90%;
   }
- 
 }

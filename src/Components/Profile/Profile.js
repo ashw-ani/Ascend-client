@@ -71,12 +71,13 @@ const Profile = () => {
 
     //loading
     setShowLoader(false);
+    window.location.reload(true);
   };
 
   const saveDataHandler = async (newImg) => {
     const token = await putProfileUpdate({
       ...formData,
-      profilePic: newImg || formData.imgURL,
+      profilePic: newImg ? newImg : context.user.profilePic,
     });
     console.log(token);
     // localStorage.removeItem("token");
@@ -105,10 +106,14 @@ const Profile = () => {
           <hr className={styles.line} />
 
           <div className={styles.personal}>
-            <img
-              src={context.user.profilePic ? context.user.profilePic : noimage}
-              className={styles.profileimage}
-            />
+            <div className={styles.profileimageWrapper}>
+              <img
+                src={
+                  context.user.profilePic ? context.user.profilePic : noimage
+                }
+                className={styles.profileimage}
+              />
+            </div>
             <h1 className={styles.name}>{formData.fullName}</h1>
             <p>
               <b>Joining date : </b>
