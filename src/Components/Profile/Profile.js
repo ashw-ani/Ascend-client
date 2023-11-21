@@ -21,11 +21,16 @@ const Profile = () => {
   const context = useContext(AuthContext);
   const [formData, setFormData] = useState(context.user);
 
+  //Updating profile Updating
+  const [updatePfp, setUpdatePfp] = useState(false);
+
   useEffect(() => {
     setFormData(context.user);
   }, []);
 
   const formInputHandler = (event) => {
+    if (event.target.name == "img") setUpdatePfp(true);
+
     setFormData((prevState) => {
       return { ...prevState, [event.target.name]: event.target.value };
     });
@@ -34,6 +39,7 @@ const Profile = () => {
   const imageUploadHandler = async (img) => {
     const formData1 = new FormData();
     formData1.append("image", img);
+    // console.log("hello from image handler ,", formData1.get("image"));
 
     const response = await fetch(
       "https://api.imgbb.com/1/upload?key=64e26b821a87b1e73115ba89dac737b1",
@@ -43,6 +49,7 @@ const Profile = () => {
       }
     );
     const result = await response.json();
+    console.log("Showing the result", result);
     setFormData({
       ...formData,
       imgURL: result.data.url,
@@ -53,11 +60,21 @@ const Profile = () => {
 
   const formSubmitHandler = async (event) => {
     event.preventDefault();
-
     const formData2 = new FormData(event.target);
-    const img = formData2.get("img");
-    const imgURL = await imageUploadHandler(img);
-    await saveDataHandler(imgURL);
+    setShowLoader(true);
+
+    if (updatePfp) {
+      const img = formData2.get("img");
+      await imageUploadHandler(img);
+    }
+
+    await saveDataHandler();
+
+    //loading
+    setTimeout(() => {
+      setShowLoader(false);
+    }, 3000);
+    console.log(formData);
   };
 
   const saveDataHandler = async (imgURL) => {
