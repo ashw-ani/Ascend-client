@@ -9,7 +9,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useContext } from "react";
 import AuthContext from "../../Context/AuthContext";
 import putProfileUpdate from "../../api/putProfileUpdate";
-import * as jwt_decode from "jwt-decode";
+import getProfile from "../../api/getProfile";
 
 const Profile = () => {
   // logouthandler
@@ -81,6 +81,7 @@ const Profile = () => {
     console.log(token);
     localStorage.removeItem("token");
     localStorage.setItem("token", token);
+    getProfile(localStorage.getItem("token"));
   };
 
   // const name = "fullName";
