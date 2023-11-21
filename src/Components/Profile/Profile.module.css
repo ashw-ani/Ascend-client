@@ -368,3 +368,10 @@
     padding-left: 0;
   }
 }
+
+/* for tablet */
+@media screen and (max-width:950px) {
+  .double-labels{
+    width: 46%;
+  }
+}

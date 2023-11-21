@@ -30,7 +30,7 @@ const Profile = () => {
   }, []);
 
   const formInputHandler = (event) => {
-    if (event.target.name == "img") setUpdatePfp(true);
+    if (event.target.name === "img") setUpdatePfp(true);
 
     setFormData((prevState) => {
       return { ...prevState, [event.target.name]: event.target.value };
@@ -79,7 +79,7 @@ const Profile = () => {
       profilePic: newImg || formData.imgURL,
     });
     console.log(token);
-    localStorage.removeItem("token");
+    // localStorage.removeItem("token");
     localStorage.setItem("token", token);
     getProfile(localStorage.getItem("token"));
   };
