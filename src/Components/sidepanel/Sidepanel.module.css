@@ -84,7 +84,7 @@
   background-color: aqua;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 950px) {
   .sidepanel {
     box-sizing: border-box;
     background-color: #161a37;
