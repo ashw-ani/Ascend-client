@@ -179,7 +179,9 @@
 
 .profileimage {
   width: 5rem;
+  height: 5rem;
   fill: #777777;
+  background-size: cover;
 }
 
 .name {
@@ -299,6 +301,11 @@
 }
 
 @media screen and (max-width: 600px) {
+  /* phone responsiveness */
+  
+
+
+
   .container {
     display: flex;
     flex-flow: column;
@@ -355,10 +362,13 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 0.7rem;
-    gap: 2rem;
+    gap: 1rem;
+    width: 100%;
+    
+  }
+  .emailinput{
     width: 100%;
   }
-
   .double-labels {
     display: flex;
     flex-flow: column;
@@ -372,6 +382,32 @@
 /* for tablet */
 @media screen and (max-width:950px) {
   .double-labels{
-    width: 46%;
+    width: 100%;
   }
+  .emailinput{
+    width: 92%;
+  }
+  
+}
+/* for fold */
+@media screen and (max-width:280px) {
+
+  .profileimage{
+    margin-bottom: 1rem;
+  }
+
+  .double-section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.7rem;
+    gap: 1rem;
+    width: 100%;
+  }
+  .double-labels{
+    width: 100%;
+  }
+  .emailinput{
+    width: 90%;
+  }
+ 
 }
