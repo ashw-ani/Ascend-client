@@ -1,38 +1,29 @@
-import React, { useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
-import styles from './Profile.module.css';
-import noimage from '../../assets/no-image.svg';
-import { ReactComponent as Loader } from '../../assets/signInButton.svg';
-import { useState } from 'react';
-import getProfileUpdate from '../../api/putProfileUpdate';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-import { useContext } from 'react';
-import AuthContext from '../../Context/AuthContext';
+import React, { useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import styles from "./Profile.module.css";
+import noimage from "../../assets/no-image.svg";
+import { ReactComponent as Loader } from "../../assets/signInButton.svg";
+import { useState } from "react";
+import getProfileUpdate from "../../api/putProfileUpdate";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useContext } from "react";
+import AuthContext from "../../Context/AuthContext";
+import putProfileUpdate from "../../api/putProfileUpdate";
 
 const Profile = () => {
   // logouthandler
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    window.location.href = '/login';
+    localStorage.removeItem("token");
+    window.location.href = "/login";
   };
   //Loading of update button
   const [showLoader, setShowLoader] = useState(false);
-
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    city: '',
-    niche: '',
-    achievementLevel: '',
-    imgURL: '',
-    showImgURL: '',
-    img: '',
-  });
   const context = useContext(AuthContext);
+  const [formData, setFormData] = useState(context.user);
+
   useEffect(() => {
-    console.log(context.user);
+    setFormData(context.user);
+    console.log(formData);
   }, []);
 
   const formInputHandler = (event) => {
@@ -42,23 +33,70 @@ const Profile = () => {
     console.log(formData);
   };
 
-  const name = 'fullName';
-  const joining = '31st march,2022';
-  const end = 'LIFE TIME';
+  const imageUploadHandler = async (img) => {
+    const formData1 = new FormData();
+    formData1.append("image", img);
+
+    const response = await fetch(
+      "https://api.imgbb.com/1/upload?key=64e26b821a87b1e73115ba89dac737b1",
+      {
+        method: "POST",
+        body: formData1,
+      }
+    );
+    const result = await response.json();
+    setFormData({
+      ...formData,
+      imgURL: result.data.url,
+      showImgURL: result.data.display_url,
+    });
+  };
+
+  const formSubmitHandler = async (event) => {
+    event.preventDefault();
+
+    const formData2 = new FormData(event.target);
+    const img = formData2.get("img");
+    await imageUploadHandler(img);
+    await saveDataHandler();
+    console.log(formData);
+  };
+
+  const saveDataHandler = async () => {
+    setFormData({
+      "Customer ID": formData.id,
+      "Full Name": formData.fullName,
+      "First Name": formData.firstName,
+      "Last Name": formData.lastName,
+      "Email ID": formData.email,
+      "Mobile Number": formData.mobile,
+      City: formData.city,
+      Niche: formData.niche,
+      "Achievement Level": formData.achievement,
+      "Profile Pic Link": formData.imgURL,
+      "Team Name": formData.team,
+    });
+
+    await putProfileUpdate(formData);
+  };
+
+  const name = "fullName";
+  const joining = "31st march,2022";
+  const end = "LIFE TIME";
   return (
     <div className={styles.container}>
-      <div className={styles['page-titles']}>
-        <NavLink className={styles.pageTitleItems} to='/'>
-          Home /{' '}
-        </NavLink>{' '}
+      <div className={styles["page-titles"]}>
+        <NavLink className={styles.pageTitleItems} to="/">
+          Home /{" "}
+        </NavLink>{" "}
         <p className={styles.pageTitleItems}>Profile</p>
         <button onClick={handleLogout} className={styles.pageTitleItems}>
           Logout
         </button>
       </div>
 
-      <div className={styles['page-body']}>
-        <div className={styles['profile-view']}>
+      <div className={styles["page-body"]}>
+        <div className={styles["profile-view"]}>
           <h2 className={styles.heading}>Profile View</h2>
           <hr className={styles.line} />
 
@@ -67,7 +105,7 @@ const Profile = () => {
               src={formData.showImgURL ? formData.showImgURL : noimage}
               className={styles.profileimage}
             />
-            <h1 className={styles.name}>{name}</h1>
+            <h1 className={styles.name}>{formData.fullName}</h1>
             <p>
               <b>Joining date : </b>
               <i>{joining}</i>
@@ -100,14 +138,14 @@ const Profile = () => {
 
         {/* Profile edit */}
 
-        <div className={styles['profile-edit']}>
-          <form>
+        <div className={styles["profile-edit"]}>
+          <form onSubmit={formSubmitHandler}>
             <h2 className={styles.heading}>Edit Profile</h2>
             <hr className={styles.line} />
 
             <div className={styles.details}>
-              <div className={styles['double-section']}>
-                <div className={styles['double-labels']}>
+              <div className={styles["double-section"]}>
+                <div className={styles["double-labels"]}>
                   <label className={styles.labelheader}>
                     First Name
                     <b>*</b>
@@ -115,17 +153,14 @@ const Profile = () => {
                   <input
                     required
                     value={formData.firstName}
-                    name='firstName'
-                    // onChange={formInputHandler}
-                    type='text'
-                    name='firstName'
+                    name="firstName"
                     onChange={formInputHandler}
-                    type='text'
+                    type="text"
                     className={styles.inputer}
-                    placeholder='Enter User First Name'
+                    placeholder="Enter User First Name"
                   />
                 </div>
-                <div className={styles['double-labels']}>
+                <div className={styles["double-labels"]}>
                   <label className={styles.labelheader}>
                     Second Name
                     <b>*</b>
@@ -133,49 +168,44 @@ const Profile = () => {
                   <input
                     required
                     value={formData.lastName}
-                    name='lastName'
-                    // onChange={formInputHandler}
-                    type='text'
-                    name='lastName'
+                    name="lastName"
                     onChange={formInputHandler}
-                    type='text'
+                    type="text"
                     className={styles.inputer}
-                    placeholder='Enter User Second Name'
+                    placeholder="Enter User Second Name"
                   />
                 </div>
               </div>
-              <div className={styles['single-section']}>
+              <div className={styles["single-section"]}>
                 <label className={styles.labelheader}>Email Address</label>
                 <input
                   required
                   value={formData.email}
-                  namae='email'
-                  type='text'
+                  namae="email"
+                  type="text"
                   className={`${styles.emailinput} ${styles.inputer}`}
                   disabled
                 />
               </div>
-              <div className={styles['double-section']}>
-                <div className={styles['double-labels']}>
+              <div className={styles["double-section"]}>
+                <div className={styles["double-labels"]}>
                   <label className={styles.labelheader}>
                     Phone Number
                     <b>*</b>
                   </label>
                   <input
                     required
-                    type='tel'
+                    type="tel"
                     // pattern="^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$"
-                    title='Enter a valid phone number.'
-                    value={formData.phone}
-                    name='phone'
-                    // onChange={formInputHandler}
-                    name='phone'
+                    title="Enter a valid phone number."
+                    value={formData.mobile}
+                    name="mobile"
                     onChange={formInputHandler}
                     className={styles.inputer}
-                    placeholder='Enter Phone Number'
+                    placeholder="Enter Phone Number"
                   />
                 </div>
-                <div className={styles['double-labels']}>
+                <div className={styles["double-labels"]}>
                   <label className={styles.labelheader}>
                     City
                     <b>*</b>
@@ -183,30 +213,25 @@ const Profile = () => {
                   <input
                     required
                     value={formData.city}
-                    name='city'
-                    // onChange={formInputHandler}
-                    type='text'
-                    name='city'
+                    name="city"
                     onChange={formInputHandler}
-                    type='text'
+                    type="text"
                     className={styles.inputer}
-                    placeholder='City'
+                    placeholder="City"
                   />
                 </div>
               </div>
-              <div className={styles['single_section']}>
+              <div className={styles["single_section"]}>
                 <label className={styles.labelheader}>
                   Niche
                   <b>*</b>
                 </label>
                 <select
                   className={styles.nicheselect}
-                  name='niche'
-                  // onChange={formInputHandler}
-                  name='niche'
+                  name="niche"
                   onChange={formInputHandler}
                 >
-                  <option value='' selected disabled>
+                  <option value="" selected disabled>
                     Please select a niche
                   </option>
                 </select>
@@ -214,26 +239,24 @@ const Profile = () => {
               <div className={`${styles.single_section}`}>
                 <label className={styles.labelheader}>Achievement Level</label>
                 <div className={styles.achievement_level}>
-                  {formData.achievementLevel}
+                  {formData.achievement}
                 </div>
               </div>
               <label className={styles.labelheader}>Profile Pic</label>
               <div className={`${styles.single_section}`}>
                 <input
-                  name='img'
-                  // onChange={formInputHandler}
-                  name='img'
+                  name="img"
                   onChange={formInputHandler}
                   className={styles.photo_select}
-                  type='file'
-                  accept='image/png, image/jpeg, image/jpg,'
+                  type="file"
+                  accept="image/png, image/jpeg, image/jpg,"
                 />
               </div>
-              <button type='submit' className={styles.submit_details}>
+              <button type="submit" className={styles.submit_details}>
                 {showLoader ? (
                   <Loader className={styles.spinner} />
                 ) : (
-                  'Update Profile'
+                  "Update Profile"
                 )}
               </button>
             </div>
