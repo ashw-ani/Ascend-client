@@ -71,6 +71,7 @@ const Profile = () => {
 
     //loading
     setShowLoader(false);
+
     window.location.reload(true);
   };
 

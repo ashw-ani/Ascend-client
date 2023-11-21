@@ -83,9 +83,13 @@ const Sidepanel = (props) => {
           onclick={toggleSideitemHandler}
           name={"leaderboard"}
         >
-          <AiOutlineTrophy className={styles.sidepanelicons} />
+          <AiOutlineTrophy
+            className={styles.sidepanelicons}
+            name={"leaderboard"}
+          />
           Leaderboard
           <AiFillCaretRight
+            name={"leaderboard"}
             className={` ${
               sideitemsState.leaderboard ? styles.more_active : styles.more
             }`}
@@ -117,6 +121,7 @@ const Sidepanel = (props) => {
           <BsCalendar className={styles.sidepanelicons} name={"events"} />
           Events
         </SidepanelItem>
+        <SidepanelItem>My Courses</SidepanelItem>
 
         {/* my business */}
         {/* <SidepanelItem
