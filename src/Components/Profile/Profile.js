@@ -23,14 +23,12 @@ const Profile = () => {
 
   useEffect(() => {
     setFormData(context.user);
-    console.log(formData);
   }, []);
 
   const formInputHandler = (event) => {
     setFormData((prevState) => {
       return { ...prevState, [event.target.name]: event.target.value };
     });
-    console.log(formData);
   };
 
   const imageUploadHandler = async (img) => {
@@ -50,6 +48,7 @@ const Profile = () => {
       imgURL: result.data.url,
       showImgURL: result.data.display_url,
     });
+    return data.url;
   };
 
   const formSubmitHandler = async (event) => {
@@ -57,30 +56,21 @@ const Profile = () => {
 
     const formData2 = new FormData(event.target);
     const img = formData2.get("img");
-    await imageUploadHandler(img);
-    await saveDataHandler();
-    console.log(formData);
+    const imgURL = await imageUploadHandler(img);
+    await saveDataHandler(imgURL);
   };
 
-  const saveDataHandler = async () => {
-    setFormData({
-      "Customer ID": formData.id,
-      "Full Name": formData.fullName,
-      "First Name": formData.firstName,
-      "Last Name": formData.lastName,
-      "Email ID": formData.email,
-      "Mobile Number": formData.mobile,
-      City: formData.city,
-      Niche: formData.niche,
-      "Achievement Level": formData.achievement,
-      "Profile Pic Link": formData.imgURL,
-      "Team Name": formData.team,
+  const saveDataHandler = async (imgURL) => {
+    const token = await putProfileUpdate({
+      ...formData,
+      profilepic: imgURL,
     });
-
-    await putProfileUpdate(formData);
+    console.log(token);
+    localStorage.removeItem("token");
+    localStorage.setItem("token", token);
   };
 
-  const name = "fullName";
+  // const name = "fullName";
   const joining = "31st march,2022";
   const end = "LIFE TIME";
   return (

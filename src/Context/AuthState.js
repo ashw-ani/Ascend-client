@@ -1,17 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import AuthContext from './AuthContext';
-import * as jwt_decode from 'jwt-decode';
+import React, { useEffect, useState } from "react";
+import AuthContext from "./AuthContext";
+import * as jwt_decode from "jwt-decode";
 
 const AuthState = (props) => {
-  const [user, setUser] = useState({});
-  const [loggedIn, setLoggedIn] = useState(true);
+  const token = localStorage.getItem("token");
 
+  const [user, setUser] = useState(token ? jwt_decode.jwtDecode(token) : {});
+
+  const [loggedIn, setLoggedIn] = useState(true);
+  // let token = localStorage.getItem("token");
+  // var userData;
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     if (token) {
-      const userData = jwt_decode.jwtDecode(token);
-      setUser(userData);
-      if (userData) return setLoggedIn(true);
+      setUser(jwt_decode.jwtDecode(token));
+      if (jwt_decode.jwtDecode(token)) return setLoggedIn(true);
     }
     return setLoggedIn(false);
   }, []);
