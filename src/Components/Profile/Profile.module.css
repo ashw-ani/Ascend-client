@@ -28,12 +28,11 @@
 }
 
 /* logout button */
-.pageTitleItems{
-  flex:0 0 auto;
+.pageTitleItems {
+  flex: 0 0 auto;
   font-weight: 700;
-
 }
-.pageTitleItems:nth-child(3){
+.pageTitleItems:nth-child(3) {
   margin-left: auto;
   margin-right: 10px;
   background-color: white;
@@ -58,7 +57,6 @@
   background-color: #f24353;
 }
 
-
 .page-titles a {
   color: #e75e46;
   font-weight: 600;
@@ -80,10 +78,12 @@
 
 .profile-view {
   width: 35%;
+  display: flex;
+  flex-direction: column;
   /* padding: 0.8rem 0 0.6rem 1rem; */
   background-color: white;
   border-radius: 10px;
-  height: 25rem;
+  height: 30rem;
   box-shadow: 2px 0px 1rem rgba(0, 0, 0, 0.2);
 }
 
@@ -227,7 +227,7 @@
 .spinner {
   animation-name: spin;
   animation-duration: 500ms;
-  width:2rem;
+  width: 2rem;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
@@ -246,7 +246,6 @@
   color: #9fa3a9;
   cursor: not-allowed;
 }
-
 
 .photo_select {
   display: flex;
