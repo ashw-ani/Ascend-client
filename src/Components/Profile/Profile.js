@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useContext } from "react";
 import AuthContext from "../../Context/AuthContext";
 import putProfileUpdate from "../../api/putProfileUpdate";
+import * as jwt_decode from "jwt-decode";
 
 const Profile = () => {
   // logouthandler
@@ -49,13 +50,12 @@ const Profile = () => {
       }
     );
     const result = await response.json();
-    console.log("Showing the result", result);
     setFormData({
       ...formData,
       imgURL: result.data.url,
       showImgURL: result.data.display_url,
     });
-    return data.url;
+    return result.data.url;
   };
 
   const formSubmitHandler = async (event) => {
@@ -65,22 +65,18 @@ const Profile = () => {
 
     if (updatePfp) {
       const img = formData2.get("img");
-      await imageUploadHandler(img);
-    }
-
-    await saveDataHandler();
+      const newImg = await imageUploadHandler(img);
+      await saveDataHandler(newImg);
+    } else await saveDataHandler();
 
     //loading
-    setTimeout(() => {
-      setShowLoader(false);
-    }, 3000);
-    console.log(formData);
+    setShowLoader(false);
   };
 
-  const saveDataHandler = async () => {
+  const saveDataHandler = async (newImg) => {
     const token = await putProfileUpdate({
       ...formData,
-      profilepic: formData.imageURL,
+      profilePic: newImg || formData.imgURL,
     });
     console.log(token);
     localStorage.removeItem("token");
@@ -109,7 +105,7 @@ const Profile = () => {
 
           <div className={styles.personal}>
             <img
-              src={formData.showImgURL ? formData.showImgURL : noimage}
+              src={context.user.profilePic ? context.user.profilePic : noimage}
               className={styles.profileimage}
             />
             <h1 className={styles.name}>{formData.fullName}</h1>
