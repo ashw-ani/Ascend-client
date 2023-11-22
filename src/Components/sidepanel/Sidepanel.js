@@ -35,12 +35,10 @@ const Sidepanel = (props) => {
   const onClickDashboard = () => {
     navigation.push("/");
   };
-  const onClickSubitem = () => {
-    navigation.push("/leaderboard/water-enthusiasts");
+  const onClickSubitem = (event) => {
+    console.log(event.target.getAttribute("name"));
+    navigation.push(`/${event.target.getAttribute("name")}`);
   };
-  // const onClickLogin = () => {
-  //   navigation.push("/login");
-  // };
   const onClickProfile = () => {
     navigation.push("/profile");
   };
@@ -111,17 +109,36 @@ const Sidepanel = (props) => {
 
         {sideItemsWithMenu && (
           <div className={styles.subitems}>
-            <Sidepanelsubitem>Teams</Sidepanelsubitem>
-            <Sidepanelsubitem onClick={onClickSubitem}>
+            <Sidepanelsubitem
+              onClick={onClickSubitem}
+              name={"leaderboard/teams"}
+            >
+              Teams
+            </Sidepanelsubitem>
+            <Sidepanelsubitem
+              onClick={onClickSubitem}
+              name={"leaderboard/water-enthusiasts"}
+            >
               Water Enthusiasts
             </Sidepanelsubitem>
-            {/* <Sidepanelsubitem onClick={onClickLogin}>login</Sidepanelsubitem> */}
-            <Sidepanelsubitem onClick={onClickProfile}>
-              Profile
+            <Sidepanelsubitem
+              onClick={onClickSubitem}
+              name={"leaderboard/Scoreboard"}
+            >
+              Scoreboard
             </Sidepanelsubitem>
-            <Sidepanelsubitem>scoreboard</Sidepanelsubitem>
-            <Sidepanelsubitem>Dashboard</Sidepanelsubitem>
-            <Sidepanelsubitem>contests</Sidepanelsubitem>
+            <Sidepanelsubitem
+              onClick={onClickSubitem}
+              name={"leaderboard/Dashboard"}
+            >
+              Dashboard
+            </Sidepanelsubitem>
+            <Sidepanelsubitem
+              onClick={onClickSubitem}
+              name={"leaderboard/contests"}
+            >
+              contests
+            </Sidepanelsubitem>
           </div>
         )}
 
