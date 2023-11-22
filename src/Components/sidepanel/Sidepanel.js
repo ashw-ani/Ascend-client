@@ -39,9 +39,6 @@ const Sidepanel = (props) => {
     console.log(event.target.getAttribute("name"));
     navigation.push(`/${event.target.getAttribute("name")}`);
   };
-  const onClickProfile = () => {
-    navigation.push("/profile");
-  };
 
   const toggleSideitemHandler = (event) => {
     const key = event.target.getAttribute("name");
