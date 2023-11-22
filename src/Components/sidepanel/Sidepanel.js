@@ -22,7 +22,8 @@ import { useHistory } from "react-router-dom";
 import { IoBookOutline } from "react-icons/io5";
 
 const Sidepanel = (props) => {
-  const [sideitemsState, setsideitemState] = useState({});
+  const [sideItemsWithMenu, setsideItemsWithMenu] = useState(false);
+  const [sideItemsWithoutMenu, setsideItemsWithoutMenu] = useState({});
   // const [leaderboardState, setLeaderboardState] = useState(false);
   const [showPanel, setShowPanel] = useState(false);
   const navigation = useHistory();
@@ -37,17 +38,27 @@ const Sidepanel = (props) => {
   const onClickSubitem = () => {
     navigation.push("/leaderboard/water-enthusiasts");
   };
-  const onClickLogin = () => {
-    navigation.push("/login");
-  };
+  // const onClickLogin = () => {
+  //   navigation.push("/login");
+  // };
   const onClickProfile = () => {
     navigation.push("/profile");
   };
 
   const toggleSideitemHandler = (event) => {
     const key = event.target.getAttribute("name");
-    setsideitemState({ [key]: true });
-    // console.log(sideitemsState);
+    // console.log("Hy from clicking");
+    setsideItemsWithMenu(!sideItemsWithMenu);
+    setsideItemsWithoutMenu({});
+    // console.log(sideItemsWithoutMenu);
+  };
+
+  const withoutMenuItemsHandler = (event) => {
+    const key = event.target.getAttribute("name");
+    console.log("Hy from clicking", key, sideItemsWithoutMenu);
+    setsideItemsWithMenu(false);
+    setsideItemsWithoutMenu({ [key]: !sideItemsWithoutMenu[key] });
+    // console.log(sideItemsWithoutMenu);
   };
 
   return (
@@ -69,20 +80,19 @@ const Sidepanel = (props) => {
       </div>
       <div className={styles.sidepanelcontent}>
         <SidepanelItem
-          class={sideitemsState.dashboard ? "active" : "inactive"}
+          class={sideItemsWithoutMenu.dashboard ? "active" : "inactive"}
           onclick={(event) => {
             onClickDashboard();
-            toggleSideitemHandler(event);
+            withoutMenuItemsHandler(event);
           }}
           name={"dashboard"}
         >
-          <div className="itemsoverlay" name="dashboard"></div>
           <MdDashboard className={styles.sidepanelicons} />
           Dashboard
         </SidepanelItem>
 
         <SidepanelItem
-          class={sideitemsState.leaderboard ? "active" : "inactive"}
+          class={sideItemsWithMenu ? "active" : "inactive"}
           onclick={toggleSideitemHandler}
           name={"leaderboard"}
         >
@@ -94,12 +104,12 @@ const Sidepanel = (props) => {
           <AiFillCaretRight
             name="leaderboard"
             className={` ${
-              sideitemsState.leaderboard ? styles.more_active : styles.more
+              sideItemsWithMenu ? styles.more_active : styles.more
             }`}
           />
         </SidepanelItem>
 
-        {sideitemsState.leaderboard && (
+        {sideItemsWithMenu && (
           <div className={styles.subitems}>
             <Sidepanelsubitem>Teams</Sidepanelsubitem>
             <Sidepanelsubitem onClick={onClickSubitem}>
@@ -116,9 +126,9 @@ const Sidepanel = (props) => {
         )}
 
         <SidepanelItem
-          class={sideitemsState.events ? "active" : "inactive"}
+          class={sideItemsWithoutMenu.events ? "active" : "inactive"}
           onclick={(event) => {
-            toggleSideitemHandler(event);
+            withoutMenuItemsHandler(event);
           }}
           name={"events"}
         >
@@ -126,8 +136,8 @@ const Sidepanel = (props) => {
           Events
         </SidepanelItem>
         <SidepanelItem
-          class={sideitemsState.mycourses ? "active" : "inactive"}
-          onclick={toggleSideitemHandler}
+          class={sideItemsWithoutMenu.mycourses ? "active" : "inactive"}
+          onclick={(event) => withoutMenuItemsHandler(event)}
           name={"mycourses"}
         >
           <IoBookOutline className={styles.sidepanelicons} name="mycourses" />
@@ -136,7 +146,7 @@ const Sidepanel = (props) => {
 
         {/* my business */}
         {/* <SidepanelItem
-          class={sideitemsState.mybusiness ? "active" : "inactive"}
+          class={sideItemsWithoutMenu.mybusiness ? "active" : "inactive"}
           onclick={toggleSideitemHandler}
           name={"mybusiness"}
         >
@@ -144,11 +154,11 @@ const Sidepanel = (props) => {
           My Business
           <AiFillCaretRight
             className={` ${
-              sideitemsState.mybusiness ? styles.more_active : styles.more
+              sideItemsWithoutMenu.mybusiness ? styles.more_active : styles.more
             }`}
           />
         </SidepanelItem>
-        {sideitemsState.mybusiness && (
+        {sideItemsWithoutMenu.mybusiness && (
           <div className={styles.subitems}>
             <Sidepanelsubitem>Dashboard</Sidepanelsubitem>
             <Sidepanelsubitem>My Data</Sidepanelsubitem>
@@ -156,7 +166,7 @@ const Sidepanel = (props) => {
         )} */}
 
         {/* <SidepanelItem
-          class={sideitemsState.mytask ? "active" : "inactive"}
+          class={sideItemsWithoutMenu.mytask ? "active" : "inactive"}
           onclick={toggleSideitemHandler}
           name={"mytask"}
         >
@@ -164,11 +174,11 @@ const Sidepanel = (props) => {
           My Task
           <AiFillCaretRight
             className={` ${
-              sideitemsState.mytask ? styles.more_active : styles.more
+              sideItemsWithoutMenu.mytask ? styles.more_active : styles.more
             }`}
           />
         </SidepanelItem>
-        {sideitemsState.mytask && (
+        {sideItemsWithoutMenu.mytask && (
           <div className={styles.subitems}>
             <Sidepanelsubitem>Dashboard</Sidepanelsubitem>
             <Sidepanelsubitem>Calendar</Sidepanelsubitem>
@@ -177,7 +187,7 @@ const Sidepanel = (props) => {
         )} */}
 
         {/* <SidepanelItem
-          class={sideitemsState.myactions ? "active" : "inactive"}
+          class={sideItemsWithoutMenu.myactions ? "active" : "inactive"}
           onclick={toggleSideitemHandler}
           name={"myactions"}
         >
@@ -185,7 +195,7 @@ const Sidepanel = (props) => {
           My Action
           <AiFillCaretRight
             className={` ${
-              sideitemsState.myactions ? styles.more_active : styles.more
+              sideItemsWithoutMenu.myactions ? styles.more_active : styles.more
             }`}
           />
         </SidepanelItem> */}
