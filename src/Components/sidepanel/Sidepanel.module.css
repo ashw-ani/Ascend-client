@@ -4,6 +4,8 @@
   width: 15rem;
   height: 100vh;
   border-radius: 0 1.25rem 1.25rem 0;
+  z-index: 1000;
+
   position: fixed;
   overflow-x: hidden;
   padding: 0;
@@ -44,6 +46,8 @@
 }
 .sidepanelcontent {
   display: flex;
+  z-index: 1000;
+
   flex-direction: column;
   margin-top: 6rem;
   padding: 0 0.5rem;
@@ -68,16 +72,6 @@
   transition: all 0.3s;
 }
 
-.itemsoverlay {
-  z-index: 1000;
-  background-color: rgb(0, 255, 255);
-  width: 1rem;
-  height: 1rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
 .subitems {
   margin-left: 1.5rem;
   transition: all 0.3s;
@@ -95,7 +89,7 @@
 }
 
 @media screen and (max-width: 950px) {
-  .sidepanel {
+    .sidepanel {
     box-sizing: border-box;
     background-color: #161a37;
     width: 15rem;

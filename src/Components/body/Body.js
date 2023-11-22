@@ -8,29 +8,32 @@ import Leaderboard from "../Leaderboard/Leaderboard";
 import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
 import Login from "../Login/Login";
 import Profile from "../Profile/Profile";
+import SidePanelState from "../../Context/SidePanelState";
 
 const Body = (props) => {
   return (
-    <div className={styles.body}>
-      <Switch>
-        <Route path="/" exact>
-          <Header>Dashboard</Header>
-          <Dashboardintro />
-          <Statscontainer />
-          <Chartcontainer />
-        </Route>
+    <SidePanelState>
+      <div className={styles.body}>
+        <Switch>
+          <Route path="/" exact>
+            <Header>Dashboard</Header>
+            <Dashboardintro />
+            <Statscontainer />
+            <Chartcontainer />
+          </Route>
 
-        <Route path="/leaderboard/water-enthusiasts" exact>
-          <Header>Water Enthusiasts</Header>
-          <Leaderboard />
-        </Route>
+          <Route path="/leaderboard/water-enthusiasts" exact>
+            <Header>Water Enthusiasts</Header>
+            <Leaderboard />
+          </Route>
 
-        <Route path="/profile">
-          <Header>Profile</Header>
-          <Profile />
-        </Route>
-      </Switch>
-    </div>
+          <Route path="/profile">
+            <Header>Profile</Header>
+            <Profile />
+          </Route>
+        </Switch>
+      </div>
+    </SidePanelState>
   );
 };
 export default Body;

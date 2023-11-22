@@ -3,6 +3,7 @@
   flex-flow: column;
   gap: 1.8rem;
 }
+
 .container b {
   color: "red";
   font-size: "0.95rem";
@@ -332,6 +333,7 @@
 
 /* for tablet */
 @media screen and (max-width: 950px) {
+  
   .double-labels {
     width: 100%;
   }
@@ -343,7 +345,7 @@
 @media screen and (max-width: 600px) {
   /* phone responsiveness */
 
-  .container {
+  .container {  
     display: flex;
     flex-flow: column;
     gap: 1.8rem;
