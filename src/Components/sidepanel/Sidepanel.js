@@ -21,23 +21,38 @@ import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { AiFillCaretRight } from "react-icons/ai";
 import { useHistory } from "react-router-dom";
 import { IoBookOutline } from "react-icons/io5";
+import { useMyContext } from "../../Context/PanelContext";
 
 const Sidepanel = (props) => {
   const [sideItemsWithMenu, setsideItemsWithMenu] = useState(false);
   const [sideItemsWithoutMenu, setsideItemsWithoutMenu] = useState({});
-  // const [leaderboardState, setLeaderboardState] = useState(false);
-  const [showPanel, setShowPanel] = useState(false);
+  //for side panel context
+  const { showPaneltouch, updateShowPaneltouch } = useMyContext();
 
-  //For blur behind the leftSidePanel
-  const [showSidePanel, setshowSidePanel] = useState(true);
+  // const [leaderboardState, setLeaderboardState] = useState(false);
+  // const [showPanel, setShowPanel] = useState(showPaneltouch);
+  const { isVisible } = useMyContext();
+  const { toggleVisibility } = useMyContext();
 
   const navigation = useHistory();
   // const [myBusinessState, setMyBusinessState] = useState(false);
   // const [myTaskState, setMyTaskState] = useState(false);
   // const [myActionsState, setMyActionsState] = useState(false);
   // const [myStreaksState, setMyStreaksState] = useState(false);
-  const onClickMenu = (event) => {
-    setShowPanel((prevState) => !prevState);
+
+  const onClickHam = () => {
+    // setShowPanel((prevState) => !prevState);
+    // console.log("showPanel ", showPanel);
+    // console.log("value of showPanelTouch", showPaneltouch);
+    // console.log("isVisible", isVisible);
+    updateShowPaneltouch((prevState) => !prevState);
+    toggleVisibility();
+
+    // console.log("Again");
+    // console.log("showPanel ", showPanel);
+    // console.log("value of showPanelTouch", showPaneltouch);
+    // console.log("isVisible", isVisible);
+    // // console.log("value of showPaneltouch", showPaneltouch);
   };
 
   const onClickDashboard = () => {
@@ -66,110 +81,108 @@ const Sidepanel = (props) => {
   };
 
   return (
-    <SidePanelState>
-      <div
-        className={`${styles.sidepanel} ${
-          props.showPanel ? " " : styles.inactive
-        }`}
-      >
-        <div className={styles.hamburger_menu} onClick={onClickMenu}>
-          <div className={styles.ham}></div>
-          <div className={styles.ham}></div>
-          <div className={styles.ham}></div>
-        </div>
-
-        <div className={styles.sidepanelhead}>
-          <img src={logo} alt="logo" className={styles.mainlogo} />
-          {/* <img src={mainlogo} alt="logo" className={styles.mainlogo} />
+    <div
+      className={`${styles.sidepanel} ${
+        showPaneltouch ? " " : styles.inactive
+      }`}
+    >
+      <div className={styles.hamburger_menu} onClick={onClickHam}>
+        <div className={styles.ham}></div>
+        <div className={styles.ham}></div>
+        <div className={styles.ham}></div>
+      </div>
+      <div className={styles.sidepanelhead}>
+        <img src={logo} alt="logo" className={styles.mainlogo} />
+        {/* <img src={mainlogo} alt="logo" className={styles.mainlogo} />
         <img src={logotext} alt="logo" className={styles.logotext} /> */}
-        </div>
-        <div className={styles.sidepanelcontent}>
-          <SidepanelItem
-            class={sideItemsWithoutMenu.dashboard ? "active" : "inactive"}
-            onclick={(event) => {
-              onClickDashboard();
-              withoutMenuItemsHandler(event);
-            }}
-            name={"dashboard"}
-          >
-            <MdDashboard className={styles.sidepanelicons} />
-            Dashboard
-          </SidepanelItem>
+      </div>
+      <div className={styles.sidepanelcontent}>
+        <SidepanelItem
+          class={sideItemsWithoutMenu.dashboard ? "active" : "inactive"}
+          onclick={(event) => {
+            onClickDashboard();
+            withoutMenuItemsHandler(event);
+          }}
+          name={"dashboard"}
+        >
+          <MdDashboard className={styles.sidepanelicons} />
+          Dashboard
+        </SidepanelItem>
 
-          <SidepanelItem
-            class={sideItemsWithMenu ? "active" : "inactive"}
-            onclick={toggleSideitemHandler}
-            name={"leaderboard"}
-          >
-            <AiOutlineTrophy
-              className={styles.sidepanelicons}
-              name="leaderboard"
-            />
-            Leaderboard
-            <AiFillCaretRight
-              name="leaderboard"
-              className={` ${
-                sideItemsWithMenu ? styles.more_active : styles.more
-              }`}
-            />
-          </SidepanelItem>
+        <SidepanelItem
+          class={sideItemsWithMenu ? "active" : "inactive"}
+          onclick={toggleSideitemHandler}
+          name={"leaderboard"}
+        >
+          <AiOutlineTrophy
+            className={styles.sidepanelicons}
+            name="leaderboard"
+          />
+          Leaderboard
+          <AiFillCaretRight
+            name="leaderboard"
+            className={` ${
+              sideItemsWithMenu ? styles.more_active : styles.more
+            }`}
+          />
+        </SidepanelItem>
 
-          {sideItemsWithMenu && (
-            <div className={styles.subitems}>
-              <Sidepanelsubitem
-                onClick={onClickSubitem}
-                name={"leaderboard/teams"}
-              >
-                Teams
-              </Sidepanelsubitem>
-              <Sidepanelsubitem
-                onClick={onClickSubitem}
-                name={"leaderboard/water-enthusiasts"}
-              >
-                Water Enthusiasts
-              </Sidepanelsubitem>
-              <Sidepanelsubitem
-                onClick={onClickSubitem}
-                name={"leaderboard/Scoreboard"}
-              >
-                Scoreboard
-              </Sidepanelsubitem>
-              <Sidepanelsubitem
-                onClick={onClickSubitem}
-                name={"leaderboard/Dashboard"}
-              >
-                Dashboard
-              </Sidepanelsubitem>
-              <Sidepanelsubitem
-                onClick={onClickSubitem}
-                name={"leaderboard/contests"}
-              >
-                contests
-              </Sidepanelsubitem>
-            </div>
-          )}
+        {sideItemsWithMenu && (
+          <div className={styles.subitems}>
+            <Sidepanelsubitem
+              onClick={onClickSubitem}
+              name={"leaderboard/teams"}
+            >
+              Teams
+            </Sidepanelsubitem>
+            <Sidepanelsubitem
+              onClick={onClickSubitem}
+              name={"leaderboard/water-enthusiasts"}
+            >
+              Water Enthusiasts
+            </Sidepanelsubitem>
+            <Sidepanelsubitem
+              onClick={onClickSubitem}
+              name={"leaderboard/Scoreboard"}
+            >
+              Scoreboard
+            </Sidepanelsubitem>
+            <Sidepanelsubitem
+              onClick={onClickSubitem}
+              name={"leaderboard/Dashboard"}
+            >
+              Dashboard
+            </Sidepanelsubitem>
+            <Sidepanelsubitem
+              onClick={onClickSubitem}
+              name={"leaderboard/contests"}
+            >
+              contests
+            </Sidepanelsubitem>
+          </div>
+        )}
 
-          <SidepanelItem
-            class={sideItemsWithoutMenu.events ? "active" : "inactive"}
-            onclick={(event) => {
-              withoutMenuItemsHandler(event);
-            }}
-            name={"events"}
-          >
-            <BsCalendar className={styles.sidepanelicons} name={"events"} />
-            Events
-          </SidepanelItem>
-          <SidepanelItem
-            class={sideItemsWithoutMenu.mycourses ? "active" : "inactive"}
-            onclick={(event) => withoutMenuItemsHandler(event)}
-            name={"mycourses"}
-          >
-            <IoBookOutline className={styles.sidepanelicons} name="mycourses" />
-            My Courses
-          </SidepanelItem>
+        <SidepanelItem
+          class={sideItemsWithoutMenu.events ? "active" : "inactive"}
+          onclick={(event) => {
+            withoutMenuItemsHandler(event);
+          }}
+          name={"events"}
+        >
+          <BsCalendar className={styles.sidepanelicons} name={"events"} />
+          Events
+        </SidepanelItem>
+        <SidepanelItem
+          class={sideItemsWithoutMenu.mycourses ? "active" : "inactive"}
+          onclick={(event) => withoutMenuItemsHandler(event)}
+          name={"mycourses"}
+        >
+          <IoBookOutline className={styles.sidepanelicons} name="mycourses" />
+          My Courses
+        </SidepanelItem>
 
-          {/* my business */}
-          {/* <SidepanelItem
+        {/* my business */}
+        {/* <SidepanelItem
           class={sideItemsWithoutMenu.mybusiness ? "active" : "inactive"}
           onclick={toggleSideitemHandler}
           name={"mybusiness"}
@@ -189,7 +202,7 @@ const Sidepanel = (props) => {
           </div>
         )} */}
 
-          {/* <SidepanelItem
+        {/* <SidepanelItem
           class={sideItemsWithoutMenu.mytask ? "active" : "inactive"}
           onclick={toggleSideitemHandler}
           name={"mytask"}
@@ -210,7 +223,7 @@ const Sidepanel = (props) => {
           </div>
         )} */}
 
-          {/* <SidepanelItem
+        {/* <SidepanelItem
           class={sideItemsWithoutMenu.myactions ? "active" : "inactive"}
           onclick={toggleSideitemHandler}
           name={"myactions"}
@@ -224,7 +237,7 @@ const Sidepanel = (props) => {
           />
         </SidepanelItem> */}
 
-          {/* {sideitemsState.myactions && (
+        {/* {sideitemsState.myactions && (
           <div className={styles.subitems}>
             <Sidepanelsubitem>My Habits</Sidepanelsubitem>
             <Sidepanelsubitem>My Quizzes</Sidepanelsubitem>
@@ -232,7 +245,7 @@ const Sidepanel = (props) => {
           </div>
         )} */}
 
-          {/* <SidepanelItem
+        {/* <SidepanelItem
           class={sideitemsState.mystreaks ? "active" : "inactive"}
           onclick={toggleSideitemHandler}
           name={"mystreaks"}
@@ -254,7 +267,7 @@ const Sidepanel = (props) => {
           </div>
         )} */}
 
-          {/* <SidepanelItem
+        {/* <SidepanelItem
           class={sideitemsState.mycharity ? "active" : "inactive"}
           onclick={(event) => {
             toggleSideitemHandler(event);
@@ -265,7 +278,7 @@ const Sidepanel = (props) => {
           My Charity
         </SidepanelItem> */}
 
-          {/* <SidepanelItem
+        {/* <SidepanelItem
           class={sideitemsState.resources ? "active" : "inactive"}
           onclick={(event) => {
             toggleSideitemHandler(event);
@@ -275,7 +288,7 @@ const Sidepanel = (props) => {
           <BsTools className={styles.sidepanelicons} />
           Resources
         </SidepanelItem> */}
-          {/* <SidepanelItem
+        {/* <SidepanelItem
           class={sideitemsState.helpdesk ? "active" : "inactive"}
           onclick={(event) => {
             toggleSideitemHandler(event);
@@ -285,9 +298,8 @@ const Sidepanel = (props) => {
           <AiOutlineQuestionCircle className={styles.sidepanelicons} />
           Help Desk
         </SidepanelItem> */}
-        </div>
       </div>
-    </SidePanelState>
+    </div>
   );
 };
 export default Sidepanel;

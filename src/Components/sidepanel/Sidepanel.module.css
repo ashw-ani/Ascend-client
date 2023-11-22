@@ -1,5 +1,8 @@
+
+
 .sidepanel {
   box-sizing: border-box;
+  z-index: 11;
   background-color: #161a37;
   width: 15rem;
   height: 100vh;

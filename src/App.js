@@ -15,6 +15,7 @@ import { useContext } from "react";
 import AuthContext from "./Context/AuthContext";
 import login from "./api/getLogin";
 // import Header from "./Components/body/Header/Header";
+import { PanelContextProvider } from "../src/Context/PanelContext";
 
 function App() {
   const context = useContext(AuthContext);
@@ -22,9 +23,11 @@ function App() {
     <div className={`${styles.app}  `}>
       {context.loggedIn ? (
         <>
-          <Body />
-          <Sidepanel />
-          <Profilepanel />
+          <PanelContextProvider>
+            <Body />
+            <Sidepanel />
+            <Profilepanel />
+          </PanelContextProvider>
         </>
       ) : (
         <Redirect to="/login" />
