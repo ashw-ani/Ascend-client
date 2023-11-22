@@ -19,6 +19,7 @@ import { BsTools } from "react-icons/bs";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { AiFillCaretRight } from "react-icons/ai";
 import { useHistory } from "react-router-dom";
+import { IoBookOutline } from "react-icons/io5";
 
 const Sidepanel = (props) => {
   const [sideitemsState, setsideitemState] = useState({});
@@ -75,9 +76,11 @@ const Sidepanel = (props) => {
           }}
           name={"dashboard"}
         >
+          <div className="itemsoverlay" name="dashboard"></div>
           <MdDashboard className={styles.sidepanelicons} />
           Dashboard
         </SidepanelItem>
+
         <SidepanelItem
           class={sideitemsState.leaderboard ? "active" : "inactive"}
           onclick={toggleSideitemHandler}
@@ -85,16 +88,17 @@ const Sidepanel = (props) => {
         >
           <AiOutlineTrophy
             className={styles.sidepanelicons}
-            name={"leaderboard"}
+            name="leaderboard"
           />
           Leaderboard
           <AiFillCaretRight
-            name={"leaderboard"}
+            name="leaderboard"
             className={` ${
               sideitemsState.leaderboard ? styles.more_active : styles.more
             }`}
           />
         </SidepanelItem>
+
         {sideitemsState.leaderboard && (
           <div className={styles.subitems}>
             <Sidepanelsubitem>Teams</Sidepanelsubitem>
@@ -121,7 +125,14 @@ const Sidepanel = (props) => {
           <BsCalendar className={styles.sidepanelicons} name={"events"} />
           Events
         </SidepanelItem>
-        <SidepanelItem>My Courses</SidepanelItem>
+        <SidepanelItem
+          class={sideitemsState.mycourses ? "active" : "inactive"}
+          onclick={toggleSideitemHandler}
+          name={"mycourses"}
+        >
+          <IoBookOutline className={styles.sidepanelicons} name="mycourses" />
+          My Courses
+        </SidepanelItem>
 
         {/* my business */}
         {/* <SidepanelItem
