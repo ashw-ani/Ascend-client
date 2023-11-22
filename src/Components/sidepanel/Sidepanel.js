@@ -20,17 +20,39 @@ import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { AiFillCaretRight } from "react-icons/ai";
 import { useHistory } from "react-router-dom";
 import { IoBookOutline } from "react-icons/io5";
+import { useMyContext } from "../../Context/PanelContext";
 
 const Sidepanel = (props) => {
   const [sideItemsWithMenu, setsideItemsWithMenu] = useState(false);
   const [sideItemsWithoutMenu, setsideItemsWithoutMenu] = useState({});
+  //for side panel context
+  const { showPaneltouch, updateShowPaneltouch } = useMyContext();
+
   // const [leaderboardState, setLeaderboardState] = useState(false);
-  const [showPanel, setShowPanel] = useState(false);
+  // const [showPanel, setShowPanel] = useState(showPaneltouch);
+  const { isVisible } = useMyContext();
+  const { toggleVisibility } = useMyContext();
+
   const navigation = useHistory();
   // const [myBusinessState, setMyBusinessState] = useState(false);
   // const [myTaskState, setMyTaskState] = useState(false);
   // const [myActionsState, setMyActionsState] = useState(false);
   // const [myStreaksState, setMyStreaksState] = useState(false);
+
+  const onClickHam = () => {
+    // setShowPanel((prevState) => !prevState);
+    // console.log("showPanel ", showPanel);
+    // console.log("value of showPanelTouch", showPaneltouch);
+    // console.log("isVisible", isVisible);
+    updateShowPaneltouch((prevState) => !prevState);
+    toggleVisibility();
+
+    // console.log("Again");
+    // console.log("showPanel ", showPanel);
+    // console.log("value of showPanelTouch", showPaneltouch);
+    // console.log("isVisible", isVisible);
+    // // console.log("value of showPaneltouch", showPaneltouch);
+  };
 
   const onClickDashboard = () => {
     navigation.push("/");
@@ -57,13 +79,12 @@ const Sidepanel = (props) => {
   };
 
   return (
-    <div className={`${styles.sidepanel} ${showPanel ? " " : styles.inactive}`}>
-      <div
-        className={styles.hamburger_menu}
-        onClick={() => {
-          setShowPanel((prevState) => !prevState);
-        }}
-      >
+    <div
+      className={`${styles.sidepanel} ${
+        showPaneltouch ? " " : styles.inactive
+      }`}
+    >
+      <div className={styles.hamburger_menu} onClick={onClickHam}>
         <div className={styles.ham}></div>
         <div className={styles.ham}></div>
         <div className={styles.ham}></div>
