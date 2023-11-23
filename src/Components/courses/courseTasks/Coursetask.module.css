@@ -1,0 +1,15 @@
+.task_wrapper {
+  padding: 0.5rem;
+  border-bottom: 1px solid rgba(22, 26, 55, 0.2);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: 1rem;
+}
+.completion {
+  height: 0.5rem;
+  width: 0.5rem;
+  border: 1px solid black;
+  border-radius: 2px;
+}

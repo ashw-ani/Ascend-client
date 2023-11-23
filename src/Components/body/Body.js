@@ -9,6 +9,9 @@ import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
 import Login from "../Login/Login";
 import Profile from "../Profile/Profile";
 import { useMyContext } from "../../Context/PanelContext";
+import Silver from "../courses/Silver";
+import Gold from "../courses/Gold";
+import Diamond from "../courses/Diamond";
 
 const Body = (props) => {
   const { showPaneltouch, updateShowPaneltouch } = useMyContext();
@@ -46,6 +49,21 @@ const Body = (props) => {
         <Route path="/profile">
           <Header>Profile</Header>
           <Profile />
+        </Route>
+
+        <Route path="/courses/silver" exact>
+          <Header>Silver Courses</Header>
+          <Silver />
+        </Route>
+
+        <Route path="/courses/gold" exact>
+          <Header>Gold Courses</Header>
+          <Gold />
+        </Route>
+
+        <Route path="/courses/diamond" exact>
+          <Header>Diamond Courses</Header>
+          <Diamond />
         </Route>
       </Switch>
     </div>

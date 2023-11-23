@@ -22,6 +22,8 @@ import { AiFillCaretRight } from "react-icons/ai";
 import { useHistory } from "react-router-dom";
 import { IoBookOutline } from "react-icons/io5";
 import { useMyContext } from "../../Context/PanelContext";
+import { BsCoin } from "react-icons/bs";
+import { IoDiamondSharp } from "react-icons/io5";
 
 const Sidepanel = (props) => {
   const [sideItemsWithMenu, setsideItemsWithMenu] = useState({});
@@ -183,12 +185,15 @@ const Sidepanel = (props) => {
         {sideItemsWithMenu.Courses && (
           <div className={styles.subitems}>
             <Sidepanelsubitem onClick={onClickSubitem} name={"courses/silver"}>
+              <BsCoin />
               Silver
             </Sidepanelsubitem>
             <Sidepanelsubitem onClick={onClickSubitem} name={"courses/gold"}>
+              <BsCoin />
               Gold
             </Sidepanelsubitem>
             <Sidepanelsubitem onClick={onClickSubitem} name={"courses/diamond"}>
+              <IoDiamondSharp />
               Diamond
             </Sidepanelsubitem>
           </div>
