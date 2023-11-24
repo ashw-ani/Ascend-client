@@ -9,7 +9,7 @@ import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
 import Login from "../Login/Login";
 import Profile from "../Profile/Profile";
 import { useMyContext } from "../../Context/PanelContext";
-import Silver from "../courses/silver";
+import Silver from "../courses/Silver";
 import Gold from "../courses/Gold";
 import Diamond from "../courses/Diamond";
 
