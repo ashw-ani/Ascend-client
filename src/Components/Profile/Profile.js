@@ -10,6 +10,7 @@ import { useContext } from "react";
 import AuthContext from "../../Context/AuthContext";
 import putProfileUpdate from "../../api/putProfileUpdate";
 import getProfile from "../../api/getProfile";
+import FetchCustomerDetails from "../../api/fetchCutomerDetails";
 // import Loader from "../UI/loading indicator/Loader";
 
 const Profile = () => {
@@ -27,7 +28,14 @@ const Profile = () => {
   const [updatePfp, setUpdatePfp] = useState(false);
 
   useEffect(() => {
-    setFormData(context.user);
+    const fetchingTheDetails = async () => {
+      const token = localStorage.getItem("token");
+      const userData = await FetchCustomerDetails(token);
+      console.log("my user", userData);
+
+      setFormData(userData);
+    };
+    fetchingTheDetails();
   }, []);
 
   const formInputHandler = (event) => {
