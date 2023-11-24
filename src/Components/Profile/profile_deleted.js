@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Profile.module.css";
 import noimage from "../../assets/no-image.svg";
