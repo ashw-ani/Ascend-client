@@ -30,10 +30,13 @@ const Profile = () => {
   useEffect(() => {
     const fetchingTheDetails = async () => {
       const token = localStorage.getItem("token");
+      setShowLoader(true);
       const userData = await FetchCustomerDetails(token);
+
       console.log("my user", userData);
 
       setFormData(userData);
+      setShowLoader(false);
     };
     fetchingTheDetails();
   }, []);
