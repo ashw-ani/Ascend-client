@@ -7,8 +7,8 @@ export default async (user) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),
     });
-    const data = await response.json();
-    return data.token;
+    // const data = await response.json();
+    return response.ok ? true : false;
   } catch (error) {
     console.log(error);
   }

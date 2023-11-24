@@ -88,14 +88,12 @@ const Profile = () => {
   };
 
   const saveDataHandler = async (newImg) => {
-    const token = await putProfileUpdate({
+    const responseok = await putProfileUpdate({
       ...formData,
       profilePic: newImg ? newImg : context.user.profilePic,
     });
-    console.log(token);
-    // localStorage.removeItem("token");
-    localStorage.setItem("token", token);
-    getProfile(localStorage.getItem("token"));
+    // getProfile(localStorage.getItem("token"));
+    if (responseok) console.log("doing");
   };
 
   // const name = "fullName";
@@ -138,11 +136,11 @@ const Profile = () => {
             <h1 className={styles.name}>{formData.fullName}</h1>
             <p>
               <b>Joining date : </b>
-              <i>{joining}</i>
+              <i>{formData.joiningDate}</i>
             </p>
             <p>
               <b>End Date : </b>
-              <i>{end}</i>
+              <i>{formData.endDate ? formData.endDate : "Life Time"}</i>
             </p>
           </div>
           <hr className={styles.line} />
@@ -228,8 +226,8 @@ const Profile = () => {
                     type="tel"
                     // pattern="^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$"
                     title="Enter a valid phone number."
-                    value={formData.mobile}
-                    name="mobile"
+                    value={formData.phone}
+                    name="phone"
                     onChange={formInputHandler}
                     className={styles.inputer}
                     placeholder="Enter Phone Number"
