@@ -3,6 +3,7 @@ import styles from "./courses.module.css";
 import { FaSortDown } from "react-icons/fa";
 import Coursetask from "./courseTasks/Coursetask";
 import { useState } from "react";
+import CourseTitle from "./CourseTitle/CourseTitle";
 
 function Silver(props) {
   const [showCourse, setshowCourse] = useState({
@@ -26,6 +27,9 @@ function Silver(props) {
   return (
     <>
       <div className={styles.courses_body}>
+        <CourseTitle  name={"course_title"}/>
+      </div>
+      {/* <div className={styles.courses_body}>
         <div
           className={styles.course_title}
           name="Angel_Affirmations"
@@ -214,7 +218,7 @@ function Silver(props) {
           <Coursetask />
           <Coursetask />
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
