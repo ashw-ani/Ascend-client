@@ -9,13 +9,7 @@ import CourseTitle from "./CourseTitle/CourseTitle";
 
 function Gold(props) {
   const [courses, setCourses] = useState(null);
-  const [showCourse, setshowCourse] = useState({
-    AOE_Masterclass: false,
-    Angels_and_Chakras: false,
-    Increase_your_Psychic_Powers: false,
-    Profitable_Psychic_Profession: false,
-    Guided_Meditations: false,
-  });
+
   useEffect(() => {
     const fethCourses = async () => {
       const courses = await getCourses();
@@ -25,12 +19,12 @@ function Gold(props) {
     fethCourses();
   }, []);
 
-  const toggleCourseHandler = (event) => {
-    let key = event.target.getAttribute("name");
-    console.log(key);
-    setshowCourse((prevState) => ({ ...prevState, [key]: !showCourse[key] }));
-    console.log(showCourse);
-  };
+  // const toggleCourseHandler = (event) => {
+  //   let key = event.target.getAttribute("name");
+  //   console.log(key);
+  //   setshowCourse((prevState) => ({ ...prevState, [key]: !showCourse[key] }));
+  //   console.log(showCourse);
+  // };
 
   return (
     <>

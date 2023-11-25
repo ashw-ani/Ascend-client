@@ -1,25 +1,31 @@
 import React, { useState } from "react";
 import styles from "./Sectiontitle.module.css";
 import { FaSortDown } from "react-icons/fa";
+import Courselecture from "../CourseLecture/CourseLecture";
 
 function Sectiontitle(props) {
-  console.log(props);
-  const [showSections, setshowSections] = useState({});
-  const [Sections, setSections] = useState({});
+  const [showSection, setShowSection] = useState({});
+  // const [Sections, setSections] = useState({});
 
-  const toggleCourseHandler = (event) => {
-    let key = event.target.getAttribute("name");
-    setshowSections((prevState) => ({
-      ...prevState,
-      [key]: !showSections[key],
-    }));
+  const toggleSectionHandler = (event) => {
+    setShowSection((prev) => !prev);
+    // console.log(showSection);
+    // console.log(props);
+    // setshowCourse((prevState) => ({ ...prevState, [key]: !showCourse[key] }));
+    // console.log(showCourse);
   };
 
   return (
-    <div className={styles.section_title}>
-      {props.sectionData.name}
-      <FaSortDown className={styles.more} />
-    </div>
+    <>
+      <div onClick={toggleSectionHandler} className={styles.section_title}>
+        {props.sectionData.name}
+        <FaSortDown className={styles.more} />
+      </div>
+      {props.sectionData.lectures.map((lecture) => {
+        <Courselecture lectureData={lecture} />;
+      })}
+    </>
+    //  { showSection && }
   );
 }
 

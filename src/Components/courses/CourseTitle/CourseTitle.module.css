@@ -13,7 +13,7 @@
   color: #000000;
   cursor: pointer;
   user-select: none;
-  margin: 1rem 0 0.5rem 0;
+  margin: 1rem 0 0.1rem 0;
 }
 .course_title:hover {
   background-color: rgb(199, 199, 199);
@@ -24,4 +24,21 @@
   justify-content: center;
   align-items: center;
   color: #000000;
+}
+.sections {
+  animation: loadsections 0.4s;
+  position: relative;
+}
+@keyframes loadsections {
+  from {
+    opacity: 0;
+
+    height: 0;
+  }
+
+  to {
+    opacity: 1;
+
+    height: 100%;
+  }
 }
