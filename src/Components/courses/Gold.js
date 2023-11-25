@@ -1,14 +1,21 @@
 import React from "react";
 import styles from "./courses.module.css";
 import { FaSortDown } from "react-icons/fa";
-import Coursetask from "./courseTasks/Coursetask";
+// import Coursetask from "./courseTasks/Coursetask";
 import { useState } from "react";
 import getCourses from "../../api/getCourses";
 import { useEffect } from "react";
+import CourseTitle from "./CourseTitle/CourseTitle";
 
 function Gold(props) {
   const [courses, setCourses] = useState(null);
-
+  const [showCourse, setshowCourse] = useState({
+    AOE_Masterclass: false,
+    Angels_and_Chakras: false,
+    Increase_your_Psychic_Powers: false,
+    Profitable_Psychic_Profession: false,
+    Guided_Meditations: false,
+  });
   useEffect(() => {
     const fethCourses = async () => {
       const courses = await getCourses();
@@ -17,14 +24,6 @@ function Gold(props) {
     };
     fethCourses();
   }, []);
-
-  const [showCourse, setshowCourse] = useState({
-    AOE_Masterclass: false,
-    Angels_and_Chakras: false,
-    Increase_your_Psychic_Powers: false,
-    Profitable_Psychic_Profession: false,
-    Guided_Meditations: false,
-  });
 
   const toggleCourseHandler = (event) => {
     let key = event.target.getAttribute("name");
@@ -36,11 +35,15 @@ function Gold(props) {
   return (
     <>
       {courses && (
-        <ul>
+        <div className={styles.courses_body}>
           {courses.map((course) => (
-            <li key={course.id}>{course.name}</li>
+            <CourseTitle
+              key={course.id}
+              courseData={course}
+              onclick={console.log("clicked")}
+            />
           ))}
-        </ul>
+        </div>
       )}
     </>
   );

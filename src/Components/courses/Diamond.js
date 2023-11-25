@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./courses.module.css";
 import { FaSortDown } from "react-icons/fa";
-import Coursetask from "./courseTasks/Coursetask";
+// import Coursetask from "./courseTasks/Coursetask";
 import { useState } from "react";
 
 function Diamond(props) {
@@ -44,10 +44,10 @@ function Diamond(props) {
               : styles.hide_tasks
           }`}
         >
+          {/* <Coursetask />
           <Coursetask />
           <Coursetask />
-          <Coursetask />
-          <Coursetask />
+          <Coursetask /> */}
         </div>
         <div
           className={styles.course_title}
@@ -63,12 +63,7 @@ function Diamond(props) {
               ? styles.show_tasks
               : styles.hide_tasks
           }`}
-        >
-          <Coursetask />
-          <Coursetask />
-          <Coursetask />
-          <Coursetask />
-        </div>
+        ></div>
         <div
           className={styles.course_title}
           name="Tame_the_Lion"
@@ -82,10 +77,10 @@ function Diamond(props) {
             showCourse.Tame_the_Lion ? styles.show_tasks : styles.hide_tasks
           }`}
         >
+          {/* <Coursetask />
           <Coursetask />
           <Coursetask />
-          <Coursetask />
-          <Coursetask />
+          <Coursetask /> */}
         </div>
         <div
           className={styles.course_title}
@@ -100,10 +95,10 @@ function Diamond(props) {
             showCourse["Body_&_You"] ? styles.show_tasks : styles.hide_tasks
           }`}
         >
+          {/* <Coursetask />
           <Coursetask />
           <Coursetask />
-          <Coursetask />
-          <Coursetask />
+          <Coursetask /> */}
         </div>
         <div
           className={styles.course_title}
@@ -118,10 +113,10 @@ function Diamond(props) {
             showCourse.Digital_Coaching ? styles.show_tasks : styles.hide_tasks
           }`}
         >
+          {/* <Coursetask />
           <Coursetask />
           <Coursetask />
-          <Coursetask />
-          <Coursetask />
+          <Coursetask /> */}
         </div>
         <div
           className={styles.course_title}
@@ -136,10 +131,10 @@ function Diamond(props) {
             showCourse.Law_of_Attraction ? styles.show_tasks : styles.hide_tasks
           }`}
         >
+          {/* <Coursetask />
           <Coursetask />
           <Coursetask />
-          <Coursetask />
-          <Coursetask />
+          <Coursetask /> */}
         </div>
         <div
           className={styles.course_title}
@@ -156,10 +151,10 @@ function Diamond(props) {
               : styles.hide_tasks
           }`}
         >
+          {/* <Coursetask />
           <Coursetask />
           <Coursetask />
-          <Coursetask />
-          <Coursetask />
+          <Coursetask /> */}
         </div>
         <div
           className={styles.course_title}
@@ -176,10 +171,10 @@ function Diamond(props) {
               : styles.hide_tasks
           }`}
         >
+          {/* <Coursetask />
           <Coursetask />
           <Coursetask />
-          <Coursetask />
-          <Coursetask />
+          <Coursetask /> */}
         </div>
         <div
           className={styles.course_title}
@@ -196,10 +191,10 @@ function Diamond(props) {
               : styles.hide_tasks
           }`}
         >
+          {/* <Coursetask />
           <Coursetask />
           <Coursetask />
-          <Coursetask />
-          <Coursetask />
+          <Coursetask /> */}
         </div>
         <div
           className={styles.course_title}
@@ -214,10 +209,10 @@ function Diamond(props) {
             showCourse.Charismatic_Coach ? styles.show_tasks : styles.hide_tasks
           }`}
         >
+          {/* <Coursetask />
           <Coursetask />
           <Coursetask />
-          <Coursetask />
-          <Coursetask />
+          <Coursetask /> */}
         </div>
         <div
           className={styles.course_title}
@@ -234,10 +229,10 @@ function Diamond(props) {
               : styles.hide_tasks
           }`}
         >
+          {/* <Coursetask />
           <Coursetask />
           <Coursetask />
-          <Coursetask />
-          <Coursetask />
+          <Coursetask /> */}
         </div>
       </div>
     </>

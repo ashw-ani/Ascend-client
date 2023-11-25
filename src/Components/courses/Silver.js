@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import styles from "./courses.module.css";
 import { FaSortDown } from "react-icons/fa";
-import Coursetask from "./courseTasks/CourseLecture";
+// import Coursetask from "./courseTasks/CourseLecture";
 import { useState } from "react";
 import CourseTitle from "./CourseTitle/CourseTitle";
 
@@ -38,7 +38,7 @@ function Silver(props) {
   return (
     <>
       <div className={styles.courses_body}>
-        <CourseTitle  name={"course_title"}/>
+        <CourseTitle name={"course_title"} />
       </div>
       {/* <div className={styles.courses_body}>
         <div
