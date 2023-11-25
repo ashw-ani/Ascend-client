@@ -32,7 +32,7 @@ const Profile = () => {
       const token = localStorage.getItem("token");
       setShowLoader(true);
       const userData = await FetchCustomerDetails(token);
-
+      userData.fullName = userData.firstName + " " + userData.lastName;
       console.log("my user", userData);
 
       setFormData(userData);
@@ -64,10 +64,14 @@ const Profile = () => {
     const result = await response.json();
     setFormData({
       ...formData,
-      imgURL: result.data.url,
-      showImgURL: result.data.display_url,
+      imgUrl: result.data.url,
+      displayUrl: result.data.display_url,
     });
-    return result.data.url;
+    const imgData = {
+      display_url: result.data.display_url,
+      imgUrl: result.data.url,
+    };
+    return imgData;
   };
 
   const formSubmitHandler = async (event) => {
@@ -77,23 +81,40 @@ const Profile = () => {
 
     if (updatePfp) {
       const img = formData2.get("img");
-      const newImg = await imageUploadHandler(img);
-      await saveDataHandler(newImg);
+      const imgData = await imageUploadHandler(img);
+      const newImg = imgData.imgUrl;
+      const display_url = imgData.display_url;
+      // console.log(newImg);
+      await saveDataHandler(newImg, display_url);
     } else await saveDataHandler();
 
     //loading
     setShowLoader(false);
 
-    window.location.reload(true);
+    // window.location.reload(true);
   };
 
-  const saveDataHandler = async (newImg) => {
-    const responseok = await putProfileUpdate({
+  const saveDataHandler = async (newImg, display_url) => {
+    // console.log(newImg);
+    const res = await putProfileUpdate({
       ...formData,
-      profilePic: newImg ? newImg : context.user.profilePic,
+      imgUrl: newImg ? newImg : formData.imgUrl,
+      displayUrl: display_url ? display_url : formData.displayUrl,
+      fullName: formData.firstName + " " + formData.lastName,
     });
+    if (res) {
+      setFormData({
+        ...formData,
+        imgUrl: newImg ? newImg : formData.imgUrl,
+        displayUrl: display_url ? display_url : formData.displayUrl,
+        fullName: formData.firstName + " " + formData.lastName,
+      });
+    }
+
+    // console.log(token);
+    // localStorage.removeItem("token");
+    // localStorage.setItem("token", token);
     // getProfile(localStorage.getItem("token"));
-    if (responseok) console.log("doing");
   };
 
   // const name = "fullName";
@@ -126,9 +147,7 @@ const Profile = () => {
             <div className={styles.profilePicWrapper}>
               <div className={styles.profileimageWrapper}>
                 <img
-                  src={
-                    context.user.profilePic ? context.user.profilePic : noimage
-                  }
+                  src={formData.displayUrl ? formData.displayUrl : noimage}
                   className={styles.profileimage}
                 />
               </div>
