@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import styles from "./courses.module.css";
 import { FaSortDown } from "react-icons/fa";
-import Coursetask from "./courseTasks/Coursetask";
+import Coursetask from "./courseTasks/CourseLecture";
 import { useState } from "react";
 import CourseTitle from "./CourseTitle/CourseTitle";
 
