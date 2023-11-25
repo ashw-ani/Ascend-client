@@ -31,6 +31,7 @@ const Profile = () => {
     const fetchingTheDetails = async () => {
       const token = localStorage.getItem("token");
       const userData = await FetchCustomerDetails(token);
+      userData.fullName = userData.firstName + " " + userData.lastName;
       console.log("my user", userData);
 
       setFormData(userData);
@@ -92,17 +93,19 @@ const Profile = () => {
   };
 
   const saveDataHandler = async (newImg, display_url) => {
-    console.log(newImg);
+    // console.log(newImg);
     const res = await putProfileUpdate({
       ...formData,
       imgUrl: newImg ? newImg : formData.imgUrl,
       displayUrl: display_url ? display_url : formData.displayUrl,
+      fullName: formData.firstName + " " + formData.lastName,
     });
     if (res) {
       setFormData({
         ...formData,
         imgUrl: newImg ? newImg : formData.imgUrl,
         displayUrl: display_url ? display_url : formData.displayUrl,
+        fullName: formData.firstName + " " + formData.lastName,
       });
     }
 
