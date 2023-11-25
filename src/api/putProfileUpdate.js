@@ -8,7 +8,8 @@ export default async (user) => {
       body: JSON.stringify(user),
     });
     const data = await response.json();
-    return data.token;
+    if (response.ok) return true;
+    else return false;
   } catch (error) {
     console.log(error);
   }
