@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./courses.module.css";
 import { FaSortDown } from "react-icons/fa";
 import Coursetask from "./courseTasks/Coursetask";
 import { useState } from "react";
+// import getCourses from "../../api/getCourses";
 
 function Silver(props) {
+  // const [courses, setCourses] = useState();
+
+  // useEffect(() => {
+  //   const fethCourses = async () => {
+  //     const result = await getCourses();
+
+  //     console.log(result);
+  //   };
+  //   fethCourses();
+  // }, []);
+
   const [showCourse, setshowCourse] = useState({
     Angel_Affirmations: false,
     "Angel_Feathers_Demystified_V.2.0": false,

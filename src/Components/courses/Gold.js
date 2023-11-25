@@ -3,8 +3,21 @@ import styles from "./courses.module.css";
 import { FaSortDown } from "react-icons/fa";
 import Coursetask from "./courseTasks/Coursetask";
 import { useState } from "react";
+import getCourses from "../../api/getCourses";
+import { useEffect } from "react";
 
 function Gold(props) {
+  const [courses, setCourses] = useState();
+
+  useEffect(() => {
+    const fethCourses = async () => {
+      const courses = await getCourses();
+
+      setCourses(courses);
+    };
+    fethCourses();
+  }, []);
+
   const [showCourse, setshowCourse] = useState({
     AOE_Masterclass: false,
     Angels_and_Chakras: false,
@@ -21,8 +34,12 @@ function Gold(props) {
   };
 
   return (
-    <>
-      <div className={styles.courses_body}>
+    <ol>
+      {courses.map((course) => (
+        <li key={course.id}>{course.name}</li>
+      ))}
+
+      {/* <div className={styles.courses_body}>
         <div
           className={styles.course_title}
           name="AOE_Masterclass"
@@ -121,8 +138,8 @@ function Gold(props) {
           <Coursetask />
           <Coursetask />
         </div>
-      </div>
-    </>
+      </div> */}
+    </ol>
   );
 }
 
