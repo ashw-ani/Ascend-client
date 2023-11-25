@@ -7,7 +7,7 @@ import getCourses from "../../api/getCourses";
 import { useEffect } from "react";
 
 function Gold(props) {
-  const [courses, setCourses] = useState();
+  const [courses, setCourses] = useState(null);
 
   useEffect(() => {
     const fethCourses = async () => {
@@ -34,113 +34,118 @@ function Gold(props) {
   };
 
   return (
-    <ol>
-      {courses.map((course) => (
-        <li key={course.id}>{course.name}</li>
-      ))}
-
-      {/* <div className={styles.courses_body}>
-        <div
-          className={styles.course_title}
-          name="AOE_Masterclass"
-          onClick={toggleCourseHandler}
-        >
-          AOE Masterclass
-          <FaSortDown className={styles.more} />
-        </div>
-        <div
-          className={`${styles.tasks_wrapper} ${
-            showCourse.AOE_Masterclass ? styles.show_tasks : styles.hide_tasks
-          }`}
-        >
-          <Coursetask />
-          <Coursetask />
-          <Coursetask />
-          <Coursetask />
-        </div>
-        <div
-          className={styles.course_title}
-          name="Angels_and_Chakras"
-          onClick={toggleCourseHandler}
-        >
-          Angels and Chakras
-          <FaSortDown className={styles.more} />
-        </div>
-        <div
-          className={`${styles.tasks_wrapper} ${
-            showCourse.Angels_and_Chakras
-              ? styles.show_tasks
-              : styles.hide_tasks
-          }`}
-        >
-          <Coursetask />
-          <Coursetask />
-          <Coursetask />
-          <Coursetask />
-        </div>
-        <div
-          className={styles.course_title}
-          name="Increase_your_Psychic_Powers"
-          onClick={toggleCourseHandler}
-        >
-          Increase your Psychic Powers
-          <FaSortDown className={styles.more} />
-        </div>
-        <div
-          className={`${styles.tasks_wrapper} ${
-            showCourse.Increase_your_Psychic_Powers
-              ? styles.show_tasks
-              : styles.hide_tasks
-          }`}
-        >
-          <Coursetask />
-          <Coursetask />
-          <Coursetask />
-          <Coursetask />
-        </div>
-        <div
-          className={styles.course_title}
-          name="Profitable_Psychic_Profession"
-          onClick={toggleCourseHandler}
-        >
-          Profitable Psychic Profession
-          <FaSortDown className={styles.more} />
-        </div>
-        <div
-          className={`${styles.tasks_wrapper} ${
-            showCourse["Profitable_Psychic_Profession"]
-              ? styles.show_tasks
-              : styles.hide_tasks
-          }`}
-        >
-          <Coursetask />
-          <Coursetask />
-          <Coursetask />
-          <Coursetask />
-        </div>
-        <div
-          className={styles.course_title}
-          name="Guided_Meditations"
-          onClick={toggleCourseHandler}
-        >
-          Guided Meditations
-          <FaSortDown className={styles.more} />
-        </div>
-        <div
-          className={`${styles.tasks_wrapper} ${
-            showCourse.Guided_Meditations
-              ? styles.show_tasks
-              : styles.hide_tasks
-          }`}
-        >
-          <Coursetask />
-          <Coursetask />
-          <Coursetask />
-          <Coursetask />
-        </div>
-      </div> */}
-    </ol>
+    <>
+      {courses && (
+        <ul>
+          {courses.map((course) => (
+            <li key={course.id}>{course.name}</li>
+          ))}
+        </ul>
+      )}
+    </>
   );
+
+  // <div className={styles.courses_body}>
+  // <div
+  //   className={styles.course_title}
+  //   name="AOE_Masterclass"
+  //   onClick={toggleCourseHandler}
+  // >
+  //   AOE Masterclass
+  //   <FaSortDown className={styles.more} />
+  // </div>
+  // <div
+  //   className={`${styles.tasks_wrapper} ${
+  //     showCourse.AOE_Masterclass ? styles.show_tasks : styles.hide_tasks
+  //   }`}
+  // >
+  //   <Coursetask />
+  //   <Coursetask />
+  //   <Coursetask />
+  //   <Coursetask />
+  // </div>
+  // <div
+  //   className={styles.course_title}
+  //   name="Angels_and_Chakras"
+  //   onClick={toggleCourseHandler}
+  // >
+  //   Angels and Chakras
+  //   <FaSortDown className={styles.more} />
+  // </div>
+  // <div
+  //   className={`${styles.tasks_wrapper} ${
+  //     showCourse.Angels_and_Chakras
+  //       ? styles.show_tasks
+  //       : styles.hide_tasks
+  //   }`}
+  // >
+  //   <Coursetask />
+  //   <Coursetask />
+  //   <Coursetask />
+  //   <Coursetask />
+  // </div>
+  // <div
+  //   className={styles.course_title}
+  //   name="Increase_your_Psychic_Powers"
+  //   onClick={toggleCourseHandler}
+  // >
+  //   Increase your Psychic Powers
+  //   <FaSortDown className={styles.more} />
+  // </div>
+  // <div
+  //   className={`${styles.tasks_wrapper} ${
+  //     showCourse.Increase_your_Psychic_Powers
+  //       ? styles.show_tasks
+  //       : styles.hide_tasks
+  //   }`}
+  // >
+  //   <Coursetask />
+  //   <Coursetask />
+  //   <Coursetask />
+  //   <Coursetask />
+  // </div>
+  // <div
+  //   className={styles.course_title}
+  //   name="Profitable_Psychic_Profession"
+  //   onClick={toggleCourseHandler}
+  // >
+  //   Profitable Psychic Profession
+  //   <FaSortDown className={styles.more} />
+  // </div>
+  // <div
+  //   className={`${styles.tasks_wrapper} ${
+  //     showCourse["Profitable_Psychic_Profession"]
+  //       ? styles.show_tasks
+  //       : styles.hide_tasks
+  //   }`}
+  // >
+  //   <Coursetask />
+  //   <Coursetask />
+  //   <Coursetask />
+  //   <Coursetask />
+  // </div>
+  // <div
+  //   className={styles.course_title}
+  //   name="Guided_Meditations"
+  //   onClick={toggleCourseHandler}
+  // >
+  //   Guided Meditations
+  //   <FaSortDown className={styles.more} />
+  // </div>
+  // <div
+  //   className={`${styles.tasks_wrapper} ${
+  //     showCourse.Guided_Meditations
+  //       ? styles.show_tasks
+  //       : styles.hide_tasks
+  //   }`}
+  // >
+  //   <Coursetask />
+  //   <Coursetask />
+  //   <Coursetask />
+  //   <Coursetask />
+  // </div>
+  // </div>
+  // );
 }
 
 export default Gold;
