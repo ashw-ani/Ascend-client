@@ -9,7 +9,7 @@ import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
 import Login from "../Login/Login";
 import Profile from "../Profile/Profile";
 import { useMyContext } from "../../Context/PanelContext";
-import Silver from "../courses/Silver";
+import Platinum from "../courses/Platinum";
 import Gold from "../courses/Gold";
 import Diamond from "../courses/Diamond";
 import Progressindiactor from "../UI/course progress indicator/Progressindicator";
@@ -52,11 +52,11 @@ const Body = (props) => {
           <Profile />
         </Route>
 
-        <Route path="/courses/silver" exact>
+        <Route path="/courses/Platinum" exact>
           <Header>
-            Silver Courses <Progressindiactor />
+            Platinum <Progressindiactor />
           </Header>
-          <Silver />
+          <Platinum />
         </Route>
 
         <Route path="/courses/gold" exact>

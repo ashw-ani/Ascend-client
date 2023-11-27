@@ -13,7 +13,7 @@
   color: #000000;
   cursor: pointer;
   user-select: none;
-  margin: 1rem 0 0.1rem 0;
+  margin: 0.1rem 1rem 0.1rem 0;
 }
 .course_title:hover {
   background-color: rgb(199, 199, 199);

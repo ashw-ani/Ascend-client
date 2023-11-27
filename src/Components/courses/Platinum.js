@@ -5,7 +5,7 @@ import getCourses from "../../api/getCourses";
 import { useEffect } from "react";
 import CourseTitle from "./CourseTitle/CourseTitle";
 
-function Gold(props) {
+function Platinum(props) {
   const [courses, setCourses] = useState(null);
 
   useEffect(() => {
@@ -30,4 +30,4 @@ function Gold(props) {
   );
 }
 
-export default Gold;
+export default Platinum;
