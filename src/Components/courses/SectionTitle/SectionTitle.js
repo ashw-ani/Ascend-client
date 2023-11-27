@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import styles from "./Sectiontitle.module.css";
 import { FaSortDown } from "react-icons/fa";
-import Courselecture from "../CourseLecture/CourseLecture";
+import Courselecture from "../Courselecture/CourseLecture";
 
 function Sectiontitle(props) {
-  const [showSection, setShowSection] = useState({});
+  const [showSection, setShowSection] = useState(false);
   // const [Sections, setSections] = useState({});
 
   const toggleSectionHandler = (event) => {
@@ -23,15 +23,15 @@ function Sectiontitle(props) {
         <FaSortDown className={styles.more} />
       </div>
 
-      {(
+      {
         <div className={styles.sections}>
           {" "}
-          {props.sectionData.lectures.map((lecture) => (
-            <Courselecture key={lecture.id} lectureData={lecture} />
-          ))}
+          {showSection &&
+            props.sectionData.lectures.map((lecture) => (
+              <Courselecture key={lecture.id} lectureData={lecture} />
+            ))}
         </div>
-      )}
-
+      }
 
       {/* {props.sectionData.lectures.map((lecture) => {
         <Courselecture lectureData={lecture} />;

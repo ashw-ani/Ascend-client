@@ -1,0 +1,40 @@
+.progress_Indicator {
+  box-sizing: border-box;
+
+  width: 75%;
+  height: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+  gap: 1px;
+}
+.progress_data {
+  font-size: 0.5rem;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  height: 0.7rem;
+  width: 100%;
+  /* background-color: aqua; */
+  padding: 0;
+  justify-content: space-between;
+}
+p {
+  margin: 0;
+  font-size: 0.6rem;
+  padding: 0;
+}
+.outer {
+  box-sizing: border-box;
+  width: 100%;
+  height: 0.5rem;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+.fill {
+  background-color: #161a37;
+  border-radius: 4px;
+  height: 100%;
+  width: 63.5%;
+}

@@ -12,6 +12,7 @@ import { useMyContext } from "../../Context/PanelContext";
 import Silver from "../courses/Silver";
 import Gold from "../courses/Gold";
 import Diamond from "../courses/Diamond";
+import Progressindiactor from "../UI/course progress indicator/Progressindicator";
 
 const Body = (props) => {
   const { showPaneltouch, updateShowPaneltouch } = useMyContext();
@@ -52,12 +53,16 @@ const Body = (props) => {
         </Route>
 
         <Route path="/courses/silver" exact>
-          <Header>Silver Courses</Header>
+          <Header>
+            Silver Courses <Progressindiactor />
+          </Header>
           <Silver />
         </Route>
 
         <Route path="/courses/gold" exact>
-          <Header>Gold Courses</Header>
+          <Header>
+            Gold Courses <Progressindiactor />
+          </Header>
           <Gold />
         </Route>
 
