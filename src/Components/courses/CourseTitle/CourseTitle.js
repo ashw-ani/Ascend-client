@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./CourseTitle.module.css";
 import { FaSortDown } from "react-icons/fa";
-import Sectiontitle from "../SectionTitle/Sectiontitle";
+import Sectiontitle from "../SectionTitle/SectionTitle";
 
 // import CourseLecture from "../courseLecture/CourseLecture";
 // import { useEffect } from "react";

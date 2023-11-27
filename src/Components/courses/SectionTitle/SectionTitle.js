@@ -9,6 +9,7 @@ function Sectiontitle(props) {
 
   const toggleSectionHandler = (event) => {
     setShowSection((prev) => !prev);
+    // console.log(props);
     // console.log(showSection);
     // console.log(props);
     // setshowCourse((prevState) => ({ ...prevState, [key]: !showCourse[key] }));
@@ -21,9 +22,20 @@ function Sectiontitle(props) {
         {props.sectionData.name}
         <FaSortDown className={styles.more} />
       </div>
-      {props.sectionData.lectures.map((lecture) => {
+
+      {(
+        <div className={styles.sections}>
+          {" "}
+          {props.sectionData.lectures.map((lecture) => (
+            <Courselecture key={lecture.id} lectureData={lecture} />
+          ))}
+        </div>
+      )}
+
+
+      {/* {props.sectionData.lectures.map((lecture) => {
         <Courselecture lectureData={lecture} />;
-      })}
+      })} */}
     </>
     //  { showSection && }
   );
