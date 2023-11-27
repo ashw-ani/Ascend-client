@@ -10,7 +10,7 @@ function Platinum(props) {
 
   useEffect(() => {
     const fethCourses = async () => {
-      const courses = await getCourses("Gold");
+      const courses = await getCourses("Platinum");
 
       setCourses(courses);
     };
