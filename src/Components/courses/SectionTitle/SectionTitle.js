@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Sectiontitle.module.css";
 import { FaSortDown } from "react-icons/fa";
-import Courselecture from "../Courselecture/CourseLecture";
+import Courselecture from "../CourseLecture/CourseLecture";
 
 function Sectiontitle(props) {
   const [showSection, setShowSection] = useState(false);
