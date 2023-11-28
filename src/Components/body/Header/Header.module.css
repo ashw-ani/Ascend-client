@@ -30,7 +30,10 @@
 @media screen and (max-width: 950px) {
   .header {
     left: 0rem;
+    margin-top:1rem;
+    margin-left:10%;
     height: 3.5rem;
     z-index: 0;
+    font-size: small
   }
 }
