@@ -3,7 +3,6 @@ import styles from "./CourseLecture.module.css";
 
 const Courselecture = (props) => {
   const [Lectures, setLectures] = useState({});
-  console.log(props.lectureData.name);
   return (
     <div className={styles.lecture_wrapper}>
       <div className={styles.completion}></div>

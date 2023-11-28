@@ -11,9 +11,8 @@ function CourseTitle(props) {
 
   const toggleCourseHandler = (event) => {
     setshowCourse((prev) => !prev);
-    console.log(showCourse);
+
     // setshowCourse((prevState) => ({ ...prevState, [key]: !showCourse[key] }));
-    // console.log(showCourse);
   };
 
   return (
