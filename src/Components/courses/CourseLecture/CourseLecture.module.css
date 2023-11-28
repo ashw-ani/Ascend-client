@@ -8,6 +8,8 @@
   justify-content: flex-start;
   align-items: baseline;
   gap: 1rem;
+  cursor: pointer;
+  background-color: aliceblue;
 }
 .completion {
   height: 0.5rem;
