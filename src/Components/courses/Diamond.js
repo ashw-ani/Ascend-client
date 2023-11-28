@@ -4,14 +4,17 @@ import { useState } from "react";
 import getCourses from "../../api/getCourses";
 import { useEffect } from "react";
 import CourseTitle from "./CourseTitle/CourseTitle";
+import { ReactComponent as Loader } from "../../assets/signInButton.svg";
 
 function Diamond(props) {
   const [courses, setCourses] = useState(null);
+  const [loader, setloader] = useState(false);
 
   useEffect(() => {
     const fethCourses = async () => {
+      setloader(true);
       const courses = await getCourses("Diamond");
-
+      setloader(false);
       setCourses(courses);
     };
     fethCourses();
@@ -19,12 +22,19 @@ function Diamond(props) {
 
   return (
     <>
-      {courses && (
-        <div className={styles.courses_body}>
-          {courses.map((course) => (
-            <CourseTitle key={course.id} courseData={course} />
-          ))}
+      {loader ? (
+        <div className={styles.spinnerDiv}>
+          {" "}
+          <Loader className={styles.spinner} />
         </div>
+      ) : (
+        courses && (
+          <div className={styles.courses_body}>
+            {courses.map((course) => (
+              <CourseTitle key={course.id} courseData={course} />
+            ))}
+          </div>
+        )
       )}
     </>
   );
