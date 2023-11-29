@@ -1,13 +1,19 @@
-import { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./CourseLecture.module.css";
 
-const Courselecture = (props) => {
-  const [Lectures, setLectures] = useState({});
+const CourseLecture = (props) => {
+  const [lectures, setLectures] = useState({});
+
   return (
     <div className={styles.lecture_wrapper}>
-      <div className={styles.completion}></div>
+      <div
+        className={`${styles.completion} ${
+          props.lectureData.isCompleted ? styles.complete : styles.incomplete
+        }`}
+      ></div>
       {props.lectureData.name}
     </div>
   );
 };
-export default Courselecture;
+
+export default CourseLecture;

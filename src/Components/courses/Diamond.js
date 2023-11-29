@@ -1,30 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./courses.module.css";
-import { useState } from "react";
 import getCourses from "../../api/getCourses";
-import { useEffect } from "react";
 import CourseTitle from "./CourseTitle/CourseTitle";
 import { ReactComponent as Loader } from "../../assets/signInButton.svg";
 
 function Diamond(props) {
   const [courses, setCourses] = useState(null);
-  const [loader, setloader] = useState(false);
+  const [loader, setLoader] = useState(false);
 
   useEffect(() => {
-    const fethCourses = async () => {
-      setloader(true);
-      const courses = await getCourses("Diamond");
-      setloader(false);
-      setCourses(courses);
+    const fetchCourses = async () => {
+      setLoader(true);
+      const data = await getCourses("Diamond");
+      setLoader(false);
+      setCourses(data.courses);
     };
-    fethCourses();
+
+    fetchCourses();
   }, []);
 
   return (
     <>
       {loader ? (
         <div className={styles.spinnerDiv}>
-          {" "}
           <Loader className={styles.spinner} />
         </div>
       ) : (

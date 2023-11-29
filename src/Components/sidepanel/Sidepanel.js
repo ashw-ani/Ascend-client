@@ -46,13 +46,13 @@ const Sidepanel = (props) => {
     console.log("return the props", props);
   };
   const onClickSubitem = (event) => {
-    console.log(event.target.getAttribute("name"));
+    // console.log(event.target.getAttribute("name"));
     navigation.push(`/${event.target.getAttribute("name")}`);
   };
 
   const toggleSideitemHandler = (event) => {
     const key = event.target.getAttribute("name");
-    console.log("Hy from togglesideitemHandler ", sideItemsWithMenu[key]);
+    // console.log("Hy from togglesideitemHandler ", sideItemsWithMenu[key]);
 
     setsideItemsWithMenu({ [key]: !sideItemsWithMenu[key] });
     setsideItemsWithoutMenu({});

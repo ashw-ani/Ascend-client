@@ -6,7 +6,7 @@
   align-items: center;
   padding: 1rem;
   width: 4rem;
-  height: 95vh;
+  height: 85vh;
   position: fixed;
   right: 0;
   background-color: #fff;
@@ -25,7 +25,7 @@
   align-items: center;
   padding: 1rem;
   width: 4rem;
-  height: 95vh;
+  height: 90vh;
   position: fixed;
   right: -4rem;
   background-color: #fff;
@@ -66,7 +66,7 @@
 .open {
   background-color: #161a37;
   right: 4rem;
-  /* top: 0.4rem; */
+  top: 2.5rem;
   transform: rotate(180deg);
   transition: all 0.3s;
 }

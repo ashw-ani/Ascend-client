@@ -38,3 +38,17 @@ p {
   height: 100%;
   width: 63.5%;
 }
+
+@media screen and (max-width: 450px) {
+  .progress_Indicator {
+    width: 80%;
+  }
+  .progress_details {
+    margin-top: 0.1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-align: right;
+  }
+}

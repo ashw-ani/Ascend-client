@@ -12,8 +12,17 @@
   background-color: aliceblue;
 }
 .completion {
-  height: 0.5rem;
-  width: 0.5rem;
-  border: 1px solid black;
+  /* height: 0.5rem;
+  width: 0.5rem; */
+  width: 2rem;
+  height: 1.2rem;
+  /* border: 1px solid black; */
   border-radius: 2px;
+}
+.complete::after {
+  /* background-color: green; */
+  content: "\2713";
+  /* width: 0.2rem; */
+  font-size: 1.2rem;
+  color: green;
 }
