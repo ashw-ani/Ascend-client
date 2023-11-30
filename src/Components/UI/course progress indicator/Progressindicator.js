@@ -12,15 +12,16 @@ const Progressindiactor = ({
     width: `${progress}%`,
     backgroundColor: bgcolor,
   };
+
   return !isPhone ? (
     <div className={styles.Progressindiactor}>
       <div className={styles.progressheading}>
         <span>Your Progress</span>
-        <span>{"[15 of 45 topics completed]"}</span>
+        <span>{`${progress}% [${lectureCompleted} out of ${lecturetotal} lectures completed]`}</span>
       </div>
       <div className={styles.Parentdiv}>
         <div className={styles.Childdiv} style={Childdiv}>
-          <span className={styles.progresstext}>{`${progress}%`}</span>
+          <span className={styles.progresstext}>{}</span>
         </div>
       </div>
     </div>
@@ -31,11 +32,10 @@ const Progressindiactor = ({
       </div>
       <div className={styles.ParentdivPhone}>
         <div className={styles.Childdiv} style={Childdiv}></div>
-        <span className={styles.progresstext}>{`${progress}%`}</span>
-
+        <span className={styles.progresstext}>{}</span>
       </div>
       <span className={styles.progresstextPhone}>
-        {"[15 of 45 topics completed]"}
+        {`${progress}% [${lectureCompleted} out of ${lecturetotal} lectures completed]`}
       </span>
     </div>
   );

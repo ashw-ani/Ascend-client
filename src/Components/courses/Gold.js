@@ -8,6 +8,8 @@ import Progressindiactor from "../UI/course progress indicator/Progressindicator
 function Gold(props) {
   const [courses, setCourses] = useState(null);
   const [loader, setLoader] = useState(false);
+  const [totalLectures, setTotalLectures] = useState(0);
+  const [completeLectures, setCompleteLectures] = useState(0);
   const [completedProgress, setCompletedProgress] = useState(70);
 
   useEffect(() => {
@@ -16,6 +18,24 @@ function Gold(props) {
       const data = await getCourses("Gold");
       setLoader(false);
       setCourses(data.courses);
+      let total_lectures = 0;
+      for (const course of data.courses) {
+        total_lectures += course.total_lectures;
+      }
+
+      setTotalLectures(total_lectures);
+
+      let completed_lectures = 0;
+
+      for (const course of data.courses) {
+        if (course.lecturesWatched) {
+          completed_lectures += course.lecturesWatched;
+        }
+      }
+
+      setCompleteLectures(completed_lectures);
+
+      setCompletedProgress(parseInt((completeLectures / totalLectures) * 100));
     };
 
     fetchCourses();
@@ -37,6 +57,8 @@ function Gold(props) {
             bgcolor="orange"
             progress={completedProgress}
             height={15}
+            lecturetotal={totalLectures}
+            lectureCompleted={completeLectures}
           />
 
           {courses.map((course) => (
