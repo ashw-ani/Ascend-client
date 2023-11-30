@@ -35,7 +35,9 @@ function Gold(props) {
 
       setCompleteLectures(completed_lectures);
 
-      setCompletedProgress(parseInt((completeLectures / totalLectures) * 100));
+      setCompletedProgress(
+        parseInt((completed_lectures / total_lectures) * 100)
+      );
     };
 
     fetchCourses();

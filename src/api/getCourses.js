@@ -6,7 +6,7 @@ const getCourses = async (type) => {
   );
 
   const result = await data.json();
-  console.log(result);
+  // console.log(result);
   return result;
 };
 export default getCourses;
