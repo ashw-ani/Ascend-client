@@ -31,9 +31,11 @@
 }
 .progresstext {
   padding: 10;
+  position: absolute;
+  left:50%;
+  transform: translateX(-50%);
   color: #161A37;
   font-weight: 900;
-
 }
 .progressheadingPhone{
   display: flex;

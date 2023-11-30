@@ -30,12 +30,13 @@ const Progressindiactor = ({
         <span>Your Progress</span>
       </div>
       <div className={styles.ParentdivPhone}>
-        <div className={styles.Childdiv} style={Childdiv}>
-          <span className={styles.progresstext}>{`${progress}%`}</span>
-        </div>
-      </div>
-      <span className={styles.progresstextPhone}>{"[15 of 45 topics completed]"}</span>
+        <div className={styles.Childdiv} style={Childdiv}></div>
+        <span className={styles.progresstext}>{`${progress}%`}</span>
 
+      </div>
+      <span className={styles.progresstextPhone}>
+        {"[15 of 45 topics completed]"}
+      </span>
     </div>
   );
 };

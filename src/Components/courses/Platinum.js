@@ -10,7 +10,7 @@ import Progressindiactor from "../UI/course progress indicator/Progressindicator
 function Platinum(props) {
   const [courses, setCourses] = useState(null);
   const [loader, setLoader] = useState(false);
-  const [completedProgress, setCompletedProgress] = useState(0);
+  const [completedProgress, setCompletedProgress] = useState(50);
 
   useEffect(() => {
     const fetchCourses = async () => {
