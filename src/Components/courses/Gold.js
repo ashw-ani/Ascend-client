@@ -3,10 +3,12 @@ import styles from "./courses.module.css";
 import getCourses from "../../api/getCourses";
 import CourseTitle from "./CourseTitle/CourseTitle";
 import { ReactComponent as Loader } from "../../assets/signInButton.svg";
+import Progressindiactor from "../UI/course progress indicator/Progressindicator";
 
 function Gold(props) {
   const [courses, setCourses] = useState(null);
   const [loader, setLoader] = useState(false);
+  const [completedProgress, setCompletedProgress] = useState(0);
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -31,6 +33,12 @@ function Gold(props) {
     <>
       {courses && (
         <div className={styles.courses_body}>
+          <Progressindiactor
+            bgcolor="orange"
+            progress={completedProgress}
+            height={15}
+          />
+
           {courses.map((course) => (
             <CourseTitle key={course.id} courseData={course} />
           ))}

@@ -13,6 +13,7 @@ import Platinum from "../courses/Platinum";
 import Gold from "../courses/Gold";
 import Diamond from "../courses/Diamond";
 import Progressindiactor from "../UI/course progress indicator/Progressindicator";
+import { useState } from "react";
 
 const Body = (props) => {
   const { showPaneltouch, updateShowPaneltouch } = useMyContext();
@@ -54,20 +55,23 @@ const Body = (props) => {
 
         <Route path="/courses/Platinum" exact>
           <Header>
-            Platinum <Progressindiactor />
-          </Header>
+            Platinum Courses{" "}
+            </Header>
           <Platinum />
         </Route>
 
         <Route path="/courses/gold" exact>
           <Header>
-            Gold Courses <Progressindiactor />
+            Gold Courses{" "}
+            {/* <Progressindiactor bgcolor="orange" progress={completedProgress} height={15} /> */}
           </Header>
           <Gold />
         </Route>
 
         <Route path="/courses/diamond" exact>
-          <Header>Diamond Courses</Header>
+          <Header>
+            Diamond Courses{" "}
+          </Header>
           <Diamond />
         </Route>
       </Switch>
