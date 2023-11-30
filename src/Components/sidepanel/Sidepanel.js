@@ -159,6 +159,16 @@ const Sidepanel = (props) => {
           <BsCalendar className={styles.sidepanelicons} name={"events"} />
           Events
         </SidepanelItem>
+        <SidepanelItem
+          class={sideItemsWithoutMenu.myhabits ? "active" : "inactive"}
+          onclick={(event) => {
+            withoutMenuItemsHandler(event);
+          }}
+          name={"myhabits"}
+        >
+          <BsCalendar className={styles.sidepanelicons} name={"myhabits"} />
+          My Habits
+        </SidepanelItem>
         {/* <SidepanelItem
           class={sideItemsWithoutMenu.mycourses ? "active" : "inactive"}
           onclick={(event) => withoutMenuItemsHandler(event)}
@@ -198,6 +208,10 @@ const Sidepanel = (props) => {
             <Sidepanelsubitem onClick={onClickSubitem} name={"courses/diamond"}>
               <IoDiamondSharp />
               Diamond
+            </Sidepanelsubitem>
+            <Sidepanelsubitem onClick={onClickSubitem} name={"courses/silver"}>
+              <IoDiamondSharp />
+              Silver
             </Sidepanelsubitem>
           </div>
         )}
