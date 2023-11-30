@@ -16,7 +16,7 @@
   font-family: "Sora", sans-serif;
   gap: 0.4rem;
   font-weight: 600;
-  background-color: rgba(240, 243, 247, 0.5);
+  background-color: rgb(158, 179, 191, 0.5);
   /* border-bottom: 2px solid rgb(255, 255, 255); */
   z-index: 1000;
 }
