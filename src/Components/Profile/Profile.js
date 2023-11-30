@@ -33,7 +33,7 @@ const Profile = () => {
       setShowLoader(true);
       const userData = await FetchCustomerDetails(token);
       userData.fullName = userData.firstName + " " + userData.lastName;
-      console.log("my user", userData);
+      // console.log("my user", userData);
 
       setFormData(userData);
       setShowLoader(false);
