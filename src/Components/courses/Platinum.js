@@ -4,6 +4,7 @@ import getCourses from "../../api/getCourses";
 import CourseTitle from "./CourseTitle/CourseTitle";
 import { ReactComponent as Loader } from "../../assets/signInButton.svg";
 import Progressindiactor from "../UI/course progress indicator/Progressindicator";
+import LockedCourse from "../UI/locked course/LockedCourse";
 
 function Platinum(props) {
   const [courses, setCourses] = useState(null);
@@ -11,6 +12,7 @@ function Platinum(props) {
   const [totalLectures, setTotalLectures] = useState(0);
   const [completeLectures, setCompleteLectures] = useState(0);
   const [completedProgress, setCompletedProgress] = useState(70);
+  const [isPurchased, setIsPurchased] = useState(true);
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -48,6 +50,15 @@ function Platinum(props) {
       <div className={styles.spinnerDiv}>
         <Loader className={styles.spinner} />
       </div>
+    );
+  }
+
+  if (!isPurchased) {
+    return (
+      <>
+        <LockedCourse />
+        {console.log("unpurchased")}
+      </>
     );
   }
 
