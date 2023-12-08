@@ -201,7 +201,7 @@ const Sidepanel = (props) => {
         {sideItemsWithMenu.Courses && (
           <div className={styles.subitems}>
             <Sidepanelsubitem onClick={onClickSubitem} name={"courses/silver"}>
-              <IoDiamondSharp />
+              <BsCoin />
               Silver
             </Sidepanelsubitem>
             <Sidepanelsubitem onClick={onClickSubitem} name={"courses/gold"}>
