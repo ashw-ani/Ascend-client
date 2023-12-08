@@ -42,6 +42,12 @@ const Body = (props) => {
           <Statscontainer />
           <Chartcontainer />
         </Route>
+        <Route path="/dashboard" exact>
+          <Header>Dashboard</Header>
+          <Dashboardintro />
+          <Statscontainer />
+          <Chartcontainer />
+        </Route>
 
         <Route path="/leaderboard/water-enthusiasts" exact>
           <Header>Water Enthusiasts</Header>
@@ -54,9 +60,7 @@ const Body = (props) => {
         </Route>
 
         <Route path="/courses/Platinum" exact>
-          <Header>
-            Platinum Courses{" "}
-            </Header>
+          <Header>Platinum Courses </Header>
           <Platinum />
         </Route>
 
@@ -69,9 +73,7 @@ const Body = (props) => {
         </Route>
 
         <Route path="/courses/diamond" exact>
-          <Header>
-            Diamond Courses{" "}
-          </Header>
+          <Header>Diamond Courses </Header>
           <Diamond />
         </Route>
       </Switch>
