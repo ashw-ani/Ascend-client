@@ -1,8 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./courses.module.css";
-import { useState } from "react";
 import getCourses from "../../api/getCourses";
-import { useEffect } from "react";
 import CourseTitle from "./CourseTitle/CourseTitle";
 import { ReactComponent as Loader } from "../../assets/signInButton.svg";
 import Progressindiactor from "../UI/course progress indicator/Progressindicator";
@@ -12,7 +10,7 @@ function Platinum(props) {
   const [loader, setLoader] = useState(false);
   const [totalLectures, setTotalLectures] = useState(0);
   const [completeLectures, setCompleteLectures] = useState(0);
-  const [completedProgress, setCompletedProgress] = useState(0);
+  const [completedProgress, setCompletedProgress] = useState(70);
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -53,24 +51,24 @@ function Platinum(props) {
     );
   }
 
-  if (!courses) {
-    return null;
-  }
-
   return (
-    <div className={styles.courses_body}>
-      <Progressindiactor
-        bgcolor="orange"
-        progress={completedProgress}
-        height={15}
-        lecturetotal={totalLectures}
-        lectureCompleted={completeLectures}
-      />
+    <>
+      {courses && (
+        <div className={styles.courses_body}>
+          <Progressindiactor
+            bgcolor="orange"
+            progress={completedProgress}
+            height={15}
+            lecturetotal={totalLectures}
+            lectureCompleted={completeLectures}
+          />
 
-      {courses.map((course) => (
-        <CourseTitle key={course.id} courseData={course} />
-      ))}
-    </div>
+          {courses.map((course) => (
+            <CourseTitle key={course.id} courseData={course} />
+          ))}
+        </div>
+      )}
+    </>
   );
 }
 

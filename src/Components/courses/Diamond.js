@@ -10,7 +10,7 @@ function Diamond(props) {
   const [loader, setLoader] = useState(false);
   const [totalLectures, setTotalLectures] = useState(0);
   const [completeLectures, setCompleteLectures] = useState(0);
-  const [completedProgress, setCompletedProgress] = useState(0);
+  const [completedProgress, setCompletedProgress] = useState(70);
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -43,28 +43,30 @@ function Diamond(props) {
     fetchCourses();
   }, []);
 
+  if (loader) {
+    return (
+      <div className={styles.spinnerDiv}>
+        <Loader className={styles.spinner} />
+      </div>
+    );
+  }
+
   return (
     <>
-      {loader ? (
-        <div className={styles.spinnerDiv}>
-          <Loader className={styles.spinner} />
-        </div>
-      ) : (
-        courses && (
-          <div className={styles.courses_body}>
-            <Progressindiactor
-              bgcolor="orange"
-              progress={completedProgress}
-              height={15}
-              lecturetotal={totalLectures}
-              lectureCompleted={completeLectures}
-            />
+      {courses && (
+        <div className={styles.courses_body}>
+          <Progressindiactor
+            bgcolor="orange"
+            progress={completedProgress}
+            height={15}
+            lecturetotal={totalLectures}
+            lectureCompleted={completeLectures}
+          />
 
-            {courses.map((course) => (
-              <CourseTitle key={course.id} courseData={course} />
-            ))}
-          </div>
-        )
+          {courses.map((course) => (
+            <CourseTitle key={course.id} courseData={course} />
+          ))}
+        </div>
       )}
     </>
   );
