@@ -10,14 +10,36 @@ import Progressindiactor from "../UI/course progress indicator/Progressindicator
 function Platinum(props) {
   const [courses, setCourses] = useState(null);
   const [loader, setLoader] = useState(false);
-  const [completedProgress, setCompletedProgress] = useState(50);
+  const [totalLectures, setTotalLectures] = useState(0);
+  const [completeLectures, setCompleteLectures] = useState(0);
+  const [completedProgress, setCompletedProgress] = useState(0);
 
   useEffect(() => {
     const fetchCourses = async () => {
       setLoader(true);
-      const { courses } = await getCourses("Platinum");
+      const data = await getCourses("Platinum");
       setLoader(false);
-      setCourses(courses);
+      setCourses(data.courses);
+      let total_lectures = 0;
+      for (const course of data.courses) {
+        total_lectures += course.total_lectures;
+      }
+
+      setTotalLectures(total_lectures);
+
+      let completed_lectures = 0;
+
+      for (const course of data.courses) {
+        if (course.lecturesWatched) {
+          completed_lectures += course.lecturesWatched;
+        }
+      }
+
+      setCompleteLectures(completed_lectures);
+
+      setCompletedProgress(
+        parseInt((completed_lectures / total_lectures) * 100)
+      );
     };
 
     fetchCourses();
@@ -41,6 +63,8 @@ function Platinum(props) {
         bgcolor="orange"
         progress={completedProgress}
         height={15}
+        lecturetotal={totalLectures}
+        lectureCompleted={completeLectures}
       />
 
       {courses.map((course) => (

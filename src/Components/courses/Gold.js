@@ -10,7 +10,7 @@ function Gold(props) {
   const [loader, setLoader] = useState(false);
   const [totalLectures, setTotalLectures] = useState(0);
   const [completeLectures, setCompleteLectures] = useState(0);
-  const [completedProgress, setCompletedProgress] = useState(70);
+  const [completedProgress, setCompletedProgress] = useState(0);
 
   useEffect(() => {
     const fetchCourses = async () => {

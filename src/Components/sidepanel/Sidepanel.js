@@ -41,6 +41,10 @@ const Sidepanel = (props) => {
     toggleVisibility();
   };
 
+  // const onClickwithoutMenuItems=(event)=>{
+  //   navigation.push(`/${event.target.getAttribute("name")}`)
+  // }
+
   const onClickDashboard = () => {
     navigation.push("/");
     console.log("return the props", props);
@@ -61,7 +65,9 @@ const Sidepanel = (props) => {
 
   const withoutMenuItemsHandler = (event) => {
     const key = event.target.getAttribute("name");
+    navigation.push(`/${key}`);
     console.log("Hy from clicking", key, sideItemsWithoutMenu);
+
     setsideItemsWithMenu({});
     setsideItemsWithoutMenu({ [key]: !sideItemsWithoutMenu[key] });
     // console.log(sideItemsWithoutMenu);
