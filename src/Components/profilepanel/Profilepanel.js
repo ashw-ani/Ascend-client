@@ -49,7 +49,11 @@ const Profilepanel = (props) => {
         }}
       >
         {logos.pfp ? (
-          <img alt="pfp" src={logos.pfp} className={styles.logo} />
+          <img
+            alt="pfp"
+            src={logos.pfp}
+            className={`${styles.pfpLogo} ${styles.logo}`}
+          />
         ) : (
           <MdAccountCircle />
         )}
