@@ -94,6 +94,17 @@
   margin-left: 2rem;
 }
 
+.teamLogo {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 2rem;
+}
+
+.headingWithTeamIcon {
+  display: flex;
+  justify-content: space-between;
+}
+
 .line {
   border: 1px solid #dbdbdb;
 }
@@ -229,13 +240,13 @@
 }
 
 /* Css for spinner loading button */
-.spinnerDiv{
+.spinnerDiv {
   width: 100vw;
   height: 100vh;
   z-index: 1000000000;
   backdrop-filter: blur(2px);
   background-color: rgba(0, 0, 0, 0.208);
-  position:absolute;
+  position: absolute;
   top: 0;
   left: 0;
   display: flex;
@@ -316,7 +327,7 @@
   background-color: #f24353;
 }
 /* for profile picture */
-.profilePicWrapper{
+.profilePicWrapper {
   height: 5rem;
   width: 5rem;
   position: relative;
@@ -333,7 +344,6 @@
 
 /* for tablet */
 @media screen and (max-width: 950px) {
-  
   .double-labels {
     width: 100%;
   }
@@ -345,7 +355,7 @@
 @media screen and (max-width: 600px) {
   /* phone responsiveness */
 
-  .container {  
+  .container {
     display: flex;
     flex-flow: column;
     gap: 1.8rem;

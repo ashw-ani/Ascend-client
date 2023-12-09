@@ -75,3 +75,14 @@
   background-color: #fff;
   transition: all 0.3s;
 }
+
+.logo {
+  width: 2rem;
+  height: 2rem;
+  fill: #777777;
+  background-size: cover;
+}
+
+.profile_options {
+  overflow: hidden;
+}

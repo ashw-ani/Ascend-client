@@ -1,30 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Profile.module.css";
 import noimage from "../../assets/no-image.svg";
 import { ReactComponent as Loader } from "../../assets/signInButton.svg";
-import { useState } from "react";
-import getProfileUpdate from "../../api/putProfileUpdate";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { useContext } from "react";
 import AuthContext from "../../Context/AuthContext";
 import putProfileUpdate from "../../api/putProfileUpdate";
-import getProfile from "../../api/getProfile";
 import FetchCustomerDetails from "../../api/fetchCutomerDetails";
-// import Loader from "../UI/loading indicator/Loader";
 
 const Profile = () => {
-  // logouthandler
   const handleLogout = () => {
     localStorage.removeItem("token");
     window.location.href = "/login";
   };
-  //Loading of update button
   const [showLoader, setShowLoader] = useState(false);
   const context = useContext(AuthContext);
   const [formData, setFormData] = useState(context.user);
 
-  //Updating profile Updating
   const [updatePfp, setUpdatePfp] = useState(false);
 
   useEffect(() => {
@@ -33,7 +24,6 @@ const Profile = () => {
       setShowLoader(true);
       const userData = await FetchCustomerDetails(token);
       userData.fullName = userData.firstName + " " + userData.lastName;
-      // console.log("my user", userData);
 
       setFormData(userData);
       setShowLoader(false);
@@ -52,7 +42,6 @@ const Profile = () => {
   const imageUploadHandler = async (img) => {
     const formData1 = new FormData();
     formData1.append("image", img);
-    // console.log("hello from image handler ,", formData1.get("image"));
 
     const response = await fetch(
       "https://api.imgbb.com/1/upload?key=64e26b821a87b1e73115ba89dac737b1",
@@ -84,18 +73,13 @@ const Profile = () => {
       const imgData = await imageUploadHandler(img);
       const newImg = imgData.imgUrl;
       const display_url = imgData.display_url;
-      // console.log(newImg);
       await saveDataHandler(newImg, display_url);
     } else await saveDataHandler();
 
-    //loading
     setShowLoader(false);
-
-    // window.location.reload(true);
   };
 
   const saveDataHandler = async (newImg, display_url) => {
-    // console.log(newImg);
     const res = await putProfileUpdate({
       ...formData,
       imgUrl: newImg ? newImg : formData.imgUrl,
@@ -110,16 +94,21 @@ const Profile = () => {
         fullName: formData.firstName + " " + formData.lastName,
       });
     }
-
-    // console.log(token);
-    // localStorage.removeItem("token");
-    // localStorage.setItem("token", token);
-    // getProfile(localStorage.getItem("token"));
   };
 
-  // const name = "fullName";
-  const joining = "31st march,2022";
-  const end = "LIFE TIME";
+  const formatDate = (dateString) => {
+    const options = { year: "numeric", month: "2-digit", day: "2-digit" };
+    const formattedDate = new Date(dateString).toLocaleDateString(
+      undefined,
+      options
+    );
+    return formattedDate;
+  };
+
+  function capitalizeFirstLetter(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
   return (
     <div className={styles.container}>
       {showLoader && (
@@ -147,6 +136,7 @@ const Profile = () => {
             <div className={styles.profilePicWrapper}>
               <div className={styles.profileimageWrapper}>
                 <img
+                  alt="profile pic"
                   src={formData.displayUrl ? formData.displayUrl : noimage}
                   className={styles.profileimage}
                 />
@@ -155,11 +145,13 @@ const Profile = () => {
             <h1 className={styles.name}>{formData.fullName}</h1>
             <p>
               <b>Joining date : </b>
-              <i>{formData.joiningDate}</i>
+              <i>{formatDate(formData.joiningDate)}</i>
             </p>
             <p>
               <b>End Date : </b>
-              <i>{formData.endDate ? formData.endDate : "Life Time"}</i>
+              <i>
+                {formData.endDate ? formatDate(formData.endDate) : "Life Time"}
+              </i>
             </p>
           </div>
           <hr className={styles.line} />
@@ -187,7 +179,14 @@ const Profile = () => {
 
         <div className={styles["profile-edit"]}>
           <form onSubmit={formSubmitHandler}>
-            <h2 className={styles.heading}>Edit Profile</h2>
+            <h2 className={`${styles.heading} ${styles.headingWithTeamIcon}`}>
+              Edit Profile
+              <img
+                className={styles.teamLogo}
+                src={formData.teamLogo}
+                alt="team logo"
+              />
+            </h2>
             <hr className={styles.line} />
 
             <div className={styles.details}>
@@ -286,7 +285,8 @@ const Profile = () => {
               <div className={`${styles.single_section}`}>
                 <label className={styles.labelheader}>Achievement Level</label>
                 <div className={styles.achievement_level}>
-                  {formData.achievement}
+                  {formData.achievementLevel &&
+                    capitalizeFirstLetter(formData.achievementLevel)}
                 </div>
               </div>
               <label className={styles.labelheader}>Profile Pic</label>

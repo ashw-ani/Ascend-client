@@ -4,7 +4,6 @@ import getCourses from "../../api/getCourses";
 import CourseTitle from "./CourseTitle/CourseTitle";
 import { ReactComponent as Loader } from "../../assets/signInButton.svg";
 import Progressindiactor from "../UI/course progress indicator/Progressindicator";
-import LockedCourse from "../UI/locked course/LockedCourse";
 
 function Course(props) {
   const [courses, setCourses] = useState(null);
