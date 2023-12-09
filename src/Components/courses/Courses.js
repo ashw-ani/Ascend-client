@@ -6,7 +6,7 @@ import { ReactComponent as Loader } from "../../assets/signInButton.svg";
 import Progressindiactor from "../UI/course progress indicator/Progressindicator";
 import LockedCourse from "../UI/locked course/LockedCourse";
 
-function Platinum(props) {
+function Course(props) {
   const [courses, setCourses] = useState(null);
   const [loader, setLoader] = useState(false);
   const [totalLectures, setTotalLectures] = useState(0);
@@ -17,9 +17,11 @@ function Platinum(props) {
   useEffect(() => {
     const fetchCourses = async () => {
       setLoader(true);
-      const data = await getCourses("Platinum");
+      const data = await getCourses(props.courseName);
       setLoader(false);
       setCourses(data.courses);
+      setIsPurchased(data.isPurchased);
+
       let total_lectures = 0;
       for (const course of data.courses) {
         total_lectures += course.total_lectures;
@@ -43,22 +45,13 @@ function Platinum(props) {
     };
 
     fetchCourses();
-  }, []);
+  }, [props.courseName]);
 
   if (loader) {
     return (
       <div className={styles.spinnerDiv}>
         <Loader className={styles.spinner} />
       </div>
-    );
-  }
-
-  if (!isPurchased) {
-    return (
-      <>
-        <LockedCourse />
-        {console.log("unpurchased")}
-      </>
     );
   }
 
@@ -72,10 +65,15 @@ function Platinum(props) {
             height={15}
             lecturetotal={totalLectures}
             lectureCompleted={completeLectures}
+            locked={!isPurchased}
           />
 
           {courses.map((course) => (
-            <CourseTitle key={course.id} courseData={course} />
+            <CourseTitle
+              key={course.id}
+              courseData={course}
+              isPurchased={isPurchased}
+            />
           ))}
         </div>
       )}
@@ -83,4 +81,4 @@ function Platinum(props) {
   );
 }
 
-export default Platinum;
+export default Course;

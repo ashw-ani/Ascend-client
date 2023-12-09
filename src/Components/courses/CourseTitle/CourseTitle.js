@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styles from "./CourseTitle.module.css";
-import { FaSortDown } from "react-icons/fa";
+import { FaSortDown, FaLock } from "react-icons/fa";
 import SectionTitle from "../SectionTitle/SectionTitle";
 
-function CourseTitle({ courseData }) {
+function CourseTitle({ isPurchased, courseData }) {
   const [showCourse, setShowCourse] = useState(false);
 
   const toggleCourseHandler = () => {
@@ -12,10 +12,17 @@ function CourseTitle({ courseData }) {
 
   return (
     <>
-      <div className={styles.course_title} onClick={toggleCourseHandler}>
-        {courseData.name}
-        <FaSortDown className={styles.more} />
-      </div>
+      {isPurchased ? (
+        <div className={styles.course_title} onClick={toggleCourseHandler}>
+          {courseData.name}
+          <FaSortDown className={styles.more} />
+        </div>
+      ) : (
+        <div className={styles.course_title}>
+          {courseData.name}
+          <FaLock className={styles.more} />
+        </div>
+      )}
 
       {showCourse && (
         <div className={styles.sections}>

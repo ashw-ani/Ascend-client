@@ -9,11 +9,7 @@ import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
 import Login from "../Login/Login";
 import Profile from "../Profile/Profile";
 import { useMyContext } from "../../Context/PanelContext";
-import Platinum from "../courses/Platinum";
-import Gold from "../courses/Gold";
-import Diamond from "../courses/Diamond";
-import Progressindiactor from "../UI/course progress indicator/Progressindicator";
-import { useState } from "react";
+import Courses from "../courses/Courses";
 
 const Body = (props) => {
   const { showPaneltouch, updateShowPaneltouch } = useMyContext();
@@ -59,22 +55,24 @@ const Body = (props) => {
           <Profile />
         </Route>
 
-        <Route path="/courses/Platinum" exact>
-          <Header>Platinum Courses </Header>
-          <Platinum />
+        <Route path="/courses/silver" exact>
+          <Header>Silver Courses </Header>
+          <Courses courseName="Silver" />
         </Route>
 
         <Route path="/courses/gold" exact>
-          <Header>
-            Gold Courses{" "}
-            {/* <Progressindiactor bgcolor="orange" progress={completedProgress} height={15} /> */}
-          </Header>
-          <Gold />
+          <Header>Gold Courses </Header>
+          <Courses courseName="Gold" />
+        </Route>
+
+        <Route path="/courses/Platinum" exact>
+          <Header>Platinum Courses</Header>
+          <Courses courseName="Platinum" />
         </Route>
 
         <Route path="/courses/diamond" exact>
           <Header>Diamond Courses </Header>
-          <Diamond />
+          <Courses courseName="Diamond" />
         </Route>
       </Switch>
     </div>

@@ -6,6 +6,7 @@ const Progressindiactor = ({
   lectureCompleted,
   lecturetotal,
   progress,
+  locked,
 }) => {
   const isPhone = useMediaQuery({ maxWidth: "450px" });
   const Childdiv = {
@@ -17,7 +18,11 @@ const Progressindiactor = ({
     <div className={styles.Progressindiactor}>
       <div className={styles.progressheading}>
         <span>Your Progress</span>
-        <span>{`${progress}% [${lectureCompleted} out of ${lecturetotal} lectures completed]`}</span>
+        <span>
+          {locked
+            ? `${progress}% [courses not purchased]`
+            : `${progress}% [${lectureCompleted} out of ${lecturetotal} lectures completed]`}
+        </span>
       </div>
       <div className={styles.Parentdiv}>
         <div className={styles.Childdiv} style={Childdiv}>
