@@ -12,7 +12,11 @@ function Course(props) {
   const [completeLectures, setCompleteLectures] = useState(0);
   const [completedProgress, setCompletedProgress] = useState(70);
   const [isPurchased, setIsPurchased] = useState(true);
+  const [closeAll, setCloseAll] = useState();
 
+  const closeAllCourses = () => {
+    setCloseAll((prev) => !prev);
+  };
   useEffect(() => {
     const fetchCourses = async () => {
       setLoader(true);
@@ -67,11 +71,16 @@ function Course(props) {
             locked={!isPurchased}
           />
 
+          <div className={styles.closeall} onClick={closeAllCourses}>
+            Close All
+          </div>
+
           {courses.map((course) => (
             <CourseTitle
               key={course.id}
               courseData={course}
               isPurchased={isPurchased}
+              closeAll={closeAll}
             />
           ))}
         </div>

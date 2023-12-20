@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./CourseTitle.module.css";
 import { FaSortDown, FaLock } from "react-icons/fa";
 import SectionTitle from "../SectionTitle/SectionTitle";
 
-function CourseTitle({ isPurchased, courseData }) {
+function CourseTitle({ isPurchased, courseData, closeAll }) {
   const [showCourse, setShowCourse] = useState(false);
 
   const toggleCourseHandler = () => {
     setShowCourse((prev) => !prev);
   };
+
+  useEffect(() => {
+    setShowCourse(false);
+  }, [closeAll]);
 
   return (
     <>
