@@ -1,5 +1,6 @@
 import styles from "./Body.module.css";
 import Header from "./Header/Header";
+import Events from "../Events/Events";
 import Chartcontainer from "./chartcontainer/Chartcontainer";
 import Dashboardintro from "./dashboardintro/Dashboardintro";
 import Statscontainer from "./statscontainer/Statscontainer";
@@ -48,6 +49,11 @@ const Body = (props) => {
         <Route path="/leaderboard/water-enthusiasts" exact>
           <Header>Water Enthusiasts</Header>
           <Leaderboard />
+        </Route>
+
+        <Route path="/events" exact>
+          <Header>Events</Header>
+          <Events />
         </Route>
 
         <Route path="/profile">
