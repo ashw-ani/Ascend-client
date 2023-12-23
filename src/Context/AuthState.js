@@ -8,18 +8,17 @@ const AuthState = (props) => {
 
   const [user, setUser] = useState(token ? FetchCustomerDetails(token) : {});
 
-  const [loggedIn, setLoggedIn] = useState(true);
-  // let token = localStorage.getItem("token");
+  const [loggedIn, setLoggedIn] = useState(token ? true : false);
 
-  // var userData;
   useEffect(() => {
     const getDetailsFromAPI = async () => {
       const token = localStorage.getItem("token");
       if (token) {
-        // const userData = await FetchCustomerDetails(token);
-        // console.log("data of user", userData);
-        // setUser(userData);
-        if (jwt_decode.jwtDecode(token)) return setLoggedIn(true);
+        const { exp } = jwt_decode.jwtDecode(token);
+        const expTime = exp * 1000;
+        if (Date.now() <= expTime) {
+          return setLoggedIn(true);
+        }
       }
       return setLoggedIn(false);
     };

@@ -73,7 +73,7 @@ const Login = () => {
           <input
             type="email"
             name="email"
-            required="true"
+            required
             placeholder="Email"
             onChange={formChangeHandler}
           />
@@ -82,7 +82,7 @@ const Login = () => {
             name="password"
             type={showPassword ? "text" : "password"}
             placeholder="Password"
-            required="true"
+            required
             onChange={formChangeHandler}
           />
           <div className={styles.showPassword}>
