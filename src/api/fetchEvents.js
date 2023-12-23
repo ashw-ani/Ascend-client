@@ -1,6 +1,6 @@
 const getEvents = async () => {
   const data = await fetch(
-    `https://ascend-server.onrender.com/api/admin/events/testing`
+    `https://ascend-server.onrender.com/api/events/getEvents`
   );
 
   const result = await data.json();

@@ -8,13 +8,18 @@ const EventCard = (props) => {
       </div>
       <div className={styles.heading}>{props.name}</div>
       <div className={styles.description}>{props.description}</div>
-
+      <div className={styles.timeDetails}>
+        <div>{props.date}</div>
+        <div>{props.duration}</div>
+      </div>
       <div
         className={styles.button}
-        // onClick={() => {
-        //   //   window.location.replace(props.joiningLink);
-        // }}
-      ></div>
+        onClick={() => {
+          window.location.href = props.joiningLink;
+        }}
+      >
+        {props.buttontext}
+      </div>
     </div>
   );
 };
