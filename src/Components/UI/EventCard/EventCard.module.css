@@ -1,0 +1,62 @@
+.card {
+  box-sizing: border-box;
+  width: 12rem;
+  height: 17rem;
+  border: 1px solid rgba(0, 0, 0, 0.144);
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-radius: 0.5rem;
+  align-items: center;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.285);
+}
+.heading {
+  width: 100%;
+  height: 2rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  display: flex;
+  font-family: monospace;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: -0.03rem;
+}
+.logo {
+  width: 5rem;
+  height: 5rem;
+  /* background-color: brown; */
+  margin: 1rem;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.logo img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.description {
+  box-sizing: border-box;
+  width: 100%;
+  height: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 0.8rem;
+  padding: 0 0.5rem;
+}
+.button {
+  color: black;
+  width: 4rem;
+  height: 1.5rem;
+  background-color: aquamarine;
+}
+.button a {
+  color: black;
+}

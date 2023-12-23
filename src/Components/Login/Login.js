@@ -7,6 +7,7 @@ import logoNamed from "../../assets/logo.jpeg";
 //login button
 import login from "../../api/getLogin";
 import Button from "./button";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const Login = () => {
   const [formDetails, setFormDetails] = useState({
@@ -14,6 +15,7 @@ const Login = () => {
     password: "",
     rememberMe: false,
   });
+  const navigation = useHistory();
   const [showLoader, setShowLoader] = useState(false);
   // handling non-existing user
   const [userNotFound, setuserNotFound] = useState(false);
@@ -45,7 +47,7 @@ const Login = () => {
     if (data.token) {
       localStorage.setItem("token", data.token);
       setShowLoader(false);
-      window.location.href = "/";
+      navigation.push("/");
     } else {
       // alert("login failed! please check your email and password");
       setuserNotFound(true);
