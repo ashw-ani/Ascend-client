@@ -39,12 +39,6 @@ const Body = (props) => {
           <Statscontainer />
           <Chartcontainer />
         </Route>
-        <Route path="/dashboard" exact>
-          <Header>Dashboard</Header>
-          <Dashboardintro />
-          <Statscontainer />
-          <Chartcontainer />
-        </Route>
 
         <Route path="/leaderboard/water-enthusiasts" exact>
           <Header>Water Enthusiasts</Header>

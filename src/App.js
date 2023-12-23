@@ -29,12 +29,9 @@ function App() {
         <Redirect to="/login" />
       )}
       <Switch>
-        {!context.loggedIn}?(
         <Route path="/login" exact>
           {!context.loggedIn ? <Login /> : <Redirect to="/" />}
         </Route>
-        ):(
-        <Redirect to="/dashboard" />)
       </Switch>
     </div>
   );

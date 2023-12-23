@@ -2,7 +2,7 @@ import styles from "./Sidepanel.module.css";
 import SidepanelItem from "./sidepanelitems/Sidepanelitem";
 import Sidepanelsubitem from "./sidepanelsubitems/sidepanelsubitem";
 import { useState } from "react";
-import SidePanelState from "../../Context/SidePanelState";
+// import SidePanelState from "../../Context/SidePanelState";
 
 // import logotext from "../../assets/logo4.png";
 // import mainlogo from "../../assets/logo2.png";
@@ -11,13 +11,13 @@ import logo from "../../assets/logo.jpeg";
 import { MdDashboard, MdLeaderboard } from "react-icons/md";
 import { AiOutlineTrophy } from "react-icons/ai";
 import { BsCalendar } from "react-icons/bs";
-import { BsStopwatchFill } from "react-icons/bs";
-import { AiOutlineUnorderedList } from "react-icons/ai";
-import { FiTarget } from "react-icons/fi";
-import { BsStars } from "react-icons/bs";
-import { AiOutlineHeart } from "react-icons/ai";
-import { BsTools } from "react-icons/bs";
-import { AiOutlineQuestionCircle } from "react-icons/ai";
+// import { BsStopwatchFill } from "react-icons/bs";
+// import { AiOutlineUnorderedList } from "react-icons/ai";
+// import { FiTarget } from "react-icons/fi";
+// import { BsStars } from "react-icons/bs";
+// import { AiOutlineHeart } from "react-icons/ai";
+// import { BsTools } from "react-icons/bs";
+// import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { AiFillCaretRight } from "react-icons/ai";
 import { useHistory } from "react-router-dom";
 import { IoBookOutline } from "react-icons/io5";
@@ -96,7 +96,7 @@ const Sidepanel = (props) => {
             onClickDashboard();
             withoutMenuItemsHandler(event);
           }}
-          name={"dashboard"}
+          name={""}
         >
           <MdDashboard className={styles.sidepanelicons} />
           Dashboard
