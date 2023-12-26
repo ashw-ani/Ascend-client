@@ -47,7 +47,7 @@ const Login = () => {
     if (data.token) {
       localStorage.setItem("token", data.token);
       setShowLoader(false);
-      navigation.push("/");
+      window.location.href = "/";
     } else {
       // alert("login failed! please check your email and password");
       setuserNotFound(true);
