@@ -15,7 +15,7 @@ const EventCard = (props) => {
       <div
         className={styles.button}
         onClick={() => {
-          window.location.href = props.joiningLink;
+          window.open(`${props.joiningLink}`, "_blank");
         }}
       >
         {props.buttontext}

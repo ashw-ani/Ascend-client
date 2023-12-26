@@ -11,6 +11,7 @@ import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
 import Profile from "../Profile/Profile";
 import { useMyContext } from "../../Context/PanelContext";
 import Courses from "../courses/Courses";
+import Habits from "../Habits/Habits";
 
 const Body = (props) => {
   const { showPaneltouch, updateShowPaneltouch } = useMyContext();
@@ -73,6 +74,11 @@ const Body = (props) => {
         <Route path="/courses/diamond" exact>
           <Header>Diamond Courses </Header>
           <Courses courseName="Diamond" />
+        </Route>
+
+        <Route path="/myhabits" exact>
+          <Header>Habits </Header>
+          <Habits />
         </Route>
       </Switch>
     </div>
