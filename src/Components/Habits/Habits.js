@@ -3,6 +3,7 @@ import getHabits from "../../api/getHabits";
 import { useState, useEffect, useContext } from "react";
 import trackHabit from "../../api/trackHabit";
 import * as jwt_decode from "jwt-decode";
+import Habit from "./Habit/Habit";
 
 const Habits = (props) => {
   const [habits, setHabits] = useState(null);
@@ -12,7 +13,7 @@ const Habits = (props) => {
 
   useEffect(() => {
     const fetchHabits = async () => {
-      const habits = await getHabits();
+      const habits = await getHabits(localStorage.getItem("token"));
 
       setHabits(habits);
     };
@@ -40,16 +41,7 @@ const Habits = (props) => {
       {habits &&
         habits.map((task) => {
           return (
-            <div className={styles.habit} key={task._id} htmlFor={task._id}>
-              <input
-                id={task._id}
-                className={styles.checkbox}
-                type="checkbox"
-                name={task._id}
-                onClick={toggleHabit}
-              ></input>
-              <label htmlFor={task._id}>{task.title}</label>
-            </div>
+            <Habit task={task} key={task._id} toggleHabit={toggleHabit}></Habit>
           );
         })}
     </div>

@@ -1,6 +1,6 @@
-const getHabits = async () => {
+const getHabits = async (token) => {
   const data = await fetch(
-    `https://ascend-server.onrender.com/api/habits/getHabits`
+    `https://ascend-server.onrender.com/api/habits/getHabits?token=${token}`
   );
 
   const result = await data.json();
