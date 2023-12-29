@@ -12,6 +12,7 @@ import Profile from "../Profile/Profile";
 import { useMyContext } from "../../Context/PanelContext";
 import Courses from "../courses/Courses";
 import Habits from "../Habits/Habits";
+import Crystalline from "../Crystalline Challenge/Crystalline";
 
 const Body = (props) => {
   const { showPaneltouch, updateShowPaneltouch } = useMyContext();
@@ -44,6 +45,11 @@ const Body = (props) => {
         <Route path="/leaderboard/water-enthusiasts" exact>
           <Header>Water Enthusiasts</Header>
           <Leaderboard />
+        </Route>
+
+        <Route path="/leaderboard/crystalline-challenge">
+          <Header>Crystalline Challenge</Header>
+          <Crystalline />
         </Route>
 
         <Route path="/events" exact>

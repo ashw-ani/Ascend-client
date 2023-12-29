@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Glory:wght@500;700&display=swap");
+
+.leaderboard {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.phone_heading {
+  display: none;
+}
+@media screen and (max-width: 600px) {
+  .phone_heading {
+    display: block;
+    font-family: sora;
+  }
+}

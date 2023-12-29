@@ -136,21 +136,21 @@ const Sidepanel = (props) => {
             </Sidepanelsubitem>
             <Sidepanelsubitem
               onClick={onClickSubitem}
+              name={"leaderboard/crystalline-challenge"}
+            >
+              Crystalline Challenge
+            </Sidepanelsubitem>
+            <Sidepanelsubitem
+              onClick={onClickSubitem}
               name={"leaderboard/Scoreboard"}
             >
               Scoreboard
             </Sidepanelsubitem>
             <Sidepanelsubitem
               onClick={onClickSubitem}
-              name={"leaderboard/Dashboard"}
-            >
-              Dashboard
-            </Sidepanelsubitem>
-            <Sidepanelsubitem
-              onClick={onClickSubitem}
               name={"leaderboard/contests"}
             >
-              contests
+              Contests
             </Sidepanelsubitem>
           </div>
         )}

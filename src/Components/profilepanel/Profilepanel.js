@@ -26,7 +26,7 @@ const Profilepanel = (props) => {
       const token = localStorage.getItem("token");
       const { id } = jwt_decode.jwtDecode(token);
       const logos = await fetchSidePanelData(id);
-      setLogos(logos);
+      logos && setLogos(logos);
     };
     getLogos();
   }, []);
