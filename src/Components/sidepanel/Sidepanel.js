@@ -11,6 +11,9 @@ import logo from "../../assets/logo.jpeg";
 import { MdDashboard, MdLeaderboard } from "react-icons/md";
 import { AiOutlineTrophy } from "react-icons/ai";
 import { BsCalendar } from "react-icons/bs";
+import { FaPeopleGroup } from "react-icons/fa6";
+import { TbDeviceWatchCheck } from "react-icons/tb";
+
 // import { BsStopwatchFill } from "react-icons/bs";
 // import { AiOutlineUnorderedList } from "react-icons/ai";
 // import { FiTarget } from "react-icons/fi";
@@ -172,7 +175,10 @@ const Sidepanel = (props) => {
           }}
           name={"myhabits"}
         >
-          <BsCalendar className={styles.sidepanelicons} name={"myhabits"} />
+          <TbDeviceWatchCheck
+            className={styles.sidepanelicons}
+            name={"myhabits"}
+          />
           My Habits
         </SidepanelItem>
         <SidepanelItem
@@ -182,7 +188,7 @@ const Sidepanel = (props) => {
           }}
           name={"teams"}
         >
-          <BsCalendar className={styles.sidepanelicons} name={"teams"} />
+          <FaPeopleGroup className={styles.sidepanelicons} name={"teams"} />
           Teams
         </SidepanelItem>
         {/* <SidepanelItem
