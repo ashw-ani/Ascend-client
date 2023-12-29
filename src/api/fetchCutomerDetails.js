@@ -19,7 +19,7 @@ const FetchCustomerDetails = async (token) => {
   };
 
   const response = await fetch(
-    "https://ascend-server.onrender.com/api/user/profile/details",
+    `${process.env.REACT_APP_URL}/api/user/profile/details`,
     requestOptions
   );
   const data = await response.json();

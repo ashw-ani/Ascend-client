@@ -9,7 +9,7 @@
   align-items: center;
   color: #4f29f0;
   --text: #414856;
-  --check: #4f29f0;
+  --check: #02cb1a;
   --disabled: #c3c8de;
   --border-radius: 10px;
   border-radius: var(--border-radius);

@@ -1,7 +1,5 @@
 const getEvents = async () => {
-  const data = await fetch(
-    `https://ascend-server.onrender.com/api/events/getEvents`
-  );
+  const data = await fetch(`${process.env.REACT_APP_URL}/api/events/getEvents`);
 
   const result = await data.json();
   // console.log(result);

@@ -1,7 +1,7 @@
 export default async (habitData) => {
   try {
     const response = await fetch(
-      `https://ascend-server.onrender.com/api/habits/trackHabit`,
+      `${process.env.REACT_APP_URL}/api/habits/trackHabit`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

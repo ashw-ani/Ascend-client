@@ -1,6 +1,6 @@
 const getProfile = async (token) => {
   try {
-    const url = "https://ascend-server.onrender.com";
+    const url = process.env.REACT_APP_URL;
 
     const response = await fetch(`${url}/api/user/profile/details`, {
       method: "POST",
