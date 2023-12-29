@@ -13,6 +13,7 @@ import { useMyContext } from "../../Context/PanelContext";
 import Courses from "../courses/Courses";
 import Habits from "../Habits/Habits";
 import Crystalline from "../Crystalline Challenge/Crystalline";
+import Teams from "../Teams/Teams";
 
 const Body = (props) => {
   const { showPaneltouch, updateShowPaneltouch } = useMyContext();
@@ -85,6 +86,11 @@ const Body = (props) => {
         <Route path="/myhabits" exact>
           <Header>Habits </Header>
           <Habits />
+        </Route>
+
+        <Route path="/teams" exact>
+          <Header>Teams </Header>
+          <Teams />
         </Route>
       </Switch>
     </div>

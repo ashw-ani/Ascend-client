@@ -175,6 +175,16 @@ const Sidepanel = (props) => {
           <BsCalendar className={styles.sidepanelicons} name={"myhabits"} />
           My Habits
         </SidepanelItem>
+        <SidepanelItem
+          class={sideItemsWithoutMenu.Teams ? "active" : "inactive"}
+          onclick={(event) => {
+            withoutMenuItemsHandler(event);
+          }}
+          name={"teams"}
+        >
+          <BsCalendar className={styles.sidepanelicons} name={"teams"} />
+          Teams
+        </SidepanelItem>
         {/* <SidepanelItem
           class={sideItemsWithoutMenu.mycourses ? "active" : "inactive"}
           onclick={(event) => withoutMenuItemsHandler(event)}
